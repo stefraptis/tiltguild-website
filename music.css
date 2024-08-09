@@ -1,4 +1,4 @@
-/* music.css */
+/* styles.css */
 
 /* Basic Reset */
 * {
@@ -10,7 +10,7 @@
 /* Body Styles */
 body {
   font-family: 'Roboto', sans-serif;
-  background-color: #eaeaea; /* Light gray background */
+  background-color: #f0f0f0; /* Light gray background */
   color: #333; /* Dark text color */
 }
 
@@ -45,20 +45,41 @@ main {
 /* Platform Item */
 .platform {
   flex: 1 0 200px; /* Flex item with a minimum width */
-  max-width: 200px; /* Maximum width */
-  margin: 0 10px; /* Margin between items */
+  max-width: 250px; /* Maximum width */
+  margin: 20px; /* Margin between items */
   text-align: center; /* Center the text */
-  transition: transform 0.3s; /* Smooth transform on hover */
+  background-color: white; /* White background for the box */
+  border: 2px solid #333; /* Dark border */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition for transform and shadow */
 }
 
+/* Platform Image */
 .platform img {
-  width: 100%; /* Responsive image */
+  width: 80%; /* Make image responsive */
   height: auto; /* Maintain aspect ratio */
+  margin: 20px 0; /* Space around the image */
 }
 
-/* Hover Effect */
+/* Hover Effect for Platform Item */
 .platform:hover {
-  transform: scale(1.1); /* Scale up on hover */
+  transform: translateY(-5px); /* Lift the box slightly */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Darker shadow on hover */
+}
+
+/* Hover Effect for Links */
+.platform a {
+  display: inline-block; /* Allow block-level properties */
+  color: #333; /* Dark text color */
+  text-decoration: none; /* Remove underline */
+  padding: 10px 20px; /* Padding inside the link */
+  border-radius: 5px; /* Rounded corners for the link */
+  transition: background-color 0.3s; /* Smooth transition for background */
+}
+
+.platform a:hover {
+  background-color: rgba(211, 211, 211, 0.5); /* Light gray background on hover */
 }
 
 /* Footer Styles */
