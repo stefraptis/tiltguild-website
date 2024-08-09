@@ -1,0 +1,71 @@
+/* music.css */
+
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styles */
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #eaeaea; /* Light gray background */
+  color: #333; /* Dark text color */
+}
+
+/* Container */
+.container {
+  max-width: 1200px; /* Max width for the content */
+  margin: 0 auto; /* Center the container */
+  padding: 20px; /* Padding around the content */
+}
+
+/* Header Styles */
+header {
+  text-align: center; /* Center the header text */
+  margin-bottom: 40px; /* Space below the header */
+}
+
+/* Main Section */
+main {
+  display: flex; /* Flexbox layout */
+  justify-content: center; /* Center the platforms */
+  align-items: center; /* Center vertically */
+}
+
+/* Platforms Section */
+.platforms {
+  display: flex; /* Flexbox for platforms */
+  justify-content: space-around; /* Space evenly */
+  width: 100%; /* Full width */
+  flex-wrap: wrap; /* Wrap items on smaller screens */
+}
+
+/* Platform Item */
+.platform {
+  flex: 1 0 200px; /* Flex item with a minimum width */
+  max-width: 200px; /* Maximum width */
+  margin: 0 10px; /* Margin between items */
+  text-align: center; /* Center the text */
+  transition: transform 0.3s; /* Smooth transform on hover */
+}
+
+.platform img {
+  width: 100%; /* Responsive image */
+  height: auto; /* Maintain aspect ratio */
+}
+
+/* Hover Effect */
+.platform:hover {
+  transform: scale(1.1); /* Scale up on hover */
+}
+
+/* Footer Styles */
+footer {
+  text-align: center; /* Center the footer text */
+  margin-top: 40px; /* Space above footer */
+  padding: 20px 0; /* Padding for footer */
+  background-color: #282c34; /* Dark background */
+  color: white; /* White text color */
+}
