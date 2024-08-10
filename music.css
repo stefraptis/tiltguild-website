@@ -16,11 +16,22 @@ body {
   overflow: hidden; /* Prevents overflow from blurring */
 }
 
-/* Container */
-.container {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+
+
+
+.banner {
+  position: absolute;
+  top: 10px; /* Adjust as needed to position the banner */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  z-index: 2; /* Make sure the banner is above other elements */
+  text-align: center;
+  font-size: 1.5em;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 /* Header */
