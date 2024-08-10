@@ -57,11 +57,14 @@ body {
 
 .banner-socials a {
   margin-left: 1rem; /* Margin in rem units for spacing between social icons */
+  text-decoration: none; /* Remove the underline */
+  color: inherit; /* Inherit the color from the parent element (white in this case) */
 }
 
 .banner-socials img {
-  width: 1.5rem; /* Reduce social media icons size */
+  width: 1.5rem; /* Social media icons size in rem units */
   height: auto; /* Maintain aspect ratio */
+  vertical-align: middle; /* Align the icons better within the link */
 }
 
 /* Media Queries for Responsive Adjustments */
