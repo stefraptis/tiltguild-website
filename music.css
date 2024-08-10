@@ -20,10 +20,12 @@ body {
   width: 100%;
   background-color: rgba(0, 0, 0, 0.8);
   color: white;
-  padding: 1rem 2rem; /* Padding in rem units for consistent spacing */
+  padding: 0 2rem; /* Remove top and bottom padding, keep left and right padding */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   z-index: 100;
   position: relative; /* Ensure the banner is positioned correctly */
+  display: flex;
+  align-items: center; /* Vertically center the content */
 }
 
 .banner-content {
