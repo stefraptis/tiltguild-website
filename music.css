@@ -20,12 +20,13 @@ body {
   width: 100%;
   background-color: rgba(0, 0, 0, 0.932);
   color: white;
-  padding: 0.5rem 1.5rem; /* Reduced padding to decrease banner height */
+  padding: 0 1.5rem; /* Removed top and bottom padding */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   z-index: 100;
   position: relative; /* Ensure the banner is positioned correctly */
   display: flex;
   align-items: center; /* Vertically center the content */
+  height: 60px; /* Set a specific height for the banner */
 }
 
 .banner-content {
@@ -35,6 +36,7 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   width: 100%; /* Ensure it uses the full width of the container */
+  height: 100%; /* Ensure content fits within the banner height */
 }
 
 .banner-logo {
@@ -42,12 +44,12 @@ body {
 }
 
 .banner-logo img {
-  width: 6rem; /* Logo size in rem units */
+  width: 5rem; /* Reduce logo size */
   height: auto; /* Maintain aspect ratio */
 }
 
 .banner-title h2 {
-  font-size: 1.5rem; /* Title font size in rem units */
+  font-size: 1.2rem; /* Reduce title font size */
   text-align: center;
   margin: 0;
   flex: 1; /* Allow the title to grow and take up available space */
@@ -58,14 +60,14 @@ body {
 }
 
 .banner-socials img {
-  width: 2rem; /* Social media icons size in rem units */
+  width: 1.5rem; /* Reduce social media icons size */
   height: auto; /* Maintain aspect ratio */
 }
 
 /* Media Queries for Responsive Adjustments */
 @media (max-width: 1024px) {
   .banner-title h2 {
-      font-size: 1.2rem; /* Adjust font size for medium screens */
+      font-size: 1rem; /* Adjust font size for medium screens */
   }
   
   .banner-logo img {
@@ -73,17 +75,17 @@ body {
   }
 
   .banner-socials img {
-      width: 1.8rem; /* Adjust social media icons size for medium screens */
+      width: 1.5rem; /* Adjust social media icons size for medium screens */
   }
 }
 
 @media (max-width: 768px) {
   .banner {
-      padding: 0.8rem 1.5rem; /* Adjust padding for smaller screens */
+      height: 50px; /* Slightly reduced height for smaller screens */
   }
 
   .banner-title h2 {
-      font-size: 1rem; /* Adjust font size for smaller screens */
+      font-size: 0.9rem; /* Adjust font size for smaller screens */
   }
 
   .banner-logo img {
@@ -91,17 +93,17 @@ body {
   }
 
   .banner-socials img {
-      width: 1.5rem; /* Further adjust social media icons size for smaller screens */
+      width: 1.2rem; /* Further adjust social media icons size for smaller screens */
   }
 }
 
 @media (max-width: 480px) {
   .banner {
-      padding: 0.5rem 1rem; /* Adjust padding for very small screens */
+      height: 40px; /* Further reduced height for very small screens */
   }
 
   .banner-title h2 {
-      font-size: 0.9rem; /* Adjust font size for very small screens */
+      font-size: 0.8rem; /* Adjust font size for very small screens */
   }
 
   .banner-logo img {
@@ -109,7 +111,7 @@ body {
   }
 
   .banner-socials img {
-      width: 1.2rem; /* Adjust social media icons size for very small screens */
+      width: 1rem; /* Adjust social media icons size for very small screens */
   }
 }
 
