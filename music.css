@@ -23,35 +23,10 @@ body {
   height: 100%;
 }
 
-/* Banner Section */
-.banner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px 20px;
-  background-color: #282c34; /* Dark background for the banner */
-  color: white;
-}
-
-.band-logo {
-  width: 50px; /* Adjust as needed */
-  height: auto;
-}
-
-.banner h1 {
-  flex-grow: 1;
+/* Header */
+header {
   text-align: center;
-  margin: 0;
-}
-
-.social-media {
-  display: flex;
-  gap: 10px;
-}
-
-.social-icon img {
-  width: 24px; /* Adjust size of social media icons */
-  height: auto;
+  margin-bottom: 20px;
 }
 
 /* Top Section: Album Artwork */
@@ -71,7 +46,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('images/Music Artworks/ATHINA.png');
+  background-image: url('images\Music Artworks\ATHINA.png');
   background-size: cover;
   background-position: center;
   filter: blur(20px);
