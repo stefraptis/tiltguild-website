@@ -36,11 +36,11 @@ body {
 }
 
 .banner-logo {
-  margin-left: -1rem; /* Move logo further to the left */
+  margin-left: -10rem; /* Move logo further to the left */
 }
 
 .banner-logo img {
-  width: 3rem; /* Logo size in rem units */
+  width: 6rem; /* Logo size in rem units */
   height: auto; /* Maintain aspect ratio */
 }
 
