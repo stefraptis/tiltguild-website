@@ -30,23 +30,24 @@ header {
 /* Main Section */
 main {
   display: flex; /* Flexbox layout */
-  justify-content: center; /* Center the platforms */
+  justify-content: center; /* Center the platforms horizontally */
   align-items: center; /* Center vertically */
+  flex-direction: column; /* Stack items vertically */
 }
 
 /* Platforms Section */
 .platforms {
   display: flex; /* Flexbox for platforms */
-  justify-content: space-around; /* Space evenly */
+  flex-direction: column; /* Stack platforms vertically */
+  align-items: center; /* Center platforms horizontally */
   width: 100%; /* Full width */
-  flex-wrap: wrap; /* Wrap items on smaller screens */
 }
 
 /* Platform Item */
 .platform {
-  flex: 1 0 200px; /* Flex item with a minimum width */
+  flex: none; /* Prevent flex-grow, flex-shrink */
   max-width: 250px; /* Maximum width */
-  margin: 20px; /* Margin between items */
+  margin: 20px 0; /* Margin between items (vertically) */
   text-align: center; /* Center the text */
   background-color: white; /* White background for the box */
   border: 2px solid #333; /* Dark border */
