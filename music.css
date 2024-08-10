@@ -20,7 +20,7 @@ body {
   width: 100%;
   background-color: rgba(0, 0, 0, 0.932);
   color: white;
-  padding: -1 2rem; /* Remove top and bottom padding, keep left and right padding */
+  padding: -10 2rem; /* Remove top and bottom padding, keep left and right padding */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   z-index: 100;
   position: relative; /* Ensure the banner is positioned correctly */
