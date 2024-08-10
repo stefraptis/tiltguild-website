@@ -8,12 +8,12 @@
 /* Body Styles */
 body {
   font-family: 'Roboto', sans-serif;
-  background-color: #f0f0f0; /* Light gray background */
-  color: #333; /* Dark text color */
-  height: 100vh; /* Full height of the viewport */
+  background-color: #f0f0f0;
+  color: #333;
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  overflow: hidden; /* Prevents overflow from blurring */
+  overflow: hidden;
 }
 
 /* Container */
@@ -23,17 +23,42 @@ body {
   height: 100%;
 }
 
-/* Header */
-header {
-  text-align: center;
-  margin-bottom: 20px;
+/* Banner Section */
+.banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: #282c34;
+  color: white;
 }
 
-/* Top Section: Album Artwork */
+.band-logo {
+  width: 50px;
+  height: auto;
+}
+
+.banner h1 {
+  flex-grow: 1;
+  text-align: center;
+  margin: 0;
+}
+
+.social-media {
+  display: flex;
+  gap: 10px;
+}
+
+.social-media img {
+  width: 24px;
+  height: auto;
+}
+
+/* Album Artwork Section */
 .album-artwork {
   position: relative;
   width: 100%;
-  height: 50%; /* Take up the top half of the page */
+  height: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -50,22 +75,22 @@ header {
   background-size: cover;
   background-position: center;
   filter: blur(20px);
-  transform: scale(1.2); /* Slightly larger for better coverage */
+  transform: scale(1.2);
   z-index: 0;
 }
 
 .album-artwork img {
   position: relative;
-  width: 600px; /* Make the image larger */
+  width: 600px;
   height: auto;
   z-index: 1;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* Bottom Section: Links */
+/* Link Section */
 .link-section {
   width: 100%;
-  height: 50%; /* Take up the bottom half of the page */
+  height: 50%;
   display: flex;
   flex-direction: column;
   justify-content: center;
