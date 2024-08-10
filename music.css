@@ -50,7 +50,7 @@ body {
 }
 
 .social-media img {
-  width: 24px;
+  width: 24px; /* Adjusting the size of the social media icons */
   height: auto;
 }
 
@@ -71,7 +71,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('images\Music Artworks\ATHINA.png');
+  background-image: url('images/Music Artworks/ATHINA.png');
   background-size: cover;
   background-position: center;
   filter: blur(20px);
@@ -81,7 +81,7 @@ body {
 
 .album-artwork img {
   position: relative;
-  width: 600px;
+  width: 600px; /* Adjust the size of the album artwork */
   height: auto;
   z-index: 1;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
