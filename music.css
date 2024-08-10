@@ -16,34 +16,15 @@ body {
   overflow: hidden; /* Prevents overflow from blurring */
 }
 
+/* Base styles for the banner */
 .banner {
   width: 100%;
   background-color: rgba(0, 0, 0, 0.8);
   color: white;
-  padding: 10px 20px;
+  padding: 1rem 2rem; /* Padding in rem units for consistent spacing */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   z-index: 100;
-}
-
-.banner-logo img {
-  max-width: 10px; /* Adjust the logo size */
-  height: auto;
-}
-
-.banner-title h2 {
-  font-size: 1.5em;
-  text-align: center;
-  margin: 0;
-  flex: 1;
-}
-
-.banner-socials img {
-  width: 30px; /* Adjust the icon size */
-  height: auto;
-}
-
-.banner-socials a {
-  margin-left: 15px;
+  position: relative; /* Ensure the banner is positioned correctly */
 }
 
 .banner-content {
@@ -52,6 +33,79 @@ body {
   align-items: center;
   max-width: 1200px;
   margin: 0 auto;
+  width: 100%; /* Ensure it uses the full width of the container */
+}
+
+.banner-logo img {
+  width: 3rem; /* Logo size in rem units */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.banner-title h2 {
+  font-size: 1.5rem; /* Title font size in rem units */
+  text-align: center;
+  margin: 0;
+  flex: 1; /* Allow the title to grow and take up available space */
+}
+
+.banner-socials a {
+  margin-left: 1rem; /* Margin in rem units for spacing between social icons */
+}
+
+.banner-socials img {
+  width: 2rem; /* Social media icons size in rem units */
+  height: auto; /* Maintain aspect ratio */
+}
+
+/* Media Queries for Responsive Adjustments */
+@media (max-width: 1024px) {
+  .banner-title h2 {
+      font-size: 1.2rem; /* Adjust font size for medium screens */
+  }
+  
+  .banner-logo img {
+      width: 2.5rem; /* Adjust logo size for medium screens */
+  }
+
+  .banner-socials img {
+      width: 1.8rem; /* Adjust social media icons size for medium screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .banner {
+      padding: 0.8rem 1.5rem; /* Adjust padding for smaller screens */
+  }
+
+  .banner-title h2 {
+      font-size: 1rem; /* Adjust font size for smaller screens */
+  }
+
+  .banner-logo img {
+      width: 2rem; /* Further adjust logo size for smaller screens */
+  }
+
+  .banner-socials img {
+      width: 1.5rem; /* Further adjust social media icons size for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .banner {
+      padding: 0.5rem 1rem; /* Adjust padding for very small screens */
+  }
+
+  .banner-title h2 {
+      font-size: 0.9rem; /* Adjust font size for very small screens */
+  }
+
+  .banner-logo img {
+      width: 1.5rem; /* Adjust logo size for very small screens */
+  }
+
+  .banner-socials img {
+      width: 1.2rem; /* Adjust social media icons size for very small screens */
+  }
 }
 
 
