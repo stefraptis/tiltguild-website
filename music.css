@@ -27,21 +27,31 @@ header {
 
 /* Album Artwork Section */
 .album-artwork {
-  position: relative; /* Position relative to contain the image */
+  position: relative; /* Position relative to contain the background and image */
   width: 100%; /* Full width of the container */
   height: 400px; /* Fixed height for the section */
-  background-image: url('album-artwork.jpg'); /* Use the same image as background */
-  background-size: cover; /* Cover the entire section */
-  background-position: center; /* Center the background image */
-  filter: blur(10px); /* Apply a blur effect */
   display: flex; /* Flexbox layout for centering */
   justify-content: center; /* Center horizontally */
   align-items: center; /* Center vertically */
   overflow: hidden; /* Hide overflow if any */
 }
 
+.album-background {
+  position: absolute; /* Position absolutely to cover the entire section */
+  top: 0;
+  left: 0;
+  width: 100%; /* Cover the full width */
+  height: 100%; /* Cover the full height */
+  background-image: url('album-artwork.jpg'); /* Same image as background */
+  background-size: cover; /* Cover the entire section */
+  background-position: center; /* Center the background image */
+  filter: blur(20px); /* Apply a strong blur effect */
+  z-index: 0; /* Place it behind the image */
+  transform: scale(1.1); /* Slightly scale up for a better effect */
+}
+
 .album-artwork img {
-  position: relative; /* Position the image */
+  position: relative; /* Position the image above the background */
   width: 200px; /* Set the size of the album artwork */
   height: auto; /* Maintain aspect ratio */
   z-index: 1; /* Ensure the image is above the background */
