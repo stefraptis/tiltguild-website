@@ -16,7 +16,6 @@ body {
   overflow: hidden; /* Prevents overflow from blurring */
 }
 
-/* Base styles for the banner */
 .banner {
   width: 100%;
   background-color: rgba(0, 0, 0, 0.8);
@@ -36,10 +35,13 @@ body {
   width: 100%; /* Ensure it uses the full width of the container */
 }
 
+.banner-logo {
+  margin-left: -1rem; /* Move logo further to the left */
+}
+
 .banner-logo img {
-  width: 6rem; /* Logo size in rem units */
+  width: 3rem; /* Logo size in rem units */
   height: auto; /* Maintain aspect ratio */
-  left: 2px;
 }
 
 .banner-title h2 {
