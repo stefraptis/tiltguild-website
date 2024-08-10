@@ -198,12 +198,33 @@ main {
   transition: transform 0.3s, box-shadow 0.3s;
   width: 100%;
   padding: 10px;
+  display: flex; /* Use flexbox to align the icon and text */
+  align-items: center; /* Center the content vertically */
+  justify-content: center; /* Center the content horizontally */
 }
 
 .platform img {
-  width: 70%;
+  width: 30%; /* Adjust the width of the icon */
   height: auto;
-  margin: 10px 0;
+  margin-right: 10px; /* Space between icon and text */
+}
+
+.platform span {
+  font-size: 1rem; /* Adjust the font size */
+  color: #333; /* Text color */
+}
+
+.platform a {
+  text-decoration: none; /* Remove underline */
+  color: inherit; /* Ensure the link inherits color */
+  display: flex;
+  align-items: center; /* Center the content vertically */
+  justify-content: center; /* Center the content horizontally */
+}
+
+.platform:hover {
+  transform: translateY(-3px); /* Slight lift on hover */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 /* Footer */
