@@ -37,7 +37,7 @@ body {
 }
 
 .banner-logo img {
-  width: 13rem; /* Logo size in rem units */
+  width: 6rem; /* Logo size in rem units */
   height: auto; /* Maintain aspect ratio */
 }
 
