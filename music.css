@@ -26,7 +26,7 @@ body {
 }
 
 .banner-logo img {
-  max-width: 5px; /* Adjust the logo size */
+  max-width: 10px; /* Adjust the logo size */
   height: auto;
 }
 
