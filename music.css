@@ -46,7 +46,7 @@ main {
 
 /* Platform Item */
 .platform {
-  max-width: 100px; /* Reduce the width for smaller boxes */
+  max-width: 125px; /* Reduce the width for smaller boxes */
   margin: 10px 0; /* Reduce margin between items (vertically) */
   text-align: center; /* Center the text */
   background-color: white; /* White background for the box */
