@@ -30,9 +30,10 @@ header {
 /* Main Section */
 main {
   display: flex; /* Flexbox layout */
-  justify-content: center; /* Center the platforms horizontally */
-  align-items: center; /* Center vertically */
   flex-direction: column; /* Stack items vertically */
+  justify-content: center; /* Center them vertically */
+  align-items: center; /* Center them horizontally */
+  height: 100vh; /* Ensure the main section takes the full height of the viewport */
 }
 
 /* Platforms Section */
@@ -45,7 +46,6 @@ main {
 
 /* Platform Item */
 .platform {
-  flex: none; /* Prevent flex-grow, flex-shrink */
   max-width: 250px; /* Maximum width */
   margin: 20px 0; /* Margin between items (vertically) */
   text-align: center; /* Center the text */
@@ -54,6 +54,7 @@ main {
   border-radius: 10px; /* Rounded corners */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
   transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition for transform and shadow */
+  width: 100%; /* Ensure full width of the container */
 }
 
 /* Platform Image */
