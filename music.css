@@ -7,7 +7,7 @@
 
 /* Body Styles */
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Helvetica Neue', Arial, sans-serif; /* Set Helvetica Neue as the primary font */
   background-color: #f0f0f0; /* Light gray background */
   color: #333; /* Dark text color */
   height: 100vh; /* Full height of the viewport */
@@ -282,7 +282,7 @@ width: 20px; /* Reduce image width by 25% (from 45px to 33.75px) */
   max-width: 200px;
   margin: 10px 0;
   width: 100%; /* The width will be based on the container */
-  padding: 5px;
+  padding: 7.5px;
   display: flex;
   align-items: center; /* Vertically center content */
 }
