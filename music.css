@@ -52,6 +52,7 @@ body {
 .banner-title h2 {
   font-size: 1.2rem; /* Reduce title font size */
   text-align: center;
+  align-items: center;
   margin: 0;
   flex: 1; /* Allow the title to grow and take up available space */
 }
@@ -85,7 +86,7 @@ body {
 
 @media (max-width: 768px) {
   .banner {
-      height: 50px; /* Slightly reduced height for smaller screens */
+      height: 60px; /* Slightly reduced height for smaller screens */
   }
 
   .banner-title h2 {
@@ -93,29 +94,37 @@ body {
   }
 
   .banner-logo img {
-      width: 2rem; /* Further adjust logo size for smaller screens */
+      width: 3rem; /* Further adjust logo size for smaller screens */
   }
 
   .banner-socials img {
       width: 1.2rem; /* Further adjust social media icons size for smaller screens */
   }
+
+  .platform {
+    max-width: 300px; /* Further reduce max-width of boxes */
+  }
 }
 
 @media (max-width: 480px) {
   .banner {
-      height: 40px; /* Further reduced height for very small screens */
+      height: 50px; /* Further reduced height for very small screens */
   }
 
   .banner-title h2 {
-      font-size: 0.8rem; /* Adjust font size for very small screens */
+      font-size: 0.9rem; /* Adjust font size for very small screens */
   }
 
   .banner-logo img {
-      width: 1.5rem; /* Adjust logo size for very small screens */
+      width: 2.5rem; /* Adjust logo size for very small screens */
   }
 
   .banner-socials img {
       width: 1rem; /* Adjust social media icons size for very small screens */
+  }
+
+  .platform {
+    max-width: 250px; /* Further reduce max-width of boxes */
   }
 }
 
