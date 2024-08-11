@@ -33,7 +33,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1200px;
+  max-width: auto;
   margin: 0 auto;
   width: 100%; /* Ensure it uses the full width of the container */
   height: 100%; /* Ensure content fits within the banner height */
