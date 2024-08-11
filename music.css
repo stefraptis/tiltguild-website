@@ -102,12 +102,12 @@ body {
   }
 
   .platform {
-    max-width: 125px; /* Further reduce max-width of boxes */
-    padding: 3.5px;
+    max-width: 70px; /* Further reduce max-width of boxes */
+    padding: 0px;
   }
 
   .platform img {
-    width: 20px; /* Reduce image width by 25% (from 45px to 33.75px) */
+    width: 10px; /* Reduce image width by 25% (from 45px to 33.75px) */
   }
 }
 
@@ -129,12 +129,12 @@ body {
   }
 
   .platform {
-    max-width: 125px; /* Further reduce max-width of boxes */
-    padding: 3.5px; /* Maintain the 25% reduction in padding */
+    max-width: 70px; /* Further reduce max-width of boxes */
+    padding: 0px; /* Maintain the 25% reduction in padding */
   }
 
   .platform img {
-    width: 20px; /* Maintain the 25% reduction in image size */
+    width: 10px; /* Maintain the 25% reduction in image size */
   }
 }
 
