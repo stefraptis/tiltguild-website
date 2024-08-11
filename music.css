@@ -71,6 +71,18 @@ body {
 
 /* Media query for devices between 768px and 1024px */
 @media (min-width: 769px) and (max-width: 1024px) {
+
+    /* Link Section Adjustments for All Screens */
+  .link-section {
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+  }
+
+
   .platform {
     max-width: 250px; /* Adjust the max-width for this screen size */
     padding: 4px; /* Slightly reduce padding */
