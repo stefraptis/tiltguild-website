@@ -250,20 +250,11 @@ width: 20px; /* Reduce image width by 25% (from 45px to 33.75px) */
   height: 40px; /* Further reduced height for very small screens */
 }
 
-.banner-title {
-  font-size: 1.2rem; /* Reduce title font size */
-  text-align: center;
-  align-items: center;
-  margin: 0;
-  flex: 1; /* Allow the title to grow and take up available space */
-}
-
 .banner-title h2 {
-  font-size: 1.2rem; /* Reduce title font size */
+  font-size: 0.85rem; /* Reduce title font size */
   text-align: center;
   align-items: center;
   margin: 0;
-  flex: 1; /* Allow the title to grow and take up available space */
 }
 
 .banner-logo img {
