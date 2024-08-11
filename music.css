@@ -188,7 +188,7 @@ main {
 }
 
 .platform {
-  max-width: 200px;
+  max-width: 175px;
   margin: 10px 0;
   text-align: center;
   background-color: white;
@@ -201,13 +201,14 @@ main {
   display: flex; /* Use flexbox to align the icon and text */
   align-items: center; /* Center the content vertically */
   justify-content: center; /* Center the content horizontally */
+  position: relative; /* Relative positioning for icon adjustment */
 }
 
 .platform img {
-  width: 30%; /* Adjust the width of the icon */
+  position: absolute; /* Position the icon absolutely within the box */
+  left: 10px; /* Align the icon to the leftmost part of the box */
+  width: 30px; /* Adjust size as needed */
   height: auto;
-  margin-right: 10px;
-  margin-left: 0px; /* Space between icon and text */
 }
 
 .platform span {
