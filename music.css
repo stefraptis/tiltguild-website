@@ -69,34 +69,6 @@ body {
   vertical-align: middle; /* Align the icons better within the link */
 }
 
-/* Media query for devices between 768px and 1024px */
-@media (min-width: 769px) and (max-width: 1024px) {
-
-    /* Link Section Adjustments for All Screens */
-  .link-section {
-    width: 75%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 10px 0;
-  }
-
-
-  .platform {
-    max-width: 250px; /* Adjust the max-width for this screen size */
-    padding: 4px; /* Slightly reduce padding */
-  }
-
-  .platform img {
-    width: 2px; /* Adjust image size for this screen size */
-  }
-
-  .banner-logo img {
-    width: 3rem; /* Adjust the logo size in the banner */
-  }
-}
-
 /* Media Queries for Responsive Adjustments */
 @media (max-width: 1024px) {
   .banner-title h2 {
@@ -111,73 +83,6 @@ body {
       width: 1.5rem; /* Adjust social media icons size for medium screens */
   }
 }
-
-@media (max-width: 768px) {
-
-      /* Link Section Adjustments for All Screens */
-      .link-section {
-        width: 75%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        padding: 10px 0;
-      }
-
-  .banner {
-      height: 60px; /* Slightly reduced height for smaller screens */
-  }
-
-  .banner-title h2 {
-      font-size: 0.9rem; /* Adjust font size for smaller screens */
-  }
-
-  .banner-logo img {
-      width: 3rem; /* Further adjust logo size for smaller screens */
-  }
-
-  .banner-socials img {
-      width: 1.2rem; /* Further adjust social media icons size for smaller screens */
-  }
-
-  .platform {
-    max-width: 70px; /* Further reduce max-width of boxes */
-    padding: 0px;
-  }
-
-  .platform img {
-    width: 2px; /* Reduce image width by 25% (from 45px to 33.75px) */
-  }
-}
-
-@media (max-width: 480px) {
-
-  .banner {
-      height: 40px; /* Further reduced height for very small screens */
-  }
-
-  .banner-title h2 {
-      font-size: 0.9rem; /* Adjust font size for very small screens */
-  }
-
-  .banner-logo img {
-      width: 2.5rem; /* Adjust logo size for very small screens */
-  }
-
-  .banner-socials img {
-      width: 1rem; /* Adjust social media icons size for very small screens */
-  }
-
-  .platform {
-    max-width: 70px; /* Further reduce max-width of boxes */
-    padding: 0px; /* Maintain the 25% reduction in padding */
-  }
-
-  .platform img {
-    width: 2px; /* Maintain the 25% reduction in image size */
-  }
-}
-
 
 /* Header */
 header {
@@ -299,4 +204,83 @@ footer {
   margin-top: 20px;
   padding: 20px 0;
   color: rgb(57, 56, 56);
+}
+
+@media (max-width: 768px) {
+
+  /* Link Section Adjustments for All Screens */
+  .link-section {
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+  }
+
+.banner {
+  height: 60px; /* Slightly reduced height for smaller screens */
+}
+
+.banner-title h2 {
+  font-size: 0.9rem; /* Adjust font size for smaller screens */
+}
+
+.banner-logo img {
+  width: 3rem; /* Further adjust logo size for smaller screens */
+}
+
+.banner-socials img {
+  width: 1.2rem; /* Further adjust social media icons size for smaller screens */
+}
+
+.platform {
+max-width: 70px; /* Further reduce max-width of boxes */
+padding: 0px;
+}
+
+.platform img {
+width: 20px; /* Reduce image width by 25% (from 45px to 33.75px) */
+}
+}
+
+@media (max-width: 480px) {
+
+.banner {
+  height: 40px; /* Further reduced height for very small screens */
+}
+
+.banner-title h2 {
+  font-size: 0.9rem; /* Adjust font size for very small screens */
+}
+
+.banner-logo img {
+  width: 2.5rem; /* Adjust logo size for very small screens */
+}
+
+.banner-socials img {
+  width: 1rem; /* Adjust social media icons size for very small screens */
+}
+
+.platform {
+  max-width: 100px;
+  margin: 10px 0;
+  background-color: white;
+  border: 1px solid #d3d3d3;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  width: 100%; /* The width will be based on the container */
+  padding: 10px;
+  display: flex;
+  align-items: center; /* Vertically center content */
+}
+
+.platform img {
+  margin-right: 10px; /* Space between the icon and text */
+  width: 22.5px; /* Adjust size as needed */
+  height: auto;
+  flex-shrink: 0; /* Prevent the icon from shrinking */
+}
+
 }
