@@ -69,6 +69,22 @@ body {
   vertical-align: middle; /* Align the icons better within the link */
 }
 
+/* Media query for devices between 768px and 1024px */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .platform {
+    max-width: 500px; /* Adjust the max-width for this screen size */
+    padding: 8px; /* Slightly reduce padding */
+  }
+
+  .platform img {
+    width: 40px; /* Adjust image size for this screen size */
+  }
+
+  .banner-logo img {
+    width: 3rem; /* Adjust the logo size in the banner */
+  }
+}
+
 /* Media Queries for Responsive Adjustments */
 @media (max-width: 1024px) {
   .banner-title h2 {
