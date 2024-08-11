@@ -262,6 +262,16 @@ width: 20px; /* Reduce image width by 25% (from 45px to 33.75px) */
   width: 1rem; /* Adjust social media icons size for very small screens */
 }
 
+/* Bottom Section: Links */
+.link-section {
+  width: 100%;
+  height: 50%; /* Take up the bottom half of the page */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .platform {
   max-width: 200px;
   margin: 10px 0;
@@ -278,7 +288,7 @@ width: 20px; /* Reduce image width by 25% (from 45px to 33.75px) */
 
 .platform img {
   margin-right: 10px; /* Space between the icon and text */
-  width: 22.5px; /* Adjust size as needed */
+  width: 30px; /* Adjust size as needed */
   height: auto;
   flex-shrink: 0; /* Prevent the icon from shrinking */
 }
