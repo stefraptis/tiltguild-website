@@ -258,7 +258,7 @@ width: 20px; /* Reduce image width by 25% (from 45px to 33.75px) */
 }
 
 .banner-logo img {
-  margin-left: -8px; 
+  margin-left: -6px; 
   width: 2.5rem; /* Adjust logo size for very small screens */
 }
 
@@ -290,6 +290,12 @@ width: 20px; /* Reduce image width by 25% (from 45px to 33.75px) */
   padding: 10px;
   display: flex;
   align-items: center; /* Vertically center content */
+}
+
+.platform span {
+  font-size: 0.85rem; /* Slightly reduce the font size */
+  color: #333; /* Text color */
+  width: 100%;
 }
 
 .platform img {
