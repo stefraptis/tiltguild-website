@@ -204,10 +204,10 @@ main {
 }
 
 .platform img {
-  width: 30px; /* Adjust the width of the icon */
+  width: 30%; /* Adjust the width of the icon */
   height: auto;
   margin-right: 10px;
-  margin-left: 5px; /* Space between icon and text */
+  margin-left: 0px; /* Space between icon and text */
 }
 
 .platform span {
