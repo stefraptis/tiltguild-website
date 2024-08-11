@@ -206,8 +206,8 @@ main {
 
 .platform img {
   position: absolute; /* Position the icon absolutely within the box */
-  left: 10px; /* Align the icon to the leftmost part of the box */
-  width: 30px; /* Adjust size as needed */
+  left: 5px; /* Align the icon to the leftmost part of the box */
+  width: 30%; /* Adjust size as needed */
   height: auto;
 }
 
