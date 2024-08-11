@@ -255,7 +255,7 @@ width: 20px; /* Reduce image width by 25% (from 45px to 33.75px) */
 }
 
 .banner-logo img {
-  margin-left: -20px; 
+  margin-left: -17px; 
   width: 2.5rem; /* Adjust logo size for very small screens */
 }
 
