@@ -41,7 +41,7 @@ body {
 }
 
 .banner-logo {
-  margin-left: 0; /* Move logo further to the left */
+  margin-left: -20px; /* Move logo further to the left */
 }
 
 .banner-logo img {
