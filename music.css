@@ -219,6 +219,7 @@ main {
 .platform span {
   font-size: 1rem; /* Adjust the font size */
   color: #333; /* Text color */
+  width: 100%
 }
 
 .platform a {
