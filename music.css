@@ -146,7 +146,7 @@ body {
   }
 
   .platform img {
-    width: 10px; /* Reduce image width by 25% (from 45px to 33.75px) */
+    width: 2px; /* Reduce image width by 25% (from 45px to 33.75px) */
   }
 }
 
