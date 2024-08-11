@@ -302,7 +302,7 @@ width: 20px; /* Reduce image width by 25% (from 45px to 33.75px) */
 
 /* Footer */
 footer {
-  font-size: 0.85rem; /* Slightly reduce the font size */
+  font-size: 0.425rem; /* Slightly reduce the font size */
 }
 
 }
