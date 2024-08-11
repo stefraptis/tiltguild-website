@@ -103,6 +103,11 @@ body {
 
   .platform {
     max-width: 300px; /* Further reduce max-width of boxes */
+    padding: 7.5px;
+  }
+
+  .platform img {
+    width: 33.75px; /* Reduce image width by 25% (from 45px to 33.75px) */
   }
 }
 
@@ -125,6 +130,11 @@ body {
 
   .platform {
     max-width: 250px; /* Further reduce max-width of boxes */
+    padding: 7.5px; /* Maintain the 25% reduction in padding */
+  }
+
+  .platform img {
+    width: 33.75px; /* Maintain the 25% reduction in image size */
   }
 }
 
