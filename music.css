@@ -72,12 +72,12 @@ body {
 /* Media query for devices between 768px and 1024px */
 @media (min-width: 769px) and (max-width: 1024px) {
   .platform {
-    max-width: 500px; /* Adjust the max-width for this screen size */
-    padding: 8px; /* Slightly reduce padding */
+    max-width: 250px; /* Adjust the max-width for this screen size */
+    padding: 4px; /* Slightly reduce padding */
   }
 
   .platform img {
-    width: 40px; /* Adjust image size for this screen size */
+    width: 20px; /* Adjust image size for this screen size */
   }
 
   .banner-logo img {
