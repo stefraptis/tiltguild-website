@@ -255,11 +255,12 @@ width: 20px; /* Reduce image width by 25% (from 45px to 33.75px) */
 }
 
 .banner-logo img {
-  margin-left: -5px; 
+  margin-left: -15px; 
   width: 2.5rem; /* Adjust logo size for very small screens */
 }
 
 .banner-socials img {
+  margin-right: -15px;
   width: 1rem; /* Adjust social media icons size for very small screens */
 }
 
