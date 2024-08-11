@@ -113,6 +113,17 @@ body {
 }
 
 @media (max-width: 768px) {
+
+      /* Link Section Adjustments for All Screens */
+      .link-section {
+        width: 75%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 10px 0;
+      }
+
   .banner {
       height: 60px; /* Slightly reduced height for smaller screens */
   }
@@ -140,6 +151,17 @@ body {
 }
 
 @media (max-width: 480px) {
+
+  /* Link Section Adjustments for All Screens */
+  .link-section {
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+  }
+
   .banner {
       height: 50px; /* Further reduced height for very small screens */
   }
