@@ -255,6 +255,7 @@ width: 20px; /* Reduce image width by 25% (from 45px to 33.75px) */
 }
 
 .banner-logo img {
+  margin-left: 0; 
   width: 2.5rem; /* Adjust logo size for very small screens */
 }
 
@@ -292,6 +293,11 @@ width: 20px; /* Reduce image width by 25% (from 45px to 33.75px) */
   width: 30px; /* Adjust size as needed */
   height: auto;
   flex-shrink: 0; /* Prevent the icon from shrinking */
+}
+
+/* Footer */
+footer {
+  font-size: 0.85rem; /* Slightly reduce the font size */
 }
 
 }
