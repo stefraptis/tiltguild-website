@@ -282,7 +282,7 @@ width: 20px; /* Reduce image width by 25% (from 45px to 33.75px) */
   max-width: 200px;
   margin: 10px 0;
   width: 100%; /* The width will be based on the container */
-  padding: 7.5px;
+  padding: 9px;
   display: flex;
   align-items: center; /* Vertically center content */
 }
