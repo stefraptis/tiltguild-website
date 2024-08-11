@@ -153,7 +153,7 @@ body {
 @media (max-width: 480px) {
 
   .banner {
-      height: 50px; /* Further reduced height for very small screens */
+      height: 2px; /* Further reduced height for very small screens */
   }
 
   .banner-title h2 {
