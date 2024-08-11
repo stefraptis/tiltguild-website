@@ -263,7 +263,7 @@ width: 20px; /* Reduce image width by 25% (from 45px to 33.75px) */
 }
 
 .platform {
-  max-width: 100px;
+  max-width: 200px;
   margin: 10px 0;
   background-color: white;
   border: 1px solid #d3d3d3;
