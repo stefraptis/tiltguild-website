@@ -37,10 +37,11 @@ body {
   margin: 0 auto;
   width: 100%; /* Ensure it uses the full width of the container */
   height: 100%; /* Ensure content fits within the banner height */
+  padding-left:0;
 }
 
 .banner-logo {
-  margin-left: -5rem; /* Move logo further to the left */
+  margin-left: 0; /* Move logo further to the left */
 }
 
 .banner-logo img {
