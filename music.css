@@ -190,30 +190,28 @@ main {
 .platform {
   max-width: 300px;
   margin: 10px 0;
-  text-align: center;
   background-color: white;
   border: 1px solid #d3d3d3;
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s, box-shadow 0.3s;
-  width: 100%;
+  width: 100%; /* The width will be based on the container */
   padding: 10px;
   display: flex;
   align-items: center; /* Vertically center content */
-  justify-content: center; /* Ensure text is centered */
 }
 
 .platform img {
   margin-right: 10px; /* Space between the icon and text */
   width: 60px; /* Adjust size as needed */
   height: auto;
-  position: absolute;
-  left: 10px; /* Align the icon to the leftmost part of the box */
+  flex-shrink: 0; /* Prevent the icon from shrinking */
 }
 
 .platform a span {
-  flex-grow: 1; /* Allow the text to occupy remaining space */
-  text-align: center; /* Ensure the text is centered */
+  text-align: center; /* Center the text */
+  flex-grow: 1; /* Allow the text to take up the remaining space */
+  margin-left: auto; /* Move the text away from the icon */
 }
 
 .platform span {
@@ -223,13 +221,11 @@ main {
 }
 
 .platform a {
-  flex: 1;
-  position: relative;
-  text-decoration: none; /* Remove underline */
-  color: inherit; /* Ensure the link inherits color */
   display: flex;
   align-items: center; /* Center the content vertically */
-  justify-content: center; /* Center the content horizontally */
+  text-decoration: none; /* Remove underline */
+  color: inherit; /* Ensure the link inherits color */
+  width: 100%; /* Ensure the link takes the full width of the box */
 }
 
 .platform:hover {
