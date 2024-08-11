@@ -205,7 +205,7 @@ main {
 
 .platform img {
   margin-right: 10px; /* Space between the icon and text */
-  width: 30px; /* Adjust size as needed */
+  width: 60px; /* Adjust size as needed */
   height: auto;
   position: absolute;
   left: 10px; /* Align the icon to the leftmost part of the box */
