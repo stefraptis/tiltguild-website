@@ -1,0 +1,374 @@
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styles */
+body {
+  font-family: 'Helvetica Neue', Arial, sans-serif; /* Set Helvetica Neue as the primary font */
+  background-color: #f0f0f0; /* Light gray background */
+  color: #333; /* Dark text color */
+  height: 100vh; /* Full height of the viewport */
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Prevents overflow from blurring */
+}
+
+.banner {
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.932);
+  color: white;
+  padding: 0 1.5rem; /* Removed top and bottom padding */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+  position: relative; /* Ensure the banner is positioned correctly */
+  display: flex;
+  align-items: center; /* Vertically center the content */
+  height: 60px; /* Set a specific height for the banner */
+}
+
+.banner-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: auto;
+  margin: 0 auto;
+  width: 100%; /* Ensure it uses the full width of the container */
+  height: 100%; /* Ensure content fits within the banner height */
+  padding-left:0;
+}
+
+.banner-logo {
+  margin-left: -20px; /* Move logo further to the left */
+}
+
+.banner-logo img {
+  width: 5rem; /* Reduce logo size */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.banner-title h2 {
+  font-size: 1.2rem; /* Reduce title font size */
+  text-align: center;
+  align-items: center;
+  margin: 0;
+  flex: 1; /* Allow the title to grow and take up available space */
+}
+
+.banner-socials a {
+  margin-left: 1rem; /* Margin in rem units for spacing between social icons */
+  text-decoration: none; /* Remove the underline */
+  color: inherit; /* Inherit the color from the parent element (white in this case) */
+}
+
+.banner-socials img {
+  width: 1.5rem; /* Social media icons size in rem units */
+  height: auto; /* Maintain aspect ratio */
+  vertical-align: middle; /* Align the icons better within the link */
+}
+
+/* Banner Title */
+.banner-title {
+  flex-grow: 1; /* Takes up remaining space */
+  text-align: center;
+}
+
+/* Banner Socials */
+.banner-socials {
+  display: flex;
+  align-items: center;
+  margin-left: auto; /* Pushes socials to the far right */
+}
+
+/* Music Button Style */
+.music-link {
+  color: white;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  transition: color 0.3s ease;
+}
+
+.music-link:hover {
+  color: red; /* Change text color to red on hover */
+  background-color: transparent; /* Remove background color on hover */
+}
+
+/* Backslash Icon Styling */
+.icon-backslash {
+  margin-left: 0.5rem; /* Space between text and backslash */
+  font-size: 1rem; /* Size of the backslash */
+  transition: color 0.3s ease; /* Smooth transition for icon color */
+}
+
+.music-link:hover .icon-backslash {
+  color: red; /* Change backslash color to red on hover */
+}
+
+/* SVG Icon Styling */
+.music-link svg {
+  margin-left: 0.5rem; /* Space between text and icon */
+  fill: white; /* Ensure the icon color matches the text */
+  width: 1rem;
+  height: 1rem;
+  transition: fill 0.3s ease; /* Smooth transition for icon color */
+}
+
+.music-link:hover svg {
+  fill: red; /* Change icon color to red on hover */
+}
+
+/* Media Queries for Responsive Adjustments */
+@media (max-width: 1024px) {
+  .banner-title h2 {
+      font-size: 1rem; /* Adjust font size for medium screens */
+  }
+  
+  .banner-logo img {
+      width: 2.5rem; /* Adjust logo size for medium screens */
+  }
+
+  .banner-socials img {
+      width: 1.5rem; /* Adjust social media icons size for medium screens */
+  }
+}
+
+/* Header */
+header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.album-artwork {
+  position: relative;
+  width: 100%;
+  height: 50vh; /* Take up 50% of the viewport height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.album-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('images/Music Artworks/ento_cover.png');
+  background-size: cover;
+  background-position: center;
+  filter: blur(20px);
+  transform: scale(1.2); /* Slightly larger for better coverage */
+  z-index: 0;
+}
+
+.album-artwork img {
+  position: relative;
+  object-fit: contain; /* Ensures the entire image is visible */
+  max-width: 90%; /* Make sure the image doesn't exceed 90% of the container width */
+  max-height: 90%; /* Make sure the image doesn't exceed 90% of the container height */
+  height: auto; /* Maintain aspect ratio */
+  z-index: 1;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+main {
+  padding: 1rem;
+}
+
+@media (max-width: 768px) {
+  .album-artwork {
+    height: 60vh; /* Increase the height on smaller screens */
+  }
+
+  .album-artwork img {
+    max-width: 80%;
+    max-height: 80%;
+  }
+}
+
+/* Bottom Section: Links */
+.link-section {
+  width: 100%;
+  height: 50%; /* Take up the bottom half of the page */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.platform {
+  max-width: 600px;
+  margin: 10px 0;
+  background-color: white;
+  border: 1px solid #d3d3d3;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  width: 100%; /* The width will be based on the container */
+  padding: 10px;
+  display: flex;
+  align-items: center; /* Vertically center content */
+}
+
+.platform img {
+  margin-right: 10px; /* Space between the icon and text */
+  width: 45px; /* Adjust size as needed */
+  height: auto;
+  flex-shrink: 0; /* Prevent the icon from shrinking */
+}
+
+.platform a span {
+  text-align: center; /* Center the text */
+  flex-grow: 1; /* Allow the text to take up the remaining space */
+  margin-left: auto; /* Move the text away from the icon */
+}
+
+.platform span {
+  font-size: 1rem; /* Adjust the font size */
+  color: #333; /* Text color */
+  width: 100%
+}
+
+.platform a {
+  display: flex;
+  align-items: center; /* Center the content vertically */
+  text-decoration: none; /* Remove underline */
+  color: inherit; /* Ensure the link inherits color */
+  width: 100%; /* Ensure the link takes the full width of the box */
+}
+
+.platform:hover {
+  transform: translateY(-3px); /* Slight lift on hover */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  margin-top: 20px;
+  padding: 20px 0;
+  color: rgb(57, 56, 56);
+}
+
+@media (max-width: 768px) {
+
+  /* Link Section Adjustments for All Screens */
+  .link-section {
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+  }
+
+.banner {
+  height: 60px; /* Slightly reduced height for smaller screens */
+}
+
+.banner-title h2 {
+  font-size: 0.9rem; /* Adjust font size for smaller screens */
+}
+
+.banner-logo img {
+  width: 3rem; /* Further adjust logo size for smaller screens */
+}
+
+.banner-socials img {
+  width: 1.2rem; /* Further adjust social media icons size for smaller screens */
+}
+
+.platform {
+max-width: 70px; /* Further reduce max-width of boxes */
+padding: 0px;
+}
+
+.platform img {
+width: 20px; /* Reduce image width by 25% (from 45px to 33.75px) */
+}
+}
+
+@media (max-width: 480px) {
+
+.banner {
+  height: 40px; /* Further reduced height for very small screens */
+}
+
+.banner-title {
+  display: flex;
+  justify-content: center; /* Horizontally center the title */
+  align-items: center; /* Vertically center the title */
+}
+
+.banner-title h2 {
+  font-size: 0.725rem; /* Reduce title font size */
+  text-align: center;
+  align-items: center;
+  margin: 0;
+}
+
+.banner-logo img {
+  margin-left: -6px; 
+  width: 2.5rem; /* Adjust logo size for very small screens */
+}
+
+.banner-socials img {
+  margin-right: -10px;
+  width: 1rem; /* Adjust social media icons size for very small screens */
+}
+
+/* Bottom Section: Links */
+.link-section {
+  margin-top: 25px;
+  width: 100%;
+  height: 50%; /* Take up the bottom half of the page */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.platform {
+  max-width: 200px;
+  margin: 10px 0;
+  width: 100%; /* The width will be based on the container */
+  padding: 10px;
+  display: flex;
+  align-items: center; /* Vertically center content */
+}
+
+.platform span {
+  font-size: 0.85rem; /* Slightly reduce the font size */
+  color: #333; /* Text color */
+  width: 100%;
+}
+
+.platform img {
+  margin-right: 10px; /* Space between the icon and text */
+  width: 20px; /* Adjust size as needed */
+  height: auto;
+  flex-shrink: 0; /* Prevent the icon from shrinking */
+}
+
+/* Footer */
+footer {
+  font-size: 0.425rem; /* Slightly reduce the font size */
+}
+
+}
