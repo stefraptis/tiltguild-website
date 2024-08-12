@@ -2190,7 +2190,6 @@ a.btn.btn-swipe.light {
   text-decoration: none;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
   height: 100%;
   transition: color 0.3s ease;
 }
@@ -2198,6 +2197,17 @@ a.btn.btn-swipe.light {
 .music-link:hover {
   color: red; /* Change text color to red on hover */
   background-color: transparent; /* Remove background color on hover */
+}
+
+/* Backslash Icon Styling */
+.icon-backslash {
+  margin-left: 0.5rem; /* Space between text and backslash */
+  font-size: 1rem; /* Size of the backslash */
+  transition: color 0.3s ease; /* Smooth transition for icon color */
+}
+
+.music-link:hover .icon-backslash {
+  color: red; /* Change backslash color to red on hover */
 }
 
 /* SVG Icon Styling */
