@@ -299,7 +299,7 @@ width: 20px; /* Reduce image width by 25% (from 45px to 33.75px) */
 /* Music Button Style */
 .music-link {
   color: white;
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   border: none;
   cursor: pointer;
   padding: 0.5rem 1rem;
@@ -312,8 +312,8 @@ width: 20px; /* Reduce image width by 25% (from 45px to 33.75px) */
 
 /* Backslash Icon Styling */
 .icon-backslash {
-  margin-left: 0.5rem; /* Space between text and backslash */
-  font-size: 0.85rem; /* Size of the backslash */
+  margin-left: 0.35rem; /* Space between text and backslash */
+  font-size: 0.75rem; /* Size of the backslash */
   transition: color 0.3s ease; /* Smooth transition for icon color */
 }
 
