@@ -2167,33 +2167,38 @@ a.btn.btn-swipe.light {
   vertical-align: middle; /* Align the icons better within the link */
 }
 
-/* Dropdown Style */
+/*Banner Dropdown Section */
 .banner-music {
   position: relative;
   display: inline-block;
+  height: 100%; /* Make it take full height */
 }
 
 .dropbtn {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: transparent; /* Make the 'MUSIC' button transparent */
   color: white;
   font-size: 1rem;
   border: none;
   cursor: pointer;
   padding: 0.5rem 1rem;
+  height: 100%; /* Ensure button height matches the banner height */
+  display: flex;
+  align-items: center;
   transition: background-color 0.3s ease;
 }
 
 .dropbtn:hover {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.1); /* Slight hover effect for the 'MUSIC' button */
 }
 
 .dropdown-content {
   display: none;
   position: absolute;
+  background-color: rgba(0, 0, 0, 0.9); /* Background for dropdown menu items */
   min-width: 160px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   z-index: 1;
   padding: 0.5rem 0;
-  background-color: transparent; /* Make background transparent */
 }
 
 .dropdown-content a {
@@ -2206,7 +2211,7 @@ a.btn.btn-swipe.light {
 }
 
 .dropdown-content a:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.1); /* Hover effect for dropdown items */
 }
 
 .dropdown:hover .dropdown-content {
@@ -2214,5 +2219,5 @@ a.btn.btn-swipe.light {
 }
 
 .dropdown:hover .dropbtn {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.1); /* Slight hover effect for 'MUSIC' */
 }
