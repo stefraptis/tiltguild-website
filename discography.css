@@ -142,11 +142,19 @@ main {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 1rem;
+  position: relative; /* Ensure the grid items are positioned correctly */
+}
+
+.album {
+  position: relative; /* Needed for the overlay positioning */
+  overflow: hidden; /* Hide any overflow from the overlay */
+  border-radius: 8px;
 }
 
 .album img {
   width: 100%;
   height: auto;
+  display: block; /* Ensure images are displayed correctly */
   border-radius: 8px;
 }
 
@@ -164,6 +172,7 @@ main {
   opacity: 0;
   transition: opacity 0.3s ease;
   border-radius: 8px;
+  pointer-events: none; /* Ensure clicks pass through to the underlying element */
 }
 
 .album:hover .overlay {
