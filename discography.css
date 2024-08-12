@@ -69,6 +69,19 @@ body {
   vertical-align: middle; /* Align the icons better within the link */
 }
 
+/* Banner Title */
+.banner-title {
+  flex-grow: 1; /* Takes up remaining space */
+  text-align: center;
+}
+
+/* Banner Socials */
+.banner-socials {
+  display: flex;
+  align-items: center;
+  margin-left: auto; /* Pushes socials to the far right */
+}
+
 /* Music Button Style */
 .music-link {
   color: white;
