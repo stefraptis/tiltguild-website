@@ -9,7 +9,7 @@
 .background-section {
   position: relative;
   width: 100%;
-  height: calc(100vh - 60px); /* Adjust according to banner height */
+  height: auto; /* Adjust according to banner height */
   background: url('images/tilt_guild_band_rehearsal.jpg') no-repeat center center;
   background-size: cover; /* Cover the entire section */
   display: flex;
