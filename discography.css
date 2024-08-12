@@ -31,9 +31,11 @@ body {
   background-color: #f0f0f0; /* Light gray background */
   color: #333; /* Dark text color */
   height: 100vh; /* Full height of the viewport */
+  min-height: 100vh; /* Allow for content to determine height */
   display: flex;
   flex-direction: column;
   overflow: hidden; /* Prevents overflow from blurring */
+  overflow-y: auto;
 }
 
 .banner {
@@ -205,16 +207,18 @@ main {
   text-align: center;
 }
 
-/* Footer styling */
+/* Adjust the footer */
 footer {
   text-align: center;
   padding: 20px 0;
   color: rgb(255, 255, 255); /* White text color */
   width: 100%;
   background-color: rgba(0, 0, 0, 0.389); /* Optional: Footer background color */
-  position: absolute; /* Keep it at the bottom of the viewport */
+  position: relative; /* Keep it below the content */
   bottom: 0;
+  margin-top: auto; /* Push footer to the bottom */
 }
+
 
 /* Media Queries for Responsive Adjustments */
 @media (max-width: 1024px) {
