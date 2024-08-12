@@ -205,10 +205,14 @@ main {
   text-align: center;
 }
 
-/* Footer */
+/* Footer styling */
 footer {
   text-align: center;
-  margin-bottom: 5px;
+  margin-top: 2rem; /* Add space above the footer if needed */
   padding: 20px 0;
-  color: rgb(255, 255, 255);
+  color: rgb(255, 255, 255); /* White text color */
+  background-color: rgba(0, 0, 0, 0.8); /* Dark background color */
+  position: relative;
+  bottom: 0;
+  width: 100%;
 }
