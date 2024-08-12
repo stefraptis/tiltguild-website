@@ -2191,6 +2191,14 @@ a.btn.btn-swipe.light {
   justify-content: flex-start; /* Ensures the text is aligned to the left */
 }
 
+/* SVG Icon Styling */
+.dropbtn svg {
+  margin-left: 0.5rem; /* Space between text and icon */
+  fill: white; /* Ensure the icon color matches the text */
+  width: 1rem;
+  height: 1rem;
+}
+
 /* Dropdown Content Style */
 .dropdown-content {
   display: none;
