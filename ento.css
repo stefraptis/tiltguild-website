@@ -10,10 +10,11 @@ body {
   font-family: 'Helvetica Neue', Arial, sans-serif; /* Set Helvetica Neue as the primary font */
   background-color: #f0f0f0; /* Light gray background */
   color: #333; /* Dark text color */
-  height: 100vh; /* Full height of the viewport */
+  min-height: 100vh; /* Full height of the viewport */
   display: flex;
   flex-direction: column;
   overflow: hidden; /* Prevents overflow from blurring */
+  overflow-y: auto;
 }
 
 .banner {
@@ -154,6 +155,7 @@ header {
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  margin-bottom: 0;
 }
 
 .album-background {
@@ -165,7 +167,7 @@ header {
   background-image: url('images/Music Artworks/ento_cover.png');
   background-size: cover;
   background-position: center;
-  filter: blur(20px);
+  filter: blur(10px);
   transform: scale(1.2); /* Slightly larger for better coverage */
   z-index: 0;
 }
@@ -214,7 +216,7 @@ main {
 
 .platform {
   max-width: 600px;
-  margin: 10px 0;
+  margin: 3px 0;
   background-color: white;
   border: 1px solid #d3d3d3;
   border-radius: 10px;
@@ -258,12 +260,41 @@ main {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* Footer */
+/* Adjust the footer */
 footer {
   text-align: center;
-  margin-top: 20px;
   padding: 20px 0;
-  color: rgb(57, 56, 56);
+  color: rgb(255, 255, 255); /* White text color */
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.389); /* Optional: Footer background color */
+  bottom: 0;
+  margin-top: auto; /* Push footer to the bottom */
+}
+
+/* Media Queries for Responsive Adjustments */
+@media (max-width: 1024px) {
+  .banner-title h2 {
+      font-size: 1rem; /* Adjust font size for medium screens */
+  }
+  
+  .banner-logo img {
+      width: 2.5rem; /* Adjust logo size for medium screens */
+  }
+
+  .banner-socials img {
+      width: 1.5rem; /* Adjust social media icons size for medium screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .album-artwork {
+    height: 60vh; /* Increase the height on smaller screens */
+  }
+
+  .album-artwork img {
+    max-width: 80%;
+    max-height: 80%;
+  }
 }
 
 @media (max-width: 768px) {
@@ -335,7 +366,7 @@ width: 20px; /* Reduce image width by 25% (from 45px to 33.75px) */
 
 /* Bottom Section: Links */
 .link-section {
-  margin-top: 25px;
+  margin-top: -10px;
   width: 100%;
   height: 50%; /* Take up the bottom half of the page */
   display: flex;
@@ -364,6 +395,36 @@ width: 20px; /* Reduce image width by 25% (from 45px to 33.75px) */
   width: 20px; /* Adjust size as needed */
   height: auto;
   flex-shrink: 0; /* Prevent the icon from shrinking */
+}
+
+/* Music Button Style */
+.music-link {
+  color: white;
+  font-size: 0.75rem;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  transition: color 0.3s ease;
+}
+
+/* Backslash Icon Styling */
+.icon-backslash {
+  margin-left: 0.35rem; /* Space between text and backslash */
+  font-size: 0.75rem; /* Size of the backslash */
+  transition: color 0.3s ease; /* Smooth transition for icon color */
+}
+
+/* SVG Icon Styling */
+.music-link svg {
+  margin-left: 0.5rem; /* Space between text and icon */
+  fill: white; /* Ensure the icon color matches the text */
+  width: 1rem;
+  height: 1rem;
+  transition: fill 0.3s ease; /* Smooth transition for icon color */
 }
 
 /* Footer */
