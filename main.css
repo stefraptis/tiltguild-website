@@ -2167,15 +2167,13 @@ a.btn.btn-swipe.light {
   vertical-align: middle; /* Align the icons better within the link */
 }
 
-/* Banner Dropdown Section */
+/*Banner Dropdown Section */
 .banner-music {
-  position: relative;
   display: inline-block;
   height: 100%; /* Make it take full height */
-  margin-left: 1rem; /* Adjust spacing from the logo as needed */
+  margin-left: -10px;
 }
 
-/* Dropdown Button Style */
 .dropbtn {
   background-color: transparent;
   color: white;
@@ -2184,17 +2182,12 @@ a.btn.btn-swipe.light {
   cursor: pointer;
   padding: 0.5rem 1rem;
   transition: background-color 0.3s ease;
-  height: 100%; /* Ensure button height matches the banner height */
-  display: flex;
-  align-items: center; /* Vertically center text */
 }
 
-/* Dropdown Button Hover Effect */
 .dropbtn:hover {
   background-color: rgba(255, 255, 255, 0.2);
 }
 
-/* Dropdown Content Style */
 .dropdown-content {
   display: none;
   position: absolute;
@@ -2204,11 +2197,8 @@ a.btn.btn-swipe.light {
   z-index: 1;
   border-radius: 4px;
   padding: 0.5rem 0;
-  top: 100%; /* Position directly below the button */
-  left: 0; /* Align with the button */
 }
 
-/* Dropdown Item Style */
 .dropdown-content a {
   color: white;
   padding: 0.5rem 1rem;
@@ -2218,17 +2208,14 @@ a.btn.btn-swipe.light {
   transition: background-color 0.3s ease;
 }
 
-/* Dropdown Item Hover Effect */
 .dropdown-content a:hover {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* Show Dropdown on Hover */
 .dropdown:hover .dropdown-content {
   display: block;
 }
 
-/* Change Background on Hover */
 .dropdown:hover .dropbtn {
   background-color: rgba(255, 255, 255, 0.2);
 }
