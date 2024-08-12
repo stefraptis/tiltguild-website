@@ -2172,6 +2172,7 @@ a.btn.btn-swipe.light {
   position: relative;
   display: inline-block;
   height: 100%; /* Make it take full height */
+  margin-left: 1rem;
 }
 
 /* Dropdown Style */
