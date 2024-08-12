@@ -2186,7 +2186,7 @@ a.btn.btn-swipe.light {
   transition: background-color 0.3s ease;
   height: 100%;
   display: flex;
-  align-items: center;
+  align-items: left;
 }
 
 /* Dropdown Content Style */
