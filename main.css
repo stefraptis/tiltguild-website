@@ -2174,11 +2174,13 @@ a.btn.btn-swipe.light {
 }
 
 .dropbtn {
+  background-color: rgba(255, 255, 255, 0.1);
   color: white;
   font-size: 1rem;
   border: none;
   cursor: pointer;
   padding: 0.5rem 1rem;
+  transition: background-color 0.3s ease;
 }
 
 .dropbtn:hover {
@@ -2188,12 +2190,10 @@ a.btn.btn-swipe.light {
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: rgba(0, 0, 0, 0.9);
   min-width: 160px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   z-index: 1;
-  border-radius: 4px;
   padding: 0.5rem 0;
+  background-color: transparent; /* Make background transparent */
 }
 
 .dropdown-content a {
