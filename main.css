@@ -2171,7 +2171,7 @@ a.btn.btn-swipe.light {
 .banner-music {
   display: inline-block;
   height: 100%; /* Make it take full height */
-  margin-left: -400px;
+  margin-left: -2000px;
 }
 
 .dropbtn {
