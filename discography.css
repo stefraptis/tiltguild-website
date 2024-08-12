@@ -208,7 +208,7 @@ main {
 /* Footer styling */
 footer {
   text-align: center;
-  margin-top: 20rem; /* Add space above the footer if needed */
+  margin-top: 30rem; /* Add space above the footer if needed */
   padding: 20px 0;
   color: rgb(255, 255, 255); /* White text color */
   position: relative;
