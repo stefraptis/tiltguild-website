@@ -2167,77 +2167,6 @@ a.btn.btn-swipe.light {
   vertical-align: middle; /* Align the icons better within the link */
 }
 
-/* Banner Music Dropdown */
-.banner-music {
-  display: flex;
-  align-items: center;
-  height: 100%;
-  position: relative; /* Makes it the reference point for the dropdown */
-  margin-left: 0; /* Ensure no margin between the logo and the dropdown */
-}
-
-/* Dropdown Button Style */
-.dropbtn {
-  background-color: transparent;
-  color: white;
-  font-size: 1rem;
-  border: none;
-  cursor: pointer;
-  padding: 0.5rem 1rem;
-  transition: background-color 0.3s ease;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start; /* Ensures the text is aligned to the left */
-}
-
-/* SVG Icon Styling */
-.dropbtn svg {
-  margin-left: 0.5rem; /* Space between text and icon */
-  fill: white; /* Ensure the icon color matches the text */
-  width: 1rem;
-  height: 1rem;
-}
-
-/* Dropdown Content Style */
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: rgba(0, 0, 0, 0.9);
-  min-width: 160px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-  border-radius: 4px;
-  padding: 0.5rem 0;
-  top: 100%; /* Position directly below the button */
-  left: 0; /* Aligns with the left edge of the button */
-}
-
-/* Dropdown Item Style */
-.dropdown-content a {
-  color: white;
-  padding: 0.5rem 1rem;
-  text-decoration: none;
-  display: block;
-  font-size: 0.9rem;
-  transition: background-color 0.3s ease;
-}
-
-/* Dropdown Item Hover Effect */
-.dropdown-content a:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-}
-
-/* Show Dropdown on Hover */
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-/* Change Background on Hover */
-.dropdown:hover .dropbtn {
-  background-color: rgba(255, 255, 255, 0.2);
-}
-
 /* Banner Title */
 .banner-title {
   flex-grow: 1; /* Takes up remaining space */
@@ -2249,4 +2178,31 @@ a.btn.btn-swipe.light {
   display: flex;
   align-items: center;
   margin-left: auto; /* Pushes socials to the far right */
+}
+
+/* Music Button Style */
+.music-link {
+  color: white;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100%;
+  transition: background-color 0.3s ease;
+}
+
+.music-link:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* Optional hover effect */
+}
+
+/* SVG Icon Styling */
+.music-link svg {
+  margin-left: 0.5rem; /* Space between text and icon */
+  fill: white; /* Ensure the icon color matches the text */
+  width: 1rem;
+  height: 1rem;
 }
