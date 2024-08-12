@@ -9,8 +9,8 @@
 .background-section {
   position: relative;
   width: 100%;
-  height: 100vh; /* Full viewport height */
-  background: url('images/tilt_guild_band_rehearsal.jpg') no-repeat center center;
+  height: calc(100vh - 60px); /* Subtract the height of the banner */
+  background: url('images/background.jpg') no-repeat center center;
   background-size: cover; /* Cover the entire viewport */
   display: flex;
   align-items: center; /* Center text vertically */
@@ -19,12 +19,13 @@
   text-align: center;
 }
 
+/* Larger text */
 .background-content h1 {
-  font-size: 3rem; /* Adjust size as needed */
+  font-size: 5rem; /* Adjust size as needed */
   font-weight: 700;
   margin: 0;
   padding: 0;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Optional: adds shadow for readability */
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6); /* Optional: adds shadow for readability */
 }
 
 /* Ensure the content of the page is above the background */
