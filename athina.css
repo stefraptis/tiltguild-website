@@ -166,7 +166,7 @@ header {
   background-image: url('images/Music Artworks/ATHINA.png');
   background-size: cover;
   background-position: center;
-  filter: blur(20px);
+  filter: blur(10px);
   transform: scale(1.2); /* Slightly larger for better coverage */
   z-index: 0;
 }
@@ -204,6 +204,7 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 10px;
 }
 
 main {
