@@ -2172,7 +2172,7 @@ a.btn.btn-swipe.light {
   display: flex;
   align-items: center;
   height: 100%;
-  margin-left: 1rem; /* Add space between logo and menu dynamically */
+  position: relative; /* Makes it the reference point for the dropdown */
 }
 
 /* Dropdown Button Style */
@@ -2200,7 +2200,7 @@ a.btn.btn-swipe.light {
   border-radius: 4px;
   padding: 0.5rem 0;
   top: 100%; /* Position directly below the button */
-  left: 0;
+  left: 0; /* Aligns with the left edge of the button */
 }
 
 /* Dropdown Item Style */
