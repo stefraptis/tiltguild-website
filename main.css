@@ -2179,7 +2179,6 @@ a.btn.btn-swipe.light {
   border: none;
   cursor: pointer;
   padding: 0.5rem 1rem;
-  transition: background-color 0.3s ease;
 }
 
 .dropbtn:hover {
