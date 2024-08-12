@@ -2169,16 +2169,9 @@ a.btn.btn-swipe.light {
 
 /*Banner Dropdown Section */
 .banner-music {
-  position: relative;
   display: inline-block;
   height: 100%; /* Make it take full height */
   margin-left: 1rem;
-}
-
-/* Dropdown Style */
-.banner-music {
-  position: relative;
-  display: inline-block;
 }
 
 .dropbtn {
