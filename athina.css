@@ -266,6 +266,32 @@ footer {
   color: rgb(57, 56, 56);
 }
 
+/* Media Queries for Responsive Adjustments */
+@media (max-width: 1024px) {
+  .banner-title h2 {
+      font-size: 1rem; /* Adjust font size for medium screens */
+  }
+  
+  .banner-logo img {
+      width: 2.5rem; /* Adjust logo size for medium screens */
+  }
+
+  .banner-socials img {
+      width: 1.5rem; /* Adjust social media icons size for medium screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .album-artwork {
+    height: 60vh; /* Increase the height on smaller screens */
+  }
+
+  .album-artwork img {
+    max-width: 80%;
+    max-height: 80%;
+  }
+}
+
 @media (max-width: 768px) {
 
   /* Link Section Adjustments for All Screens */
@@ -364,6 +390,36 @@ width: 20px; /* Reduce image width by 25% (from 45px to 33.75px) */
   width: 20px; /* Adjust size as needed */
   height: auto;
   flex-shrink: 0; /* Prevent the icon from shrinking */
+}
+
+/* Music Button Style */
+.music-link {
+  color: white;
+  font-size: 0.75rem;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  transition: color 0.3s ease;
+}
+
+/* Backslash Icon Styling */
+.icon-backslash {
+  margin-left: 0.35rem; /* Space between text and backslash */
+  font-size: 0.75rem; /* Size of the backslash */
+  transition: color 0.3s ease; /* Smooth transition for icon color */
+}
+
+/* SVG Icon Styling */
+.music-link svg {
+  margin-left: 0.5rem; /* Space between text and icon */
+  fill: white; /* Ensure the icon color matches the text */
+  width: 1rem;
+  height: 1rem;
+  transition: fill 0.3s ease; /* Smooth transition for icon color */
 }
 
 /* Footer */
