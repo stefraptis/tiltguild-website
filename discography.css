@@ -153,7 +153,7 @@ main {
 
 /* Album Category Styles */
 .album-category {
-  margin: 0.5rem 0; /* Adjusts the space above and below the category */
+  margin: 0.25rem 0; /* Adjusts the space above and below the category */
 }
 
 .album-category h2 {
