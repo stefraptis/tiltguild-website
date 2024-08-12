@@ -69,6 +69,62 @@ body {
   vertical-align: middle; /* Align the icons better within the link */
 }
 
+/* Banner Title */
+.banner-title {
+  flex-grow: 1; /* Takes up remaining space */
+  text-align: center;
+}
+
+/* Banner Socials */
+.banner-socials {
+  display: flex;
+  align-items: center;
+  margin-left: auto; /* Pushes socials to the far right */
+}
+
+/* Music Button Style */
+.music-link {
+  color: white;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  transition: color 0.3s ease;
+}
+
+.music-link:hover {
+  color: red; /* Change text color to red on hover */
+  background-color: transparent; /* Remove background color on hover */
+}
+
+/* Backslash Icon Styling */
+.icon-backslash {
+  margin-left: 0.5rem; /* Space between text and backslash */
+  font-size: 1rem; /* Size of the backslash */
+  transition: color 0.3s ease; /* Smooth transition for icon color */
+}
+
+.music-link:hover .icon-backslash {
+  color: red; /* Change backslash color to red on hover */
+}
+
+/* SVG Icon Styling */
+.music-link svg {
+  margin-left: 0.5rem; /* Space between text and icon */
+  fill: white; /* Ensure the icon color matches the text */
+  width: 1rem;
+  height: 1rem;
+  transition: fill 0.3s ease; /* Smooth transition for icon color */
+}
+
+.music-link:hover svg {
+  fill: red; /* Change icon color to red on hover */
+}
+
 /* Media Queries for Responsive Adjustments */
 @media (max-width: 1024px) {
   .banner-title h2 {
@@ -122,49 +178,6 @@ header {
   height: auto; /* Maintain aspect ratio */
   z-index: 1;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-/* Music Button Style */
-.music-link {
-  color: white;
-  font-size: 1rem;
-  border: none;
-  cursor: pointer;
-  padding: 0.5rem 1rem;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  height: 100%;
-  transition: color 0.3s ease;
-}
-
-.music-link:hover {
-  color: red; /* Change text color to red on hover */
-  background-color: transparent; /* Remove background color on hover */
-}
-
-/* Backslash Icon Styling */
-.icon-backslash {
-  margin-left: 0.5rem; /* Space between text and backslash */
-  font-size: 1rem; /* Size of the backslash */
-  transition: color 0.3s ease; /* Smooth transition for icon color */
-}
-
-.music-link:hover .icon-backslash {
-  color: red; /* Change backslash color to red on hover */
-}
-
-/* SVG Icon Styling */
-.music-link svg {
-  margin-left: 0.5rem; /* Space between text and icon */
-  fill: white; /* Ensure the icon color matches the text */
-  width: 1rem;
-  height: 1rem;
-  transition: fill 0.3s ease; /* Smooth transition for icon color */
-}
-
-.music-link:hover svg {
-  fill: red; /* Change icon color to red on hover */
 }
 
 main {
