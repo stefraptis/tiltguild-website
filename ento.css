@@ -230,7 +230,7 @@ main {
 
 .platform img {
   margin-right: 10px; /* Space between the icon and text */
-  width: 45px; /* Adjust size as needed */
+  width: 42px; /* Adjust size as needed */
   height: auto;
   flex-shrink: 0; /* Prevent the icon from shrinking */
 }
@@ -264,11 +264,11 @@ main {
 footer {
   text-align: center;
   padding: 20px 0;
-  color: rgb(255, 255, 255); /* White text color */
+  color: rgb(134, 134, 134); /* White text color */
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.389); /* Optional: Footer background color */
+  /*background-color: rgba(0, 0, 0, 0.389); /* Optional: Footer background color */
   bottom: 0;
-  margin-top: auto; /* Push footer to the bottom */
+  margin-top: 3px; /* Push footer to the bottom */
 }
 
 /* Media Queries for Responsive Adjustments */
