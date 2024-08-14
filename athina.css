@@ -264,11 +264,11 @@ main {
 footer {
   text-align: center;
   padding: 20px 0;
-  color: rgb(255, 255, 255); /* White text color */
+  color: rgb(198, 198, 198); /* White text color */
   width: 100%;
   /*background-color: rgba(0, 0, 0, 0.389); /* Optional: Footer background color */
   bottom: 0;
-  margin-top: auto; /* Push footer to the bottom */
+  margin-top: 30px; /* Push footer to the bottom */
 }
 
 /* Media Queries for Responsive Adjustments */
