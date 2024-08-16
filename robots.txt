@@ -1,0 +1,10 @@
+User-agent: *
+Disallow:
+
+Disallow: /private/
+Disallow: /temp/
+
+User-agent: Googlebot
+Disallow:
+
+Sitemap: https://tiltguild.com/sitemap.xml
