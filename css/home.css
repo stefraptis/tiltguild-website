@@ -10,7 +10,7 @@
   position: relative;
   width: 100%;
   height: 100vh; /* Adjust according to banner height */
-  background: url('images/tilt_guild_band_rehearsal.jpg') no-repeat center center;
+  background: url('../images/tilt_guild_band_rehearsal.jpg') no-repeat center center;
   background-size: cover; /* Cover the entire section */
   display: flex;
   align-items: center; /* Center text vertically */
