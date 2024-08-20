@@ -104,7 +104,7 @@
 
 .band-member {
     display: flex;
-    align-items: center; /* Center the content vertically */
+    align-items: flex-start; /* Align items to the top */
     position: relative;
     overflow: hidden;
     border-radius: 8px;
@@ -112,21 +112,20 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     padding: 1rem;
     height: 100%; /* Ensure each grid item fills its space */
-    text-align: left; /* Align text to the left */
 }
 
 .band-member img {
-    width: 40%;
+    width: 30%; /* Smaller image size */
     height: auto;
     border-radius: 8px;
     margin-right: 1rem;
 }
 
 .band-member-content {
+    width: 70%; /* Remaining width for text content */
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 60%; /* Ensure the text content doesn't overflow */
 }
 
 .instrument {
@@ -155,11 +154,12 @@
 
     .band-member {
         flex-direction: column; /* Stack image and text vertically on smaller screens */
+        align-items: center; /* Center align items vertically */
         text-align: center;
     }
 
     .band-member img {
-        width: 100%;
+        width: 60%; /* Adjust image size on smaller screens */
         margin-right: 0;
         margin-bottom: 1rem;
     }
