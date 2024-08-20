@@ -122,13 +122,13 @@
             flex-direction: row; /* Arrange images horizontally */
             align-items: center;
             margin-right: 1rem; /* Space between images and text */
-            width: 90%; /* Adjust width for images container */
+            width: 100%; /* Adjust width for images container */
             gap: 1rem;
         }
 
         .band-member img {
             width: 20%;
-            height: 50%;
+            height: 90%;
             border-radius: 8px;
             margin-bottom: 0.5rem;
         }
