@@ -91,54 +91,65 @@
     vertical-align: middle; /* Align the icons better within the link */
   }
   
-/* Grid layout similar to discography */
-.band-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 1rem;
-    padding: 1rem;
-    position: relative;
-}
+        /* Grid layout for four equal parts */
+        .band-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 2 columns */
+            grid-template-rows: repeat(2, 1fr); /* 2 rows */
+            gap: 1rem;
+            height: 100vh; /* Make the grid fill the viewport height */
+            padding: 1rem;
+            box-sizing: border-box;
+        }
 
-.band-member {
-    position: relative;
-    overflow: hidden;
-    border-radius: 8px;
-    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    padding: 1rem;
-    text-align: center; /* Center the text content */
-}
+        .band-member {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            background-color: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 1rem;
+            text-align: center;
+            height: 100%; /* Ensure each grid item fills its space */
+        }
 
-.band-member img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 8px;
-    margin-bottom: 0.5rem; /* Space between image and text */
-}
+        .band-member img {
+            width: 80%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 0.5rem;
+        }
 
-.instrument {
-    font-size: 1.25rem;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-}
+        .instrument {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
 
-.name {
-    font-size: 1.15rem;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-}
+        .name {
+            font-size: 1.15rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
 
-.bio {
-    font-size: 1rem;
-    padding: 0 0.5rem;
-}
+        .bio {
+            font-size: 1rem;
+            padding: 0 0.5rem;
+        }
 
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-    .band-grid {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto;
-    }
-}
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .band-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(4, 1fr); /* Stack all four items in a single column */
+                height: auto;
+            }
+
+            .band-member {
+                height: auto;
+            }
+        }
