@@ -123,13 +123,12 @@
             align-items: center;
             margin-right: 1rem; /* Space between images and text */
             width: 90%; /* Adjust width for images container */
-            overflow-x: auto; /* Allow horizontal scrolling if necessary */
             gap: 1rem;
         }
 
         .band-member img {
             width: 20%;
-            height: auto;
+            height: 50%;
             border-radius: 8px;
             margin-bottom: 0.5rem;
         }
