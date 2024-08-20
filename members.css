@@ -128,8 +128,8 @@
 
         .band-member img {
             width: 20%;
-            height: 80%;
-            border-radius: 8px;
+            height: auto;
+            border-radius: 3px;
             margin-bottom: 0.5rem;
         }
 
