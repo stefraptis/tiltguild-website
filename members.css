@@ -15,7 +15,7 @@
     background: url('../images/studio_image.jpg') no-repeat center center;
     background-size: cover;
     filter: blur(8px); /* Adjust the blur level as needed */
-    z-index: -1; /* Send the background behind other content */
+    z-index: -1; /* Send the background behind othercontent */
   }
   
   /* Ensure the content of the page is above the background */
