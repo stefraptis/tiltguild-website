@@ -1,51 +1,174 @@
-body {
-    font-family: Arial, sans-serif;
+/* Basic Reset */
+* {
     margin: 0;
     padding: 0;
-    background-color: #f0f0f0;
-}
-
-header {
-    text-align: center;
-    padding: 20px;
-    background-color: #333;
+    box-sizing: border-box;
+  }
+  
+  /* Container for the blurred background */
+  .background-container {
+    position: fixed; /* Fixed position to cover the entire viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../images/studio_image.jpg') no-repeat center center;
+    background-size: cover;
+    filter: blur(8px); /* Adjust the blur level as needed */
+    z-index: -1; /* Send the background behind other content */
+  }
+  
+  /* Ensure the content of the page is above the background */
+  .page-content {
+    position: relative; /* Ensure the content sits above the background */
+    z-index: 1; /* Place content above the blurred background */
+    padding: 2rem; /* Add padding for content spacing */
+  }
+  
+  /* Body Styles */
+  body {
+    font-family: 'Helvetica Neue', Arial, sans-serif; /* Set Helvetica Neue as the primary font */
+    background-color: #f0f0f0; /* Light gray background */
+    color: #333; /* Dark text color */
+    height: 100vh; /* Full height of the viewport */
+    min-height: 100vh; /* Allow for content to determine height */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Prevents overflow from blurring */
+    overflow-y: auto;
+  }
+  
+  .banner {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.932);
     color: white;
-}
-
-.band-grid {
+    padding: 0 1.5rem; /* Removed top and bottom padding */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+    position: relative; /* Ensure the banner is positioned correctly */
+    display: flex;
+    align-items: center; /* Vertically center the content */
+    height: 60px; /* Set a specific height for the banner */
+  }
+  
+  .banner-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: auto;
+    margin: 0 auto;
+    width: 100%; /* Ensure it uses the full width of the container */
+    height: 100%; /* Ensure content fits within the banner height */
+    padding-left:0;
+  }
+  
+  .banner-logo {
+    margin-left: -20px; /* Move logo further to the left */
+  }
+  
+  .banner-logo img {
+    width: 5rem; /* Reduce logo size */
+    height: auto; /* Maintain aspect ratio */
+  }
+  
+  .banner-title h2 {
+    font-size: 1.2rem; /* Reduce title font size */
+    text-align: center;
+    align-items: center;
+    margin: 0;
+    flex: 1; /* Allow the title to grow and take up available space */
+  }
+  
+  .banner-socials a {
+    margin-left: 1rem; /* Margin in rem units for spacing between social icons */
+    text-decoration: none; /* Remove the underline */
+    color: inherit; /* Inherit the color from the parent element (white in this case) */
+  }
+  
+  .banner-socials img {
+    width: 1.5rem; /* Social media icons size in rem units */
+    height: auto; /* Maintain aspect ratio */
+    vertical-align: middle; /* Align the icons better within the link */
+  }
+  
+  /* Band Grid */
+  .band-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
     padding: 20px;
-}
-
-.band-member {
+  }
+  
+  /* Band Member Card */
+  .band-member {
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     text-align: center;
     padding: 15px;
-}
-
-.instrument {
+    position: relative;
+  }
+  
+  /* Instrument as Header */
+  .instrument {
     font-size: 1.5em;
     color: #555;
-}
-
-.member-photo {
+    margin-bottom: 10px;
+  }
+  
+  /* Member Photo */
+  .member-photo {
     width: 100%;
     height: auto;
     border-radius: 50%;
     margin-bottom: 15px;
-}
-
-.name {
+  }
+  
+  /* Member Name */
+  .name {
     font-size: 1.2em;
     margin-bottom: 10px;
-}
-
-.bio {
+  }
+  
+  /* Member Bio */
+  .bio {
     font-size: 1em;
     color: #777;
-}
+  }
+  
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 20px 0;
+    color: rgb(255, 255, 255); /* White text color */
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.389); /* Footer background color */
+    position: relative; /* Keep it below the content */
+    bottom: 0;
+    margin-top: auto; /* Push footer to the bottom */
+  }
+  
+  /* Responsive Adjustments */
+  @media screen and (max-width: 768px) {
+    .band-grid {
+      grid-template-columns: 1fr;
+    }
+  
+    .band-member {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+  
+    .banner-title h2 {
+        font-size: 0.9rem; /* Adjust font size for smaller screens */
+    }
+  
+    .banner-logo img {
+        width: 3rem; /* Further adjust logo size for smaller screens */
+    }
+  
+    .banner-socials img {
+        width: 1.2rem; /* Further adjust social media icons size for smaller screens */
+    }
+  }  
