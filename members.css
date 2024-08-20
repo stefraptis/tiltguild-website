@@ -91,84 +91,67 @@
     vertical-align: middle; /* Align the icons better within the link */
   }
   
-  /* Band Grid */
-  .band-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    padding: 20px;
-  }
-  
-  /* Band Member Card */
-  .band-member {
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    text-align: center;
-    padding: 15px;
-    position: relative;
-  }
-  
-  /* Instrument as Header */
-  .instrument {
-    font-size: 1.5em;
-    color: #555;
-    margin-bottom: 10px;
-  }
-  
-  /* Member Photo */
-  .member-photo {
-    width: 100%;
-    height: auto;
-    border-radius: 50%;
-    margin-bottom: 15px;
-  }
-  
-  /* Member Name */
-  .name {
-    font-size: 1.2em;
-    margin-bottom: 10px;
-  }
-  
-  /* Member Bio */
-  .bio {
-    font-size: 1em;
-    color: #777;
-  }
-  
-  /* Footer */
-  footer {
-    text-align: center;
-    padding: 20px 0;
-    color: rgb(255, 255, 255); /* White text color */
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.389); /* Footer background color */
-    position: relative; /* Keep it below the content */
-    bottom: 0;
-    margin-top: auto; /* Push footer to the bottom */
-  }
-  
-  /* Responsive Adjustments */
-  @media screen and (max-width: 768px) {
-    .band-grid {
-      grid-template-columns: 1fr;
-    }
-  
-    .band-member {
-      width: 100%;
-      margin-bottom: 20px;
-    }
-  
-    .banner-title h2 {
-        font-size: 0.9rem; /* Adjust font size for smaller screens */
-    }
-  
-    .banner-logo img {
-        width: 3rem; /* Further adjust logo size for smaller screens */
-    }
-  
-    .banner-socials img {
-        width: 1.2rem; /* Further adjust social media icons size for smaller screens */
-    }
-  }  
+          /* Basic Grid Layout */
+          .band-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 1rem; /* Space between grids */
+            height: 100vh; /* Full height of the viewport */
+            padding: 1rem; /* Add padding around the grid */
+        }
+
+        .band-member {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+            padding: 1rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 8px; /* Slightly rounded corners */
+        }
+
+        .instrument {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+
+        .member-photo {
+            width: 80%;
+            height: auto;
+            margin-bottom: 0.5rem;
+            border-radius: 8px; /* Subtle rounded corners */
+        }
+
+        .name {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+
+        .bio {
+            font-size: 1rem;
+            text-align: center;
+            padding: 0 0.5rem; /* Padding to prevent text from hitting the sides */
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .band-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(4, 1fr);
+            }
+
+            .band-member {
+                padding: 1rem;
+            }
+
+            .member-photo {
+                width: 100%;
+                margin-bottom: 1rem;
+            }
+        }
