@@ -122,14 +122,15 @@
             flex-direction: row; /* Arrange images horizontally */
             align-items: center;
             margin-right: 1rem; /* Space between images and text */
-            width: 100%; /* Adjust width for images container */
+            width: 90%; /* Adjust width for images container */
+            overflow-x: auto; /* Allow horizontal scrolling if necessary */
             gap: 1rem;
         }
 
         .band-member img {
             width: 20%;
             height: auto;
-            border-radius: 3px;
+            border-radius: 8px;
             margin-bottom: 0.5rem;
         }
 
