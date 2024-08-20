@@ -122,7 +122,7 @@
             flex-direction: row; /* Arrange images horizontally */
             align-items: center;
             margin-right: 1rem; /* Space between images and text */
-            width: 20%; /* Adjust width for images container */
+            width: 100%; /* Adjust width for images container */
             overflow-x: auto; /* Allow horizontal scrolling if necessary */
         }
 
