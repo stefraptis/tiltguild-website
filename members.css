@@ -117,6 +117,15 @@
             height: 100%; /* Ensure each grid item fills its space */
         }
 
+        .band-member .images {
+            display: flex;
+            flex-direction: row; /* Arrange images horizontally */
+            align-items: center;
+            margin-right: 1rem; /* Space between images and text */
+            width: 20%; /* Adjust width for images container */
+            overflow-x: auto; /* Allow horizontal scrolling if necessary */
+        }
+
         .band-member img {
             width: 20%;
             height: auto;
