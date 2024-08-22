@@ -134,7 +134,7 @@
 }
 
 .band-member img {
-  max-height: 250px; /* Set maximum height for images to avoid vertical scrollbar */
+  max-height: 300px; /* Set maximum height for images to avoid vertical scrollbar */
   width: auto; /* Maintain aspect ratio */
   border-radius: 8px;
 }
