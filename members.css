@@ -91,75 +91,82 @@
     vertical-align: middle; /* Align the icons better within the link */
   }
   
-        /* Grid layout for four equal parts */
-        .band-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr); /* 2 columns */
-            grid-template-rows: repeat(2, 1fr); /* 2 rows */
-            gap: 1rem;
-            height: 100vh; /* Make the grid fill the viewport height */
-            padding: 1rem;
-            box-sizing: border-box;
-        }
+/* Grid layout for four equal parts */
+.band-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns */
+  grid-template-rows: repeat(2, 1fr); /* 2 rows */
+  gap: 1rem;
+  height: 100vh; /* Make the grid fill the viewport height */
+  padding: 1rem;
+  box-sizing: border-box;
+}
 
-        .band-member {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-            border-radius: 8px;
-            background-color: rgba(255, 255, 255, 0.8);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            padding: 1rem;
-            text-align: center;
-            height: 100%; /* Ensure each grid item fills its space */
-        }
+.band-member {
+  display: flex;
+  flex-direction: column; /* Align items vertically */
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+  height: 100%; /* Ensure each grid item fills its space */
+  box-sizing: border-box;
+  overflow: hidden; /* Hide any overflow from images */
+}
 
-        .band-member .images {
-            display: flex;
-            flex-direction: row; /* Arrange images horizontally */
-            align-items: center;
-            margin-right: 1rem; /* Space between images and text */
-            width: 90%; /* Adjust width for images container */
-            overflow-x: auto; /* Allow horizontal scrolling if necessary */
-            gap: 1rem;
-        }
+.band-member .instrument {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
 
-        .band-member img {
-            width: 15%;
-            height: auto;
-            border-radius: 8px;
-            margin-bottom: 0.5rem;
-        }
+.band-member .images {
+  display: flex;
+  flex-direction: row; /* Arrange images horizontally */
+  align-items: center;
+  margin-bottom: 0.5rem; /* Space between images and text */
+  width: 100%; /* Full width for images container */
+  overflow-x: auto; /* Allow horizontal scrolling if necessary */
+  gap: 1rem; /* Space between images */
+}
 
-        .instrument {
-            font-size: 1.25rem;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-        }
+.band-member img {
+  max-height: 150px; /* Set maximum height for images to avoid vertical scrollbar */
+  width: auto; /* Maintain aspect ratio */
+  border-radius: 8px;
+}
 
-        .name {
-            font-size: 1.15rem;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-        }
+.band-member .name {
+  font-size: 1.15rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
 
-        .bio {
-            font-size: 1rem;
-            padding: 0 0.5rem;
-        }
+.band-member .bio {
+  font-size: 1rem;
+  padding: 0 0.5rem;
+}
 
-        /* Responsive Adjustments */
-        @media (max-width: 768px) {
-            .band-grid {
-                grid-template-columns: 1fr;
-                grid-template-rows: repeat(4, 1fr); /* Stack all four items in a single column */
-                height: auto;
-            }
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .band-grid {
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(4, 1fr); /* Stack all four items in a single column */
+      height: auto;
+  }
 
-            .band-member {
-                height: auto;
-            }
-        }
+  .band-member {
+      flex-direction: column; /* Stack image and text vertically on small screens */
+      align-items: center; /* Center items horizontally */
+  }
+
+  .band-member .images {
+      width: 80%; /* Adjust width for images container on small screens */
+      margin-bottom: 0.5rem; /* Space between images and text */
+      overflow-x: auto; /* Allow horizontal scrolling for images */
+      gap: 1rem; /* Space between images */
+  }
+}
