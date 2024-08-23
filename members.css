@@ -23,6 +23,8 @@
     position: relative; /* Ensure the content sits above the background */
     z-index: 1; /* Place content above the blurred background */
     padding: 2rem; /* Add padding for content spacing */
+    flex-grow: 1;
+    padding-bottom: 60px;
   }
   
   /* Body Styles */
@@ -34,6 +36,7 @@ body {
   display: flex;
   flex-direction: column;
   overflow-y: auto;
+  min-height: 100vh;
 }
 
 .banner {
