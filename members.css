@@ -223,7 +223,7 @@ footer {
   color: rgb(255, 255, 255); /* White text color */
   width: 100%;
   background-color: rgba(0, 0, 0, 0.389); /* Optional: Footer background color */
-  position: absolute; /* Absolute positioning */
+  position: relative; /* Absolute positioning */
   bottom: 0; /* Stick to the bottom of the page */
   left: 0; /* Align it to the left edge */
   margin-top: auto;
