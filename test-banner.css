@@ -106,7 +106,7 @@ body {
 
 /* Style for burger menu */
 .burger-menu {
-  display: none;
+  display: none; /* Hidden by default */
   cursor: pointer;
   flex-direction: column;
   justify-content: space-between;
@@ -182,7 +182,7 @@ footer {
 /* Responsive Design for Mobile */
 @media (max-width: 768px) {
   .burger-menu {
-    display: flex;
+    display: flex; /* Show burger menu on mobile */
   }
 
   .banner-title {
@@ -194,7 +194,7 @@ footer {
   }
 
   .nav-menu {
-    display: none;
+    display: none; /* Hide nav menu by default */
     position: absolute;
     top: 60px; /* Adjust if needed */
     left: 0;
@@ -204,7 +204,7 @@ footer {
   }
 
   .nav-menu.active {
-    display: flex;
+    display: flex; /* Show nav menu when active */
   }
 
   .nav-menu ul {
@@ -225,13 +225,13 @@ footer {
   }
 }
 
-/* Hide banner on larger screens */
+/* Hide burger menu and nav menu on larger screens */
 @media (min-width: 769px) {
   .burger-menu {
-    display: none;
+    display: none; /* Hide burger menu on desktop */
   }
 
   .nav-menu {
-    display: flex; /* Show nav menu on larger screens */
+    display: none; /* Ensure nav menu is hidden on desktop */
   }
 }
