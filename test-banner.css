@@ -1,0 +1,385 @@
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Container for the blurred background */
+.background-container {
+  position: fixed; /* Fixed position to cover the entire viewport */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('../images/studio_image.jpg') no-repeat center center;
+  background-size: cover;
+  filter: blur(8px); /* Adjust the blur level as needed */
+  z-index: -1; /* Send the background behind other content */
+}
+
+/* Ensure the content of the page is above the background */
+.page-content {
+  position: relative; /* Ensure the content sits above the background */
+  z-index: 1; /* Place content above the blurred background */
+  padding: 2rem; /* Add padding for content spacing */
+}
+
+/* Body Styles */
+body {
+  font-family: 'Helvetica Neue', Arial, sans-serif; /* Set Helvetica Neue as the primary font */
+  background-color: #f0f0f0; /* Light gray background */
+  color: #333; /* Dark text color */
+  height: 100vh; /* Full height of the viewport */
+  min-height: 100vh; /* Allow for content to determine height */
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Prevents overflow from blurring */
+  overflow-y: auto;
+}
+
+.banner {
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.932);
+  color: white;
+  padding: 0 1.5rem; /* Removed top and bottom padding */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+  position: relative; /* Ensure the banner is positioned correctly */
+  display: flex;
+  align-items: center; /* Vertically center the content */
+  height: 60px; /* Set a specific height for the banner */
+}
+
+.banner-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: auto;
+  margin: 0 auto;
+  width: 100%; /* Ensure it uses the full width of the container */
+  height: 100%; /* Ensure content fits within the banner height */
+  padding-left:0;
+}
+
+.banner-logo {
+  margin-left: -20px; /* Move logo further to the left */
+}
+
+.banner-logo img {
+  width: 5rem; /* Reduce logo size */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.banner-title h2 {
+  font-size: 1.2rem; /* Reduce title font size */
+  text-align: center;
+  align-items: center;
+  margin: 0;
+  flex: 1; /* Allow the title to grow and take up available space */
+}
+
+.banner-socials a {
+  margin-left: 1rem; /* Margin in rem units for spacing between social icons */
+  text-decoration: none; /* Remove the underline */
+  color: inherit; /* Inherit the color from the parent element (white in this case) */
+}
+
+.banner-socials img {
+  width: 1.5rem; /* Social media icons size in rem units */
+  height: auto; /* Maintain aspect ratio */
+  vertical-align: middle; /* Align the icons better within the link */
+}
+
+/* Banner Title */
+.banner-title {
+  flex-grow: 1; /* Takes up remaining space */
+  text-align: center;
+}
+
+/* Banner Socials */
+.banner-socials {
+  display: flex;
+  align-items: center;
+  margin-left: auto; /* Pushes socials to the far right */
+}
+
+/* Music Button Style */
+.music-link {
+  color: white;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  transition: color 0.3s ease;
+}
+
+.music-link:hover {
+  color: red; /* Change text color to red on hover */
+  background-color: transparent; /* Remove background color on hover */
+}
+
+/* Backslash Icon Styling */
+.icon-backslash {
+  margin-left: 0.5rem; /* Space between text and backslash */
+  font-size: 1rem; /* Size of the backslash */
+  transition: color 0.3s ease; /* Smooth transition for icon color */
+}
+
+.music-link:hover .icon-backslash {
+  color: red; /* Change backslash color to red on hover */
+}
+
+/* SVG Icon Styling */
+.music-link svg {
+  margin-left: 0.5rem; /* Space between text and icon */
+  fill: white; /* Ensure the icon color matches the text */
+  width: 1rem;
+  height: 1rem;
+  transition: fill 0.3s ease; /* Smooth transition for icon color */
+}
+
+.music-link:hover svg {
+  fill: red; /* Change icon color to red on hover */
+}
+
+main {
+  padding: 1rem;
+}
+
+/* Album Category Styles */
+.album-category {
+  margin: 0.25rem 0; /* Adjusts the space above and below the category */
+}
+
+.album-category h2 {
+  color: white;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.album-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+  position: relative; /* Ensure the grid items are positioned correctly */
+}
+
+.album {
+  position: relative; /* Needed for the overlay positioning */
+  overflow: hidden; /* Hide any overflow from the overlay */
+  border-radius: 8px;
+}
+
+.album img {
+  width: 100%;
+  height: auto;
+  display: block; /* Ensure images are displayed correctly */
+  border-radius: 8px;
+}
+
+.overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 8px;
+  pointer-events: none; /* Ensure clicks pass through to the underlying element */
+}
+
+.album:hover .overlay {
+  opacity: 1;
+}
+
+.release-date {
+  font-size: 1rem;
+  text-align: center;
+}
+
+/* Adjust the footer */
+footer {
+  text-align: center;
+  padding: 20px 0;
+  color: rgb(255, 255, 255); /* White text color */
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.389); /* Optional: Footer background color */
+  position: relative; /* Keep it below the content */
+  bottom: 0;
+  margin-top: auto; /* Push footer to the bottom */
+}
+
+
+/* Media Queries for Responsive Adjustments */
+@media (max-width: 1024px) {
+  .banner-title h2 {
+      font-size: 1rem; /* Adjust font size for medium screens */
+  }
+  
+  .banner-logo img {
+      width: 2.5rem; /* Adjust logo size for medium screens */
+  }
+
+  .banner-socials img {
+      width: 1.5rem; /* Adjust social media icons size for medium screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .album-artwork {
+    height: 60vh; /* Increase the height on smaller screens */
+  }
+
+  .album-artwork img {
+    max-width: 80%;
+    max-height: 80%;
+  }
+}
+
+@media (max-width: 768px) {
+
+  /* Link Section Adjustments for All Screens */
+  .link-section {
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+  }
+
+.banner {
+  height: 60px; /* Slightly reduced height for smaller screens */
+}
+
+.banner-title h2 {
+  font-size: 0.9rem; /* Adjust font size for smaller screens */
+}
+
+.banner-logo img {
+  width: 3rem; /* Further adjust logo size for smaller screens */
+}
+
+.banner-socials img {
+  width: 1.2rem; /* Further adjust social media icons size for smaller screens */
+}
+
+.platform {
+max-width: 70px; /* Further reduce max-width of boxes */
+padding: 0px;
+}
+
+.platform img {
+width: 20px; /* Reduce image width by 25% (from 45px to 33.75px) */
+}
+}
+
+@media (max-width: 480px) {
+
+.banner {
+  height: 40px; /* Further reduced height for very small screens */
+}
+
+.banner-title {
+  display: flex;
+  justify-content: center; /* Horizontally center the title */
+  align-items: center; /* Vertically center the title */
+}
+
+.banner-title h2 {
+  font-size: 0.725rem; /* Reduce title font size */
+  text-align: center;
+  align-items: center;
+  margin: 0;
+}
+
+.banner-logo img {
+  margin-left: -6px; 
+  width: 2.5rem; /* Adjust logo size for very small screens */
+}
+
+.banner-socials img {
+  margin-right: -10px;
+  width: 1rem; /* Adjust social media icons size for very small screens */
+}
+
+/* Bottom Section: Links */
+.link-section {
+  margin-top: 25px;
+  width: 100%;
+  height: 50%; /* Take up the bottom half of the page */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.platform {
+  max-width: 200px;
+  margin: 10px 0;
+  width: 100%; /* The width will be based on the container */
+  padding: 10px;
+  display: flex;
+  align-items: center; /* Vertically center content */
+}
+
+.platform span {
+  font-size: 0.85rem; /* Slightly reduce the font size */
+  color: #333; /* Text color */
+  width: 100%;
+}
+
+.platform img {
+  margin-right: 10px; /* Space between the icon and text */
+  width: 20px; /* Adjust size as needed */
+  height: auto;
+  flex-shrink: 0; /* Prevent the icon from shrinking */
+}
+
+/* Music Button Style */
+.music-link {
+  color: white;
+  font-size: 0.75rem;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  transition: color 0.3s ease;
+}
+
+/* Backslash Icon Styling */
+.icon-backslash {
+  margin-left: 0.35rem; /* Space between text and backslash */
+  font-size: 0.75rem; /* Size of the backslash */
+  transition: color 0.3s ease; /* Smooth transition for icon color */
+}
+
+/* SVG Icon Styling */
+.music-link svg {
+  margin-left: 0.5rem; /* Space between text and icon */
+  fill: white; /* Ensure the icon color matches the text */
+  width: 1rem;
+  height: 1rem;
+  transition: fill 0.3s ease; /* Smooth transition for icon color */
+}
+
+/* Footer */
+footer {
+  font-size: 0.425rem; /* Slightly reduce the font size */
+}
+
+}
