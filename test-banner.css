@@ -1,20 +1,107 @@
-/* styles.css */
-
-/* Basic reset and styling */
-body, ul {
+/* Basic Reset */
+* {
   margin: 0;
   padding: 0;
-  list-style: none;
+  box-sizing: border-box;
+}
+
+/* Full-screen background section */
+.background-section {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Adjust according to banner height */
+  background: url('../images/tilt_guild_band_rehearsal.jpg') no-repeat center center;
+  background-size: cover; /* Cover the entire section */
+  display: flex;
+  align-items: center; /* Center text vertically */
+  justify-content: center; /* Center text horizontally */
+  color: white;
+  text-align: center;
+}
+
+/* Larger text */
+.background-content h1 {
+  font-size: 5rem; /* Adjust size as needed */
+  font-weight: 700;
+  margin: 0;
+  padding: 0;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6); /* Optional: adds shadow for readability */
+}
+
+/* Ensure the content of the page is above the background */
+.page-content {
+  position: relative; /* Ensure the content sits above the background */
+  z-index: 1; /* Place content above the blurred background */
+  padding: 2rem; /* Add padding for content spacing */
+}
+
+/* Body Styles */
+body {
+  font-family: 'Helvetica Neue', Arial, sans-serif; /* Set Helvetica Neue as the primary font */
+  background-color: #f0f0f0; /* Light gray background */
+  color: #333; /* Dark text color */
+  height: 100vh; /* Full height of the viewport */
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Prevents overflow from blurring */
 }
 
 .banner {
-  background-color: #f8f8f8;
-  padding: 10px;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.932);
+  color: white;
+  padding: 0 1.5rem; /* Padding for left and right */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+  position: relative; /* Ensure the banner is positioned correctly */
+  display: flex;
+  align-items: center; /* Vertically center the content */
+  height: 60px; /* Set a specific height for the banner */
+}
+
+/* Banner Content Flexbox */
+.banner-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #ddd;
-  position: relative;
+  width: 100%; /* Ensure it uses the full width of the container */
+}
+
+/* Banner Logo */
+.banner-logo {
+  margin-left: -20px; /* Move logo further to the left */
+}
+
+.banner-logo img {
+  width: 5rem; /* Reduce logo size */
+  height: auto; /* Maintain aspect ratio */
+}
+
+/* Banner Title */
+.banner-title h2 {
+  font-size: 1.2rem; /* Reduce title font size */
+  text-align: center;
+  margin: 0;
+  flex: 1; /* Allow the title to grow and take up available space */
+}
+
+/* Banner Socials */
+.banner-socials {
+  display: flex;
+  align-items: center;
+  margin-left: auto; /* Pushes socials to the far right */
+}
+
+.banner-socials a {
+  margin-left: 1rem; /* Margin in rem units for spacing between social icons */
+  text-decoration: none; /* Remove the underline */
+  color: inherit; /* Inherit the color from the parent element (white in this case) */
+}
+
+.banner-socials img {
+  width: 1.5rem; /* Social media icons size in rem units */
+  height: auto; /* Maintain aspect ratio */
+  vertical-align: middle; /* Align the icons better within the link */
 }
 
 /* Style for burger menu */
@@ -31,91 +118,120 @@ body, ul {
 .burger-menu .line {
   width: 100%;
   height: 3px;
-  background-color: #333;
+  background-color: white; /* Match burger menu color with banner text color */
 }
 
-/* Banner items */
-.banner-logo img {
-  max-height: 50px; /* Adjust as needed */
-}
-
-.banner-music, .banner-socials {
+/* Music Button Style */
+.music-link {
+  color: white;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
   display: flex;
   align-items: center;
+  height: 100%;
+  transition: color 0.3s ease;
 }
 
-.banner-music a, .banner-socials a {
-  margin: 0 10px;
+.music-link:hover {
+  color: red; /* Change text color to red on hover */
+  background-color: transparent; /* Remove background color on hover */
 }
 
-.banner-socials img {
-  max-height: 25px; /* Adjust as needed */
+/* Backslash Icon Styling */
+.icon-backslash {
+  margin-left: 0.5rem; /* Space between text and backslash */
+  font-size: 1rem; /* Size of the backslash */
+  transition: color 0.3s ease; /* Smooth transition for icon color */
 }
 
-/* Hide banner and burger menu on larger screens */
-@media (min-width: 769px) {
-  .banner {
-      display: flex;
-  }
-
-  .burger-menu {
-      display: none;
-  }
-
-  .nav-menu {
-      display: flex;
-  }
+.music-link:hover .icon-backslash {
+  color: red; /* Change backslash color to red on hover */
 }
 
-/* Responsive design for mobile */
+/* SVG Icon Styling */
+.music-link svg {
+  margin-left: 0.5rem; /* Space between text and icon */
+  fill: white; /* Ensure the icon color matches the text */
+  width: 1rem;
+  height: 1rem;
+  transition: fill 0.3s ease; /* Smooth transition for icon color */
+}
+
+.music-link:hover svg {
+  fill: red; /* Change icon color to red on hover */
+}
+
+main {
+  padding: 1rem;
+}
+
+/* Footer styling */
+footer {
+  text-align: center;
+  padding: 20px 0;
+  color: rgb(255, 255, 255); /* White text color */
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.389); /* Optional: Footer background color */
+  position: absolute; /* Keep it at the bottom of the viewport */
+  bottom: 0;
+}
+
+/* Responsive Design for Mobile */
 @media (max-width: 768px) {
-  .banner {
-      flex-wrap: wrap;
+  .burger-menu {
+    display: flex;
   }
 
-  .banner-content {
-      flex: 1;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+  .banner-title {
+    display: none; /* Hide title on mobile if needed */
   }
 
   .banner-music, .banner-socials {
-      display: none;
-  }
-
-  .burger-menu {
-      display: flex;
+    display: none; /* Hide music links and socials on mobile */
   }
 
   .nav-menu {
-      display: none;
-      position: absolute;
-      top: 60px; /* Adjust if needed */
-      left: 0;
-      right: 0;
-      background-color: #f8f8f8;
-      flex-direction: column;
+    display: none;
+    position: absolute;
+    top: 60px; /* Adjust if needed */
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.932); /* Match banner background */
+    flex-direction: column;
   }
 
   .nav-menu.active {
-      display: flex;
+    display: flex;
   }
 
   .nav-menu ul {
-      display: flex;
-      flex-direction: column;
-      padding: 0;
-      margin: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
   }
 
   .nav-menu li {
-      margin: 10px 0;
-      text-align: center;
+    margin: 10px 0;
+    text-align: center;
   }
 
   .nav-menu a {
-      text-decoration: none;
-      color: #333;
+    text-decoration: none;
+    color: white; /* Match menu link color with banner text */
+  }
+}
+
+/* Hide banner on larger screens */
+@media (min-width: 769px) {
+  .burger-menu {
+    display: none;
+  }
+
+  .nav-menu {
+    display: flex; /* Show nav menu on larger screens */
   }
 }
