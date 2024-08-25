@@ -79,6 +79,7 @@ body {
   flex: 1; /* Allow the title to grow and take up available space */
 }
 
+/* Social Media Icons */
 .banner-socials a {
   margin-left: 1rem; /* Margin in rem units for spacing between social icons */
   text-decoration: none; /* Remove the underline */
@@ -102,6 +103,65 @@ body {
   display: flex;
   align-items: center;
   margin-left: auto; /* Pushes socials to the far right */
+}
+
+/* Burger Menu Styling */
+.burger-menu {
+  display: none; /* Hidden by default */
+  cursor: pointer;
+  z-index: 1100; /* Ensure it appears above other elements */
+}
+
+.burger-menu span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px 0;
+  background-color: white; /* Match banner text color */
+  transition: 0.3s ease;
+}
+
+/* Mobile Navigation Styling */
+.mobile-nav {
+  display: none; /* Hidden by default */
+  background-color: rgba(0, 0, 0, 0.9); /* Dark background for the menu */
+  position: absolute;
+  top: 60px; /* Position it below the banner */
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Ensure it overlays content */
+}
+
+.mobile-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mobile-nav ul li {
+  border-bottom: 1px solid #444; /* Divider between menu items */
+}
+
+.mobile-nav ul li a {
+  color: white; /* Match banner text color */
+  padding: 15px 20px;
+  display: block;
+  text-decoration: none;
+}
+
+.mobile-nav ul li a:hover {
+  background-color: #555; /* Highlight menu item on hover */
+}
+
+/* Social Media in Mobile Navigation */
+.mobile-nav .mobile-socials {
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+}
+
+.mobile-nav .mobile-socials a {
+  margin: 0 10px;
 }
 
 /* Music Button Style */
@@ -220,7 +280,6 @@ footer {
   margin-top: auto; /* Push footer to the bottom */
 }
 
-
 /* Media Queries for Responsive Adjustments */
 @media (max-width: 1024px) {
   .banner-title h2 {
@@ -237,149 +296,137 @@ footer {
 }
 
 @media (max-width: 768px) {
-  .album-artwork {
-    height: 60vh; /* Increase the height on smaller screens */
+
+    /* Link Section Adjustments for All Screens */
+    .link-section {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 0.5rem;
+      padding-left: 10px;
+    }
+    
+    .music-link {
+      color: white;
+      font-size: 0.875rem; /* Slightly smaller font size */
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem 1rem;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      height: 100%;
+      transition: color 0.3s ease;
+    }
+    
+    .music-link:hover {
+      color: red; /* Change text color to red on hover */
+      background-color: transparent; /* Remove background color on hover */
+    }
+    
+    .icon-backslash {
+      margin-left: 0.5rem; /* Space between text and backslash */
+      font-size: 1rem; /* Size of the backslash */
+      transition: color 0.3s ease; /* Smooth transition for icon color */
+    }
+    
+    .music-link:hover .icon-backslash {
+      color: red; /* Change backslash color to red on hover */
+    }
+    
+    /* SVG Icon Styling */
+    .music-link svg {
+      margin-left: 0.5rem; /* Space between text and icon */
+      fill: white; /* Ensure the icon color matches the text */
+      width: 1rem;
+      height: 1rem;
+      transition: fill 0.3s ease; /* Smooth transition for icon color */
+    }
+    
+    .music-link:hover svg {
+      fill: red; /* Change icon color to red on hover */
+    }
+
+    /* Hide regular banner socials and show mobile-nav */
+    .banner-socials {
+      display: none;
+    }
+
+    .burger-menu {
+      display: block;
+    }
+
+    .mobile-nav {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 60px; /* Below the banner */
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .mobile-nav ul {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      width: 100%;
+    }
+
+    .mobile-nav ul li {
+      padding: 10px 20px;
+      border-bottom: 1px solid #444;
+    }
+
+    .mobile-nav ul li a {
+      color: white;
+      text-decoration: none;
+      display: block;
+      width: 100%;
+    }
+
+    .mobile-nav ul li a:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .mobile-nav .mobile-socials {
+      display: flex;
+      justify-content: center;
+      padding: 10px 0;
+      width: 100%;
+    }
+
+    .mobile-nav .mobile-socials a {
+      margin: 0 10px;
+    }
+
+    /* Ensure the mobile nav shows when activated */
+    .mobile-nav.active {
+      display: flex;
+      flex-direction: column;
+    }
+
   }
-
-  .album-artwork img {
-    max-width: 80%;
-    max-height: 80%;
-  }
-}
-
-@media (max-width: 768px) {
-
-  /* Link Section Adjustments for All Screens */
-  .link-section {
-    width: 75%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 10px 0;
-  }
-
-.banner {
-  height: 60px; /* Slightly reduced height for smaller screens */
-}
-
-.banner-title h2 {
-  font-size: 0.9rem; /* Adjust font size for smaller screens */
-}
-
-.banner-logo img {
-  width: 3rem; /* Further adjust logo size for smaller screens */
-}
-
-.banner-socials img {
-  width: 1.2rem; /* Further adjust social media icons size for smaller screens */
-}
-
-.platform {
-max-width: 70px; /* Further reduce max-width of boxes */
-padding: 0px;
-}
-
-.platform img {
-width: 20px; /* Reduce image width by 25% (from 45px to 33.75px) */
-}
-}
 
 @media (max-width: 480px) {
 
-.banner {
-  height: 40px; /* Further reduced height for very small screens */
-}
+  .banner-title h2 {
+    font-size: 0.875rem; /* Reduce title font size further */
+  }
 
-.banner-title {
-  display: flex;
-  justify-content: center; /* Horizontally center the title */
-  align-items: center; /* Vertically center the title */
-}
+  .banner-logo img {
+    width: 2rem; /* Further reduce logo size */
+  }
 
-.banner-title h2 {
-  font-size: 0.725rem; /* Reduce title font size */
-  text-align: center;
-  align-items: center;
-  margin: 0;
-}
+  .burger-menu span {
+    width: 20px; /* Adjust burger menu icon size */
+    height: 2px;
+  }
 
-.banner-logo img {
-  margin-left: -6px; 
-  width: 2.5rem; /* Adjust logo size for very small screens */
-}
+  .mobile-nav ul li {
+    padding: 10px 15px; /* Adjust padding in the mobile menu */
+  }
 
-.banner-socials img {
-  margin-right: -10px;
-  width: 1rem; /* Adjust social media icons size for very small screens */
-}
-
-/* Bottom Section: Links */
-.link-section {
-  margin-top: 25px;
-  width: 100%;
-  height: 50%; /* Take up the bottom half of the page */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.platform {
-  max-width: 200px;
-  margin: 10px 0;
-  width: 100%; /* The width will be based on the container */
-  padding: 10px;
-  display: flex;
-  align-items: center; /* Vertically center content */
-}
-
-.platform span {
-  font-size: 0.85rem; /* Slightly reduce the font size */
-  color: #333; /* Text color */
-  width: 100%;
-}
-
-.platform img {
-  margin-right: 10px; /* Space between the icon and text */
-  width: 20px; /* Adjust size as needed */
-  height: auto;
-  flex-shrink: 0; /* Prevent the icon from shrinking */
-}
-
-/* Music Button Style */
-.music-link {
-  color: white;
-  font-size: 0.75rem;
-  border: none;
-  cursor: pointer;
-  padding: 0.5rem 1rem;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  height: 100%;
-  transition: color 0.3s ease;
-}
-
-/* Backslash Icon Styling */
-.icon-backslash {
-  margin-left: 0.35rem; /* Space between text and backslash */
-  font-size: 0.75rem; /* Size of the backslash */
-  transition: color 0.3s ease; /* Smooth transition for icon color */
-}
-
-/* SVG Icon Styling */
-.music-link svg {
-  margin-left: 0.5rem; /* Space between text and icon */
-  fill: white; /* Ensure the icon color matches the text */
-  width: 1rem;
-  height: 1rem;
-  transition: fill 0.3s ease; /* Smooth transition for icon color */
-}
-
-/* Footer */
-footer {
-  font-size: 0.425rem; /* Slightly reduce the font size */
-}
-
+  .mobile-nav .mobile-socials a {
+    margin: 0 5px; /* Reduce space between social icons */
+  }
 }

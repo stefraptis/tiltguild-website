@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tilt Guild - Discography</title>
     <link rel="icon" href="../images/logos/tilt_guild_logo_for_website.png" type="image/x-icon">
-    <link rel="stylesheet" href="test-banner.css">
+    <link rel="stylesheet" href="../css/discography.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 
@@ -16,8 +16,8 @@
             <!-- Logo on the Left -->
             <div class="banner-logo">
                 <a href="/home/">
-                <img src="../images/logos/tilt_guild_logo_for_website.png" alt="Logo">
-            </a>
+                    <img src="../images/logos/tilt_guild_logo_for_website.png" alt="Logo">
+                </a>
             </div>
     
             <div class="banner-music">
@@ -26,57 +26,73 @@
                 </a>
             </div>
             <div class="banner-music">
-              <a href="/band/members/" class="music-link">
-                  BAND MEMBERS <span class="icon-backslash">\</span>
-              </a>
-          </div>
-            
-            <!-- Social Media Links on the Right -->
-            <div class="banner-socials">
-                <a href="https://open.spotify.com/artist/4JeQcTsHEnzwCQTTTYFG8k?si=a4d4f214aa3940b3" target="_blank">
-                    <img src="../images/logos/spotify_logo_green.png" alt="Spotify">
-                </a>
-                <a href="https://www.tiktok.com/@tiltguild" target="_blank">
-                    <img src="../images/logos/tik_tok_logo.png" alt="TikTok">
-                </a>
-                <a href="https://www.instagram.com/tiltguild/" target="_blank">
-                    <img src="../images/logos/instagram_logo.png" alt="Instagram">
-                </a>
-                <a href="https://www.facebook.com/profile.php?id=61561883835650" target="_blank">
-                    <img src="../images/logos/facebook_logo.png" alt="Facebook">
+                <a href="/band/members/" class="music-link">
+                    BAND MEMBERS <span class="icon-backslash">\</span>
                 </a>
             </div>
+            
+            <!-- Burger Menu Icon for Mobile -->
+            <div class="burger-menu" id="burger-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
+
+        <!-- Mobile Navigation (Burger Menu) -->
+        <nav class="mobile-nav" id="mobile-nav">
+            <ul>
+                <li><a href="/discography/">Discography</a></li>
+                <li><a href="/band/members/">Band Members</a></li>
+                <li><a href="https://open.spotify.com/artist/4JeQcTsHEnzwCQTTTYFG8k?si=a4d4f214aa3940b3" target="_blank">Spotify</a></li>
+                <li><a href="https://www.tiktok.com/@tiltguild" target="_blank">TikTok</a></li>
+                <li><a href="https://www.instagram.com/tiltguild/" target="_blank">Instagram</a></li>
+                <li><a href="https://www.facebook.com/profile.php?id=61561883835650" target="_blank">Facebook</a></li>
+            </ul>
+        </nav>
     </div>
 
     <main>
         <section class="album-category">
-          <h2>Singles</h2>
-          <div class="album-grid">
-            <!-- ATHINA -->
-            <div class="album">
-              <a href="/discography/singles/athina/">
-                <img src="../images/Music Artworks/ATHINA.png" alt="Single 1">
-                <div class="overlay">
-                  <span class="release-date">Release Date: 27/08/2024</span>
+            <h2>Singles</h2>
+            <div class="album-grid">
+                <!-- ATHINA -->
+                <div class="album">
+                    <a href="/discography/singles/athina/">
+                        <img src="../images/Music Artworks/ATHINA.png" alt="Single 1">
+                        <div class="overlay">
+                            <span class="release-date">Release Date: 27/08/2024</span>
+                        </div>
+                    </a>
                 </div>
-              </a>
+                <!-- ENTO -->
+                <div class="album">
+                    <a href="/discography/singles/ento/">
+                        <img src="../images/Music Artworks/ento_cover.png" alt="Single 2">
+                        <div class="overlay">
+                            <span class="release-date">Release Date: 10/07/2024</span>
+                        </div>
+                    </a>
+                </div>
             </div>
-            <!-- ENTO -->
-            <div class="album">
-                <a href="/discography/singles/ento/">
-                  <img src="../images/Music Artworks/ento_cover.png" alt="Single 2">
-                  <div class="overlay">
-                    <span class="release-date">Release Date: 10/07/2024</span>
-                  </div>
-                </a>
-              </div>
-          </div>
         </section>
-      </main>
+    </main>
 
-      <footer>
+    <footer>
         <p>&copy; 2024 Tilt Guild. All rights reserved.</p>
     </footer>
 
+    <!-- JavaScript to handle the burger menu toggle -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const burgerIcon = document.getElementById('burger-icon');
+            const mobileNav = document.getElementById('mobile-nav');
+
+            burgerIcon.addEventListener('click', function () {
+                mobileNav.classList.toggle('active');
+                burgerIcon.classList.toggle('active');
+            });
+        });
+    </script>
 </body>
+</html>
