@@ -113,12 +113,36 @@ body {
   width: 30px;
   height: 20px;
   margin-left: auto; /* Push the burger menu to the right */
+  position: relative;
+  transition: transform 0.3s ease; /* Smooth transition for the transform */
 }
 
 .burger-menu .line {
   width: 100%;
   height: 3px;
   background-color: white; /* Match burger menu color with banner text color */
+  transition: background-color 0.3s ease; /* Smooth transition for the color change */
+}
+
+/* Transform burger menu into X symbol when active */
+.burger-menu.active .line:nth-child(1) {
+  transform: rotate(45deg);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform-origin: left center;
+}
+
+.burger-menu.active .line:nth-child(2) {
+  opacity: 0; /* Hide the middle line */
+}
+
+.burger-menu.active .line:nth-child(3) {
+  transform: rotate(-45deg);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform-origin: left center;
 }
 
 /* Music Button Style */
@@ -201,6 +225,7 @@ footer {
     right: 0;
     background-color: rgba(0, 0, 0, 0.932); /* Match banner background */
     flex-direction: column;
+    padding: 1rem; /* Add padding for content spacing */
   }
 
   .nav-menu.active {

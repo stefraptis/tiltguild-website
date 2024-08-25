@@ -65,23 +65,16 @@
     <script>
       // script.js
 
-      document.addEventListener("DOMContentLoaded", function() {
-          const burgerMenu = document.getElementById("burger-menu");
-          const navMenu = document.getElementById("nav-menu");
+      document.addEventListener('DOMContentLoaded', function() {
+  const burgerMenu = document.getElementById('burger-menu');
+  const navMenu = document.getElementById('nav-menu');
 
-          burgerMenu.addEventListener("click", function() {
-              navMenu.classList.toggle("active");
-          });
-
-          function checkScreenSize() {
-              if (window.innerWidth > 768) {
-                  navMenu.classList.remove("active");
-              }
-          }
-
-          // Check screen size on window resize
-          window.addEventListener("resize", checkScreenSize);
-      });
+  burgerMenu.addEventListener('click', function() {
+    // Toggle the 'active' class on burger menu and nav menu
+    burgerMenu.classList.toggle('active');
+    navMenu.classList.toggle('active');
+  });
+});
 
     </script>
 </body>
