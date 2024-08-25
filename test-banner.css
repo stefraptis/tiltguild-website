@@ -14,12 +14,47 @@ body, ul {
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid #ddd;
+  position: relative;
+}
+
+/* Style for burger menu */
+.burger-menu {
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 20px;
+}
+
+.burger-menu .line {
+  width: 100%;
+  height: 3px;
+  background-color: #333;
+}
+
+/* Banner items */
+.banner-logo img {
+  max-height: 50px; /* Adjust as needed */
+}
+
+.banner-music, .banner-socials {
+  display: flex;
+  align-items: center;
+}
+
+.banner-music a, .banner-socials a {
+  margin: 0 10px;
+}
+
+.banner-socials img {
+  max-height: 25px; /* Adjust as needed */
 }
 
 /* Hide banner and burger menu on larger screens */
 @media (min-width: 769px) {
   .banner {
-      display: none;
+      display: flex;
   }
 
   .burger-menu {
@@ -33,29 +68,24 @@ body, ul {
 
 /* Responsive design for mobile */
 @media (max-width: 768px) {
-  .banner {
-      display: flex;
-  }
-
   .burger-menu {
       display: flex;
-      cursor: pointer;
-      flex-direction: column;
-      justify-content: space-between;
-      width: 30px;
-      height: 20px;
   }
 
-  .burger-menu .line {
-      width: 100%;
-      height: 3px;
-      background-color: #333;
+  .banner-content {
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+  }
+
+  .banner-music, .banner-socials {
+      display: none;
   }
 
   .nav-menu {
       display: none;
       position: absolute;
-      top: 50px;
+      top: 60px; /* Adjust if needed */
       left: 0;
       right: 0;
       background-color: #f8f8f8;
