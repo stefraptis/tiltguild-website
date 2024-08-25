@@ -108,41 +108,33 @@ body {
 .burger-menu {
   display: none; /* Hidden by default */
   cursor: pointer;
-  flex-direction: column;
-  justify-content: space-between;
   width: 30px;
-  height: 20px;
+  height: 30px;
   margin-left: auto; /* Push the burger menu to the right */
   position: relative;
-  transition: transform 0.3s ease; /* Smooth transition for the transform */
 }
 
-.burger-menu .line {
-  width: 100%;
-  height: 3px;
-  background-color: white; /* Match burger menu color with banner text color */
-  transition: background-color 0.3s ease; /* Smooth transition for the color change */
-}
-
-/* Transform burger menu into X symbol when active */
-.burger-menu.active .line:nth-child(1) {
-  transform: rotate(45deg);
+.burger-menu .burger-icon,
+.burger-menu .close-icon {
   position: absolute;
-  top: 50%;
+  top: 0;
   left: 0;
-  transform-origin: left center;
+  width: 30px;
+  height: 30px;
+  transition: opacity 0.3s ease; /* Smooth transition for the opacity change */
 }
 
-.burger-menu.active .line:nth-child(2) {
-  opacity: 0; /* Hide the middle line */
+.burger-menu .close-icon {
+  opacity: 0; /* Hide the close icon by default */
 }
 
-.burger-menu.active .line:nth-child(3) {
-  transform: rotate(-45deg);
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform-origin: left center;
+/* Show the close icon and hide the burger icon when menu is active */
+.burger-menu.active .burger-icon {
+  opacity: 0;
+}
+
+.burger-menu.active .close-icon {
+  opacity: 1;
 }
 
 /* Music Button Style */
