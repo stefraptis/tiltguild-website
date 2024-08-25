@@ -25,6 +25,7 @@ body, ul {
   justify-content: space-between;
   width: 30px;
   height: 20px;
+  margin-left: auto; /* Push the burger menu to the right */
 }
 
 .burger-menu .line {
@@ -68,18 +69,23 @@ body, ul {
 
 /* Responsive design for mobile */
 @media (max-width: 768px) {
-  .burger-menu {
-      display: flex;
+  .banner {
+      flex-wrap: wrap;
   }
 
   .banner-content {
-      flex-wrap: wrap;
+      flex: 1;
+      display: flex;
       justify-content: space-between;
       align-items: center;
   }
 
   .banner-music, .banner-socials {
       display: none;
+  }
+
+  .burger-menu {
+      display: flex;
   }
 
   .nav-menu {
