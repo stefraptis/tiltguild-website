@@ -215,7 +215,7 @@ footer {
     top: 60px; /* Adjust if needed */
     left: 0;
     right: 0;
-    background-color: rgba(0, 0, 0, 0.932); /* Match banner background */
+    background-color: rgba(30, 30, 30, 0.932); /* Match banner background */
     flex-direction: column;
     padding: 1rem; /* Add padding for content spacing */
   }
