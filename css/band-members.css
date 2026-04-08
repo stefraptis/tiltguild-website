@@ -1,403 +1,167 @@
-/* Basic Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  /* Container for the blurred background */
-  .background-container {
-    position: fixed; /* Fixed position to cover the entire viewport */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('../images/tilt-guild-live-2.jpg') no-repeat center center;
-    background-size: cover;
-    filter: blur(8px); /* Adjust the blur level as needed */
-    z-index: -1; /* Send the background behind othercontent */
-  }
-  
-  /* Ensure the content of the page is above the background */
-  .page-content {
-    position: relative; /* Ensure the content sits above the background */
-    z-index: 1; /* Place content above the blurred background */
-    padding: 2rem; /* Add padding for content spacing */
-    flex-grow: 1;
-    padding-bottom: 60px;
-  }
-  
-  /* Body Styles */
-body {
-  font-family: 'Helvetica Neue', Arial, sans-serif; /* Set Helvetica Neue as the primary font */
-  background-color: #f0f0f0; /* Light gray background */
-  color: #333; /* Dark text color */
-  height: 100vh; /* Full height of the viewport */
-  display: flex;
-  flex-direction: column;
-  overflow-y: auto;
-  min-height: 100vh;
+/* ── Band Members Page ── */
+
+/* ── Background ── */
+.page-bg {
+  position: fixed;
+  inset: 0;
+  background: url('../images/tilt-guild-live-2.jpg') center/cover no-repeat;
+  filter: blur(40px) brightness(0.1) saturate(0.3);
+  transform: scale(1.1);
+  z-index: -1;
 }
 
-.banner {
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.932);
-  color: white;
-  padding: 0 1.5rem; /* Removed top and bottom padding */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  z-index: 100;
-  position: relative; /* Ensure the banner is positioned correctly */
-  display: flex;
-  align-items: center; /* Vertically center the content */
-  height: 60px; /* Set a specific height for the banner */
-}
-
-.banner-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: auto;
+/* ── Page header ── */
+.page-header {
+  padding: 3.5rem 2rem 1.5rem;
+  max-width: 1200px;
   margin: 0 auto;
-  width: 100%; /* Ensure it uses the full width of the container */
-  height: 100%; /* Ensure content fits within the banner height */
-  padding-left:0;
-}
-
-.banner-logo {
-  margin-left: -20px; /* Move logo further to the left */
-}
-
-.banner-logo img {
-  width: 5rem; /* Reduce logo size */
-  height: auto; /* Maintain aspect ratio */
-}
-
-.banner-title h2 {
-  font-size: 1.2rem; /* Reduce title font size */
-  text-align: center;
-  align-items: center;
-  margin: 0;
-  flex: 1; /* Allow the title to grow and take up available space */
-}
-
-.banner-socials a {
-  margin-left: 1rem; /* Margin in rem units for spacing between social icons */
-  text-decoration: none; /* Remove the underline */
-  color: inherit; /* Inherit the color from the parent element (white in this case) */
-}
-
-.banner-socials img {
-  width: 1.5rem; /* Social media icons size in rem units */
-  height: auto; /* Maintain aspect ratio */
-  vertical-align: middle; /* Align the icons better within the link */
-}
-
-/* Banner Title */
-.banner-title {
-  flex-grow: 1; /* Takes up remaining space */
-  text-align: center;
-}
-
-/* Banner Socials */
-.banner-socials {
-  display: flex;
-  align-items: center;
-  margin-left: auto; /* Pushes socials to the far right */
-}
-
-/* Music Button Style */
-.music-link {
-  color: white;
-  font-size: 1rem;
-  border: none;
-  cursor: pointer;
-  padding: 0.5rem 1rem;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  height: 100%;
-  transition: color 0.3s ease;
-}
-
-.music-link:hover {
-  color: red; /* Change text color to red on hover */
-  background-color: transparent; /* Remove background color on hover */
-}
-
-/* Backslash Icon Styling */
-.icon-backslash {
-  margin-left: 0.5rem; /* Space between text and backslash */
-  font-size: 1rem; /* Size of the backslash */
-  transition: color 0.3s ease; /* Smooth transition for icon color */
-}
-
-.music-link:hover .icon-backslash {
-  color: red; /* Change backslash color to red on hover */
-}
-
-/* SVG Icon Styling */
-.music-link svg {
-  margin-left: 0.5rem; /* Space between text and icon */
-  fill: white; /* Ensure the icon color matches the text */
-  width: 1rem;
-  height: 1rem;
-  transition: fill 0.3s ease; /* Smooth transition for icon color */
-}
-
-.music-link:hover svg {
-  fill: red; /* Change icon color to red on hover */
-}
-
-main {
-  padding: 1rem;
-}
-  
-/* Grid layout for four equal parts */
-.band-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 columns */
-  grid-template-rows: repeat(2, 1fr); /* 2 rows */
-  gap: 1rem;
-  height: 100vh; /* Make the grid fill the viewport height */
-  padding: 1rem;
-  box-sizing: border-box;
-  margin-top: -2rem; /* Add margin to push the grid below the banner */
-}
-
-.band-member {
-  display: flex;
-  flex-direction: column; /* Align items vertically */
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(255, 255, 255, 0.8);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  border-radius: 8px;
-  padding: 0;
-  margin: 0;
-  text-align: center;
-  height: 100%; /* Ensure each grid item fills its space */
-  box-sizing: border-box;
-  overflow: hidden; /* Hide any overflow from images */
-}
-
-.band-member .instrument {
-  font-size: 1.25rem;
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-  margin-top:0.2rem;
-}
-
-.band-member .images {
-  display: flex;
-  flex-direction: row; /* Arrange images horizontally */
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 0.5rem; /* Space between images and text */
-  width: 100%; /* Full width for images container */
-  overflow-x: auto; /* Allow horizontal scrolling if necessary */
-  gap: 1rem; /* Space between images */
-}
-
-.band-member img {
-  max-height: 290px; /* Set maximum height for images to avoid vertical scrollbar */
-  width: auto; /* Maintain aspect ratio */
-  border-radius: 8px;
-}
-
-.band-member .name {
-  font-size: 1.15rem;
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-  margin-top: 0.5rem;
-}
-
-.band-member .bio {
-  font-size: 1rem;
-  padding: 0 0.5rem;
-}
-
-/* Footer styling */
-footer {
-  text-align: center;
-  padding: 20px 0;
-  color: rgb(255, 255, 255); /* White text color */
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.389); /* Optional: Footer background color */
-  position: relative; /* Absolute positioning */
-  bottom: 0; /* Stick to the bottom of the page */
-  left: 0; /* Align it to the left edge */
-  margin-top: auto;
 }
 
-/* Responsive Adjustments */
+.page-title {
+  font-family: var(--font-d);
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+.page-title span { color: var(--accent); }
+
+/* ── Grid ── */
+.members-content {
+  flex: 1;
+  padding: 0 2rem 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.members-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+/* ── Member card ── */
+.member-card {
+  background: rgba(16,16,16,0.75);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s var(--ease);
+  animation: fadeUp 0.5s var(--ease) both;
+}
+
+.member-card:nth-child(1) { animation-delay: 0.05s; }
+.member-card:nth-child(2) { animation-delay: 0.1s; }
+.member-card:nth-child(3) { animation-delay: 0.15s; }
+.member-card:nth-child(4) { animation-delay: 0.2s; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.member-card:hover {
+  border-color: rgba(201,26,26,0.3);
+  box-shadow:
+    0 12px 40px rgba(0,0,0,0.3),
+    0 0 0 1px rgba(201,26,26,0.15);
+  transform: translateY(-4px);
+}
+
+/* ── Photo area ── */
+.member-photo {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  background: var(--bg-3);
+}
+
+.member-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  transition: transform 0.5s var(--ease), filter 0.3s;
+}
+.member-card:hover .member-photo img {
+  transform: scale(1.04);
+}
+
+/* Gradient overlay on photo */
+.member-photo::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60%;
+  background: linear-gradient(to top, rgba(10,10,10,0.9) 0%, transparent 100%);
+  pointer-events: none;
+}
+
+.member-instrument {
+  position: absolute;
+  bottom: 0.875rem;
+  left: 1rem;
+  z-index: 1;
+  font-family: var(--font-d);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent-hi);
+  background: rgba(0,0,0,0.45);
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  border: 1px solid rgba(201,26,26,0.3);
+}
+
+/* ── Text area ── */
+.member-body {
+  padding: 1.25rem 1.375rem 1.5rem;
+}
+
+.member-name {
+  font-family: var(--font-d);
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+  transition: color 0.2s;
+}
+.member-card:hover .member-name { color: var(--text); }
+
+.member-bio {
+  font-size: 0.84rem;
+  line-height: 1.7;
+  color: var(--text-2);
+  font-weight: 300;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .members-grid { gap: 1.25rem; }
+}
+
 @media (max-width: 768px) {
-  .band-grid {
-      grid-template-columns: 1fr;
-      grid-template-rows: repeat(4, 1fr); /* Stack all four items in a single column */
-      height: auto;
+  .page-header { padding: 2.5rem 1.25rem 1rem; }
+  .members-content { padding: 0 1.25rem 3rem; }
+  .members-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
   }
-
-  .band-member {
-      flex-direction: column; /* Stack image and text vertically on small screens */
-      align-items: center; /* Center items horizontally */
-  }
-
-  .band-member .images {
-      width: 80%; /* Adjust width for images container on small screens */
-      margin-bottom: 0.5rem; /* Space between images and text */
-      overflow-x: auto; /* Allow horizontal scrolling for images */
-      gap: 1rem; /* Space between images */
-  }
-
-  .banner {
-    height: 40px; /* Further reduced height for very small screens */
-  }
-  
-  .banner-title {
-    display: flex;
-    justify-content: center; /* Horizontally center the title */
-    align-items: center; /* Vertically center the title */
-  }
-  
-  .banner-title h2 {
-    font-size: 0.725rem; /* Reduce title font size */
-    text-align: center;
-    align-items: center;
-    margin: 0;
-  }
-  
-  .banner-logo img {
-    margin-left: -6px; 
-    width: 2.5rem; /* Adjust logo size for very small screens */
-  }
-  
-  .banner-socials img {
-    margin-right: -10px;
-    width: 1rem; /* Adjust social media icons size for very small screens */
-  }
-  
-  /* Bottom Section: Links */
-  .link-section {
-    margin-top: -10px;
-    width: 100%;
-    height: 50%; /* Take up the bottom half of the page */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  
-  /* Music Button Style */
-  .music-link {
-    color: white;
-    font-size: 0.75rem;
-    border: none;
-    cursor: pointer;
-    padding: 0.5rem 1rem;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    height: 100%;
-    transition: color 0.3s ease;
-  }
-  
-  /* Backslash Icon Styling */
-  .icon-backslash {
-    margin-left: 0.35rem; /* Space between text and backslash */
-    font-size: 0.75rem; /* Size of the backslash */
-    transition: color 0.3s ease; /* Smooth transition for icon color */
-  }
-  
-  /* SVG Icon Styling */
-  .music-link svg {
-    margin-left: 0.5rem; /* Space between text and icon */
-    fill: white; /* Ensure the icon color matches the text */
-    width: 1rem;
-    height: 1rem;
-    transition: fill 0.3s ease; /* Smooth transition for icon color */
-  }
-  
-  /* Footer */
-  footer {
-    font-size: 0.425rem; /* Slightly reduce the font size */
-  }
+  .member-photo { aspect-ratio: 16/9; }
 }
 
 @media (max-width: 480px) {
-
-  .banner {
-    height: 40px; /* Further reduced height for very small screens */
-  }
-  
-  .banner-title {
-    display: flex;
-    justify-content: center; /* Horizontally center the title */
-    align-items: center; /* Vertically center the title */
-  }
-  
-  .banner-title h2 {
-    font-size: 0.725rem; /* Reduce title font size */
-    text-align: center;
-    align-items: center;
-    margin: 0;
-  }
-  
-  .banner-logo img {
-    margin-left: -6px; 
-    width: 2.5rem; /* Adjust logo size for very small screens */
-  }
-  
-  .banner-socials img {
-    margin-right: -10px;
-    width: 1rem; /* Adjust social media icons size for very small screens */
-  }
-  
-  /* Bottom Section: Links */
-  .link-section {
-    margin-top: -10px;
-    width: 100%;
-    height: 50%; /* Take up the bottom half of the page */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  
-  /* Music Button Style */
-  .music-link {
-    color: white;
-    font-size: 0.75rem;
-    border: none;
-    cursor: pointer;
-    padding: 0.5rem 1rem;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    height: 100%;
-    transition: color 0.3s ease;
-  }
-  
-  /* Backslash Icon Styling */
-  .icon-backslash {
-    margin-left: 0.35rem; /* Space between text and backslash */
-    font-size: 0.75rem; /* Size of the backslash */
-    transition: color 0.3s ease; /* Smooth transition for icon color */
-  }
-  
-  /* SVG Icon Styling */
-  .music-link svg {
-    margin-left: 0.5rem; /* Space between text and icon */
-    fill: white; /* Ensure the icon color matches the text */
-    width: 1rem;
-    height: 1rem;
-    transition: fill 0.3s ease; /* Smooth transition for icon color */
-  }
-  
-  /* Footer */
-  footer {
-    font-size: 0.425rem; /* Slightly reduce the font size */
-  }
-  
-  }
+  .member-photo { aspect-ratio: 4/3; }
+  .member-body { padding: 1rem 1.125rem 1.25rem; }
+  .member-name { font-size: 1.15rem; }
+  .member-bio { font-size: 0.82rem; }
+}

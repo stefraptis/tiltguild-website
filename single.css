@@ -1,0 +1,173 @@
+/* ── Single / Album Release Pages ── */
+
+/* artwork background vars set per-page via inline style on .release-bg */
+
+/* ── Full-bleed artwork hero ── */
+.release-hero {
+  position: relative;
+  width: 100%;
+  height: 58vh;
+  min-height: 320px;
+  max-height: 540px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.release-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  filter: blur(28px) brightness(0.35) saturate(1.2);
+  transform: scale(1.15);
+  z-index: 0;
+}
+
+/* bottom fade into page bg */
+.release-hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(to top, var(--bg) 0%, transparent 100%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.release-artwork {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  max-height: 360px;
+  width: auto;
+  object-fit: contain;
+  border-radius: 10px;
+  box-shadow:
+    0 8px 24px rgba(0,0,0,0.4),
+    0 24px 64px rgba(0,0,0,0.5),
+    0 0 0 1px rgba(255,255,255,0.06);
+  animation: fadeUp 0.55s var(--ease) both;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Links section ── */
+.release-links {
+  flex: 1;
+  padding: 1.5rem 1.5rem 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.release-title {
+  font-family: var(--font-d);
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 0.4rem;
+  animation: fadeUp 0.55s var(--ease) 0.1s both;
+}
+
+.release-artist {
+  font-size: 0.82rem;
+  color: var(--text-2);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 2.25rem;
+  animation: fadeUp 0.55s var(--ease) 0.15s both;
+}
+
+/* ── Platform links ── */
+.platform-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  width: 100%;
+  max-width: 480px;
+}
+
+.platform-link {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.875rem 1.25rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition:
+    background 0.2s,
+    border-color 0.2s,
+    transform 0.25s var(--ease),
+    box-shadow 0.25s;
+  animation: fadeUp 0.5s var(--ease) both;
+}
+
+.platform-link:nth-child(1) { animation-delay: 0.2s; }
+.platform-link:nth-child(2) { animation-delay: 0.25s; }
+.platform-link:nth-child(3) { animation-delay: 0.3s; }
+.platform-link:nth-child(4) { animation-delay: 0.35s; }
+
+.platform-link:hover {
+  background: var(--surface-hi);
+  border-color: var(--border-hi);
+  transform: translateX(4px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+
+.platform-icon {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  flex-shrink: 0;
+  border-radius: 8px;
+}
+
+.platform-name {
+  font-family: var(--font-d);
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text);
+  flex: 1;
+}
+
+.platform-arrow {
+  font-size: 0.75rem;
+  color: var(--text-3);
+  transition: color 0.2s, transform 0.2s;
+}
+.platform-link:hover .platform-arrow {
+  color: var(--accent-hi);
+  transform: translateX(3px);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .release-hero {
+    height: 50vh;
+    min-height: 260px;
+  }
+  .release-artwork { max-height: 280px; }
+  .release-links { padding: 1.25rem 1.25rem 3rem; }
+  .platform-list { max-width: 100%; }
+}
+
+@media (max-width: 480px) {
+  .release-hero { height: 44vh; min-height: 220px; }
+  .release-artwork { max-height: 240px; }
+  .release-title { font-size: 1.6rem; }
+  .platform-link { padding: 0.75rem 1rem; }
+  .platform-icon { width: 30px; height: 30px; }
+}

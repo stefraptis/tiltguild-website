@@ -1,120 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tilt Guild - Band Members</title>
-    <link rel="icon" href="../../../images/logos/tilt_guild_profile_picture_black.jpg" type="image/x-icon">
-    <link rel="stylesheet" href="../../../css/band-members.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tilt Guild — Band Members</title>
+  <link rel="icon" href="../../../images/logos/tilt_guild_profile_picture_black.jpg" type="image/x-icon">
+  <link rel="stylesheet" href="../../../css/global.css">
+  <link rel="stylesheet" href="../../../css/band-members.css">
 </head>
-
 <body>
-    <div class="background-container"></div> <!-- Blurry background image -->
 
-    <div class="banner">
-        <div class="banner-content">
-            <!-- Logo on the Left -->
-            <div class="banner-logo">
-                <a href="/home/">
-                    <img src="../../../images/logos/tilt_guild_logo_for_website.png" alt="Tilt Guild Logo">
-                </a>
-            </div>
+<div class="page-bg"></div>
 
-            <div class="banner-music">
-                <a href="/discography/" class="music-link">
-                    DISCOGRAPHY <span class="icon-backslash">\</span>
-                </a>
-            </div>
-            <div class="banner-music">
-                <a href="/band/members/" class="music-link">
-                    BAND MEMBERS <span class="icon-backslash">\</span>
-                </a>
-            </div>
-
-            <!-- Social Media Links on the Right -->
-            <div class="banner-socials">
-                <a href="https://open.spotify.com/artist/4JeQcTsHEnzwCQTTTYFG8k?si=a4d4f214aa3940b3" target="_blank">
-                    <img src="../../../images/logos/spotify_logo_green.png" alt="Spotify">
-                </a>
-                <a href="https://www.tiktok.com/@tiltguild" target="_blank">
-                    <img src="../../../images/logos/tik_tok_logo.png" alt="TikTok">
-                </a>
-                <a href="https://www.instagram.com/tiltguild/" target="_blank">
-                    <img src="../../../images/logos/instagram_logo.png" alt="Instagram">
-                </a>
-                <a href="https://www.facebook.com/profile.php?id=61561883835650" target="_blank">
-                    <img src="../../../images/logos/facebook_logo.png" alt="Facebook">
-                </a>
-            </div>
-        </div>
+<!-- ── Navigation ── -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/home/" class="nav-logo">
+      <img src="../../../images/logos/tilt_guild_logo_for_website.png" alt="Tilt Guild">
+    </a>
+    <div class="nav-divider"></div>
+    <div class="nav-links">
+      <a href="/discography/" class="nav-link">Discography</a>
+      <a href="/band/members/" class="nav-link active">Band Members</a>
     </div>
+    <div class="nav-spacer"></div>
+    <div class="nav-socials">
+      <a href="https://open.spotify.com/artist/4JeQcTsHEnzwCQTTTYFG8k?si=a4d4f214aa3940b3" target="_blank" aria-label="Spotify">
+        <img src="../../../images/logos/spotify_logo_green.png" alt="Spotify">
+      </a>
+      <a href="https://www.tiktok.com/@tiltguild" target="_blank" aria-label="TikTok">
+        <img src="../../../images/logos/tik_tok_logo.png" alt="TikTok">
+      </a>
+      <a href="https://www.instagram.com/tiltguild/" target="_blank" aria-label="Instagram">
+        <img src="../../../images/logos/instagram_logo.png" alt="Instagram">
+      </a>
+      <a href="https://www.facebook.com/profile.php?id=61561883835650" target="_blank" aria-label="Facebook">
+        <img src="../../../images/logos/facebook_logo.png" alt="Facebook">
+      </a>
+    </div>
+    <button class="nav-burger" id="navBurger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
 
-    <main class="page-content">
-        <div class="band-grid">
-            <div class="band-member">
-                <div class="instrument">Main Vocals</div>
-                <div class="images">
-                    <img src="../../../images/Band Members/Cid/cid-live-1.jpg" alt="Cid 1">
-                </div>
-                <div class="name">Cid</div>
-                <div class="bio">
-                    Cid is a Healthcare professional with a white knight syndrome. 
-                    He sure can crack a joke when he's clearly sad and he gets obsessed with all the small details. 
-                    Has too much fantasy for his own good. Writes down some lyrics when he feels like it. 
-                    He enjoys reading, gaming, traveling while being in good company, or by himself. 
-                    Big city life makes him feel old and he would very much preferred the Shire. 
-                </div>
-            </div>
-            <div class="band-member">
-                <div class="instrument">Lead Guitar</div>
-                <div class="images">
-                    <img src="../../../images/Band Members/Grapsas/grapsas-live-1.jpg" alt="Grapsas 1">
-                </div>
-                <div class="name">Stefanos Grapsas</div>
-                <div class="bio">
-                    Also known as "bouzouki" but he mainly is the lead guitarist of Tilt Guild. 
-                    Besides of playing the guitar,  he is a graduate student of accounting with specialization in finance. 
-                    His musical talent and interest were unlocked by bands like Iron Maiden, Metallica, Avenged Sevenfold 
-                    and musicians like Gary Moore, Eric clapton and Rory Gallagher. 
-                </div>
-            </div>
-            <div class="band-member">
-                <div class="instrument">Bass & Backing Vocals</div>
-                <div class="images">
-                    <img src="../../../images/Band Members/Raptis/raptis-live-1.jpg" alt="Raptis 1">
-                </div>
-                <div class="name">Stefanos Raptis</div>
-                <div class="bio">
-                    Stefanos began his music journey in childhood, spending seven years in a conservatory studying piano and singing. 
-                    He later taught himself guitar, bass, and percussion, playing in rock cover bands and solo. 
-                    Now with Tilt Guild, he plays bass, composes music, contributes some lyrics, and channels his turmoil through extreme vocals. 
-                    He is mainly influenced by bands like The Beatles, Tool, and Rage Against the Machine. 
-                    Waking up from the dream, he claims to be a PhD candidate in Bioinformatics, though beers often take precedence.
-                </div>
-            </div>
-            <div class="band-member">
-                <div class="instrument">Drums</div>
-                <div class="images">
-                    <img src="../../../images/Band Members/Tony/tony-live-1.jpg" alt="Tony 1">
-                </div>
-                <div class="name">Antonis Karagkounis</div>
-                <div class="bio">
-                    Alternatively, he also listens to Angry Man or Tony Terror.
-                    He chose the drums because it was the only thing he could hit hard without being prosecuted while imagining old schoolmates. 
-                    His main musical influence is Nigel Glockler of Saxon.
-                    Rumor has it that he spends his days reading recipes and petting cats. Others say that he is a physical therapist with academic and clinical activity.
-                    He hates human interaction and his goal is to move to a village in Pelion. But with a 7-piece Pearl Export.
-                    He claims that he will calm down when he manages to build a room full of drums and to play 300bpm double bass.  
-                </div>
-            </div>
-        </div>
-    </main>
+<!-- ── Mobile menu ── -->
+<div class="nav-mobile" id="navMobile" aria-hidden="true">
+  <a href="/discography/" class="mobile-link">Discography</a>
+  <a href="/band/members/" class="mobile-link">Band Members</a>
+  <div class="nav-mobile-socials">
+    <a href="https://open.spotify.com/artist/4JeQcTsHEnzwCQTTTYFG8k?si=a4d4f214aa3940b3" target="_blank">
+      <img src="../../../images/logos/spotify_logo_green.png" alt="Spotify">
+    </a>
+    <a href="https://www.tiktok.com/@tiltguild" target="_blank">
+      <img src="../../../images/logos/tik_tok_logo.png" alt="TikTok">
+    </a>
+    <a href="https://www.instagram.com/tiltguild/" target="_blank">
+      <img src="../../../images/logos/instagram_logo.png" alt="Instagram">
+    </a>
+    <a href="https://www.facebook.com/profile.php?id=61561883835650" target="_blank">
+      <img src="../../../images/logos/facebook_logo.png" alt="Facebook">
+    </a>
+  </div>
+</div>
 
-    <footer>
-        <p>&copy; 2025 Tilt Guild. All rights reserved.</p>
-    </footer>
+<!-- ── Page content ── -->
+<header class="page-header">
+  <h1 class="page-title">Band <span>Members</span></h1>
+</header>
+
+<main class="members-content">
+  <div class="members-grid">
+
+    <!-- Cid -->
+    <article class="member-card">
+      <div class="member-photo">
+        <img src="../../../images/Band Members/Cid/cid-live-1.jpg" alt="Cid — Main Vocals">
+        <span class="member-instrument">Main Vocals</span>
+      </div>
+      <div class="member-body">
+        <h2 class="member-name">Cid</h2>
+        <p class="member-bio">Cid is a Healthcare professional with a white knight syndrome. He sure can crack a joke when he's clearly sad and he gets obsessed with all the small details. Has too much fantasy for his own good. Writes down some lyrics when he feels like it. He enjoys reading, gaming, traveling while being in good company, or by himself. Big city life makes him feel old and he would very much preferred the Shire.</p>
+      </div>
+    </article>
+
+    <!-- Grapsas -->
+    <article class="member-card">
+      <div class="member-photo">
+        <img src="../../../images/Band Members/Grapsas/grapsas-live-1.jpg" alt="Stefanos Grapsas — Lead Guitar">
+        <span class="member-instrument">Lead Guitar</span>
+      </div>
+      <div class="member-body">
+        <h2 class="member-name">Stefanos Grapsas</h2>
+        <p class="member-bio">Also known as "bouzouki" but he mainly is the lead guitarist of Tilt Guild. Besides of playing the guitar, he is a graduate student of accounting with specialization in finance. His musical talent and interest were unlocked by bands like Iron Maiden, Metallica, Avenged Sevenfold and musicians like Gary Moore, Eric Clapton and Rory Gallagher.</p>
+      </div>
+    </article>
+
+    <!-- Raptis -->
+    <article class="member-card">
+      <div class="member-photo">
+        <img src="../../../images/Band Members/Raptis/raptis-live-1.jpg" alt="Stefanos Raptis — Bass">
+        <span class="member-instrument">Bass &amp; Backing Vocals</span>
+      </div>
+      <div class="member-body">
+        <h2 class="member-name">Stefanos Raptis</h2>
+        <p class="member-bio">Stefanos began his music journey in childhood, spending seven years in a conservatory studying piano and singing. He later taught himself guitar, bass, and percussion, playing in rock cover bands and solo. Now with Tilt Guild, he plays bass, composes music, contributes some lyrics, and channels his turmoil through extreme vocals. He is mainly influenced by The Beatles, Tool, and Rage Against the Machine.</p>
+      </div>
+    </article>
+
+    <!-- Tony -->
+    <article class="member-card">
+      <div class="member-photo">
+        <img src="../../../images/Band Members/Tony/tony-live-1.jpg" alt="Antonis Karagkounis — Drums">
+        <span class="member-instrument">Drums</span>
+      </div>
+      <div class="member-body">
+        <h2 class="member-name">Antonis Karagkounis</h2>
+        <p class="member-bio">Alternatively, he also listens to Angry Man or Tony Terror. He chose the drums because it was the only thing he could hit hard without being prosecuted. His main musical influence is Nigel Glockler of Saxon. Rumor has it that he spends his days reading recipes and petting cats. Others say that he is a physical therapist with academic and clinical activity. His goal is to move to a village in Pelion — but with a 7-piece Pearl Export.</p>
+      </div>
+    </article>
+
+  </div>
+</main>
+
+<footer>
+  <p>&copy; 2025 Tilt Guild. All rights reserved.</p>
+</footer>
+
+<script>
+  const burger = document.getElementById('navBurger');
+  const mobile = document.getElementById('navMobile');
+  burger.addEventListener('click', () => {
+    const isOpen = burger.classList.toggle('open');
+    mobile.classList.toggle('open');
+    document.body.classList.toggle('nav-open');
+    burger.setAttribute('aria-expanded', isOpen);
+    mobile.setAttribute('aria-hidden', !isOpen);
+  });
+</script>
 </body>
-
 </html>
