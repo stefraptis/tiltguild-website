@@ -1,6 +1,40 @@
 // ── Tilt Guild News & Events Loader ──
 // Reads from /data/news.json which is auto-updated daily by GitHub Actions
 
+// ── Countdown Timer ──
+function startCountdown(targetDate, containerId) {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+
+  function update() {
+    const now  = new Date().getTime();
+    const diff = new Date(targetDate).getTime() - now;
+
+    if (diff <= 0) {
+      container.innerHTML = '<span class="countdown-out">Out Now!</span>';
+      return;
+    }
+
+    const days    = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours   = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+    container.innerHTML = `
+      <div class="countdown-unit"><span class="countdown-num">${String(days).padStart(2,'0')}</span><span class="countdown-label">Days</span></div>
+      <div class="countdown-sep">:</div>
+      <div class="countdown-unit"><span class="countdown-num">${String(hours).padStart(2,'0')}</span><span class="countdown-label">Hours</span></div>
+      <div class="countdown-sep">:</div>
+      <div class="countdown-unit"><span class="countdown-num">${String(minutes).padStart(2,'0')}</span><span class="countdown-label">Min</span></div>
+      <div class="countdown-sep">:</div>
+      <div class="countdown-unit"><span class="countdown-num">${String(seconds).padStart(2,'0')}</span><span class="countdown-label">Sec</span></div>
+    `;
+  }
+
+  update();
+  setInterval(update, 1000);
+}
+
 async function loadNews() {
   const container = document.getElementById('newsContainer');
   const loading   = document.getElementById('newsLoading');
@@ -34,15 +68,34 @@ async function loadNews() {
       }
     }
 
-    // ── News items ──
+    // ── Countdown: find first upcoming release ──
     const items = data.news || [];
+    const now = new Date().getTime();
+    const upcoming = items.find(item =>
+      item.type === 'release' && new Date(item.date).getTime() > now
+    );
+
+    const countdownSection = document.getElementById('countdownSection');
+    if (upcoming && countdownSection) {
+      const title = upcoming.title || upcoming.headline || '';
+      countdownSection.innerHTML = `
+        <div class="countdown-card">
+          <span class="countdown-badge">Upcoming Release</span>
+          <h3 class="countdown-title">${title}</h3>
+          <div class="countdown-timer" id="countdownTimer"></div>
+        </div>
+      `;
+      countdownSection.style.display = 'block';
+      startCountdown(upcoming.date, 'countdownTimer');
+    }
+
+    // ── News items ──
     if (items.length === 0) {
       container.innerHTML = '<p class="news-empty">No recent news found.</p>';
       return;
     }
 
     container.innerHTML = items.map((item, i) => {
-      // Support both field naming conventions
       const tag      = item.tag      || item.type        || 'News';
       const headline = item.headline || item.title       || '';
       const summary  = item.summary  || item.description || '';

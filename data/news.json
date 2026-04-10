@@ -8,10 +8,17 @@
   },
   "news": [
     {
+      "type": "release",
+      "title": "New Single: 'Opoios Kanei Ena Vima' — Out April 24",
+      "description": "Tilt Guild's new single 'Opoios Kanei Ena Vima' drops on April 24, 2026. Stay tuned on all streaming platforms.",
+      "source": "https://www.instagram.com/tiltguild/",
+      "date": "2026-04-24T00:00:00Z"
+    },
+    {
       "type": "show",
       "title": "Live @ NAOS — Athens",
-      "description": "Tilt Guild perform live at NAOS alongside STRAiNGER and Kawaii Sharx.",
-      "source": "https://www.facebook.com/profile.php?id=61561883835650",
+      "description": "Tilt Guild perform live at NAOS alongside STRAiNGER and Kawaii Sharx on April 25, 2026.",
+      "source": "https://www.rockattitude.gr/events/strainger-tilt-guild-kawaii-sharx-naos/",
       "date": "2026-04-25T19:00:00Z"
     }
   ],

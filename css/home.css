@@ -322,3 +322,109 @@
   .featured-artwork { width: 72px; height: 72px; }
   .embed-frame iframe { height: 340px; }
 }
+
+/* ============================================================
+   COUNTDOWN TIMER
+   ============================================================ */
+
+#countdownSection {
+  display: none;
+  padding: 0 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.countdown-card {
+  background: linear-gradient(135deg, rgba(201,26,26,0.12) 0%, rgba(16,16,16,0.9) 100%);
+  border: 1px solid rgba(201,26,26,0.35);
+  border-radius: 14px;
+  padding: 2rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+  animation: fadeUp 0.55s var(--ease) both;
+}
+
+.countdown-badge {
+  font-family: var(--font-d);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent-hi);
+  border: 1px solid rgba(201,26,26,0.4);
+  padding: 0.2rem 0.75rem;
+  border-radius: 4px;
+}
+
+.countdown-title {
+  font-family: var(--font-d);
+  font-size: clamp(1.1rem, 3vw, 1.6rem);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text);
+  line-height: 1.2;
+}
+
+.countdown-timer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.countdown-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 64px;
+}
+
+.countdown-num {
+  font-family: var(--font-d);
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  font-weight: 700;
+  color: var(--accent-hi);
+  line-height: 1;
+  letter-spacing: 0.04em;
+}
+
+.countdown-label {
+  font-size: 0.6rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin-top: 0.3rem;
+}
+
+.countdown-sep {
+  font-family: var(--font-d);
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 700;
+  color: var(--text-3);
+  margin-bottom: 1.2rem;
+}
+
+.countdown-out {
+  font-family: var(--font-d);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--accent-hi);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+  #countdownSection { padding: 0 1.25rem; }
+  .countdown-card { padding: 1.5rem 1.25rem; }
+  .countdown-unit { min-width: 52px; }
+}
+
+@media (max-width: 480px) {
+  .countdown-unit { min-width: 42px; }
+  .countdown-sep { margin-bottom: 1rem; }
+}
