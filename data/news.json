@@ -1,11 +1,19 @@
 {
   "featured_release": {
-    "title": "To Kolpo",
+    "title": "\u03a4\u03bf \u039a\u03cc\u03bb\u03c0\u03bf",
     "badge": "Latest Album",
     "meta": "Out now on all platforms",
     "artwork": "/images/Music Artworks/kolpo.png",
     "url": "/discography/albums/to_kolpo/"
   },
-  "news": [],
+  "news": [
+    {
+      "type": "release",
+      "title": "Debut Album '\u03a4\u03bf \u039a\u03cc\u03bb\u03c0\u03bf' Released",
+      "description": "Tilt Guild, a DIY independent rap metal band from Athens, Greece, released their debut album '\u03a4\u03bf \u039a\u03cc\u03bb\u03c0\u03bf' (The Trick) in November 2024, bringing a fresh and raw sound to the underground rap metal scene.",
+      "source": "https://gearspace.com/board/showthread.php?t=1441276&goto=newpost",
+      "date": "2024-11-01T00:00:00Z"
+    }
+  ],
   "updated": "2026-04-10T00:00:00Z"
 }
