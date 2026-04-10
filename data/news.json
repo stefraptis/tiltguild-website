@@ -1,10 +1,10 @@
 {
   "featured_release": {
-    "title": "To Kolpo",
-    "badge": "Latest Album",
+    "title": "To Kolpo (Live)",
+    "badge": "Latest Release",
     "meta": "Out now on all platforms",
-    "artwork": "/images/Music Artworks/kolpo.png",
-    "url": "/discography/albums/to_kolpo/"
+    "artwork": "/images/Music Artworks/to_kolpo_live_album_cover.png",
+    "url": "/discography/albums/to_kolpo_live/"
   },
   "news": [
     {
@@ -20,6 +20,13 @@
       "description": "Tilt Guild perform live at NAOS alongside STRAiNGER and Kawaii Sharx on April 25, 2026.",
       "source": "https://www.rockattitude.gr/events/strainger-tilt-guild-kawaii-sharx-naos/",
       "date": "2026-04-25T19:00:00Z"
+    },
+    {
+      "type": "release",
+      "title": "To Kolpo (Live) — Out Now",
+      "description": "The live album 'To Kolpo (Live)' is available now on all streaming platforms. 8 tracks recorded live.",
+      "source": "https://open.spotify.com/album/6Mi7erLK6EXZN2jLxAzI40",
+      "date": "2026-01-24T00:00:00Z"
     }
   ],
   "updated": "2026-04-10T00:00:00Z"
