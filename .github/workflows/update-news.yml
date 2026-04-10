@@ -2,8 +2,8 @@ name: Update Tilt Guild News
 
 on:
   schedule:
-    - cron: '0 8 * * *'   # Every day at 08:00 UTC
-  workflow_dispatch:        # Also allows manual trigger from GitHub UI
+    - cron: '0 8 * * *'
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -24,7 +24,6 @@ jobs:
           RESPONSE=$(curl -s https://api.anthropic.com/v1/messages \
             -H "x-api-key: $ANTHROPIC_API_KEY" \
             -H "anthropic-version: 2023-06-01" \
-            -H "anthropic-beta: interleaved-thinking-2025-05-14" \
             -H "content-type: application/json" \
             -d '{
               "model": "claude-sonnet-4-6",
@@ -32,31 +31,42 @@ jobs:
               "tools": [{"type": "web_search_20250305", "name": "web_search"}],
               "messages": [{
                 "role": "user",
-                "content": "Search for recent news about the Greek rock band Tilt Guild (tiltguild.com). Look for: upcoming or recent live shows/concerts, interviews, new music announcements, press mentions. Return ONLY a valid JSON object with NO extra text, markdown, or explanation. The JSON must follow this exact structure:\n{\n  \"featured_release\": {\n    \"title\": \"To Kolpo\",\n    \"badge\": \"Latest Album\",\n    \"meta\": \"Out now on all platforms\",\n    \"artwork\": \"/images/Music Artworks/kolpo.png\",\n    \"url\": \"/discography/albums/to_kolpo/\"\n  },\n  \"news\": [\n    {\n      \"tag\": \"Live\",\n      \"headline\": \"...\",\n      \"summary\": \"...\",\n      \"url\": \"...\",\n      \"date\": \"...\"\n    }\n  ],\n  \"updated\": \"ISO date string\"\n}\nIf no real news is found, return an empty news array. Do not invent news. The featured_release should always be To Kolpo as shown above."
+                "content": "Search the web for recent news about the Greek rock band Tilt Guild (website: tiltguild.com). Look for upcoming or recent live shows, concerts, interviews, new music announcements, or press mentions. Then return ONLY a raw JSON object with absolutely no extra text, no markdown, no code fences. Use exactly this structure: {\"featured_release\":{\"title\":\"To Kolpo\",\"badge\":\"Latest Album\",\"meta\":\"Out now on all platforms\",\"artwork\":\"/images/Music Artworks/kolpo.png\",\"url\":\"/discography/albums/to_kolpo/\"},\"news\":[{\"tag\":\"Live\",\"headline\":\"example headline\",\"summary\":\"example summary\",\"url\":\"https://example.com\",\"date\":\"2025-01-01\"}],\"updated\":\"2025-01-01T00:00:00Z\"} - If no real news exists, use an empty array for news. Never invent news."
               }]
             }')
 
-          # Extract the text content from the response
-          echo "$RESPONSE" | python3 -c "
-          import sys, json
-          data = json.load(sys.stdin)
-          # Find text block
-          text = ''
-          for block in data.get('content', []):
-              if block.get('type') == 'text':
-                  text = block['text'].strip()
-                  break
-          # Strip any markdown fences if present
-          if text.startswith('\`\`\`'):
-              lines = text.split('\n')
-              lines = [l for l in lines if not l.startswith('\`\`\`')]
-              text = '\n'.join(lines)
-          # Validate it's valid JSON
-          parsed = json.loads(text)
-          print(json.dumps(parsed, indent=2))
-          " > data/news.json
+          echo "Raw response:"
+          echo "$RESPONSE"
 
-          echo "news.json updated:"
+          echo "$RESPONSE" | python3 -c "
+import sys, json
+
+raw = sys.stdin.read()
+data = json.loads(raw)
+
+text = ''
+for block in data.get('content', []):
+    if block.get('type') == 'text':
+        text = block['text'].strip()
+        break
+
+# Strip markdown fences if present
+if '\`\`\`' in text:
+    lines = text.split('\n')
+    lines = [l for l in lines if not l.startswith('\`\`\`')]
+    text = '\n'.join(lines).strip()
+
+# Find JSON object in text
+start = text.find('{')
+end = text.rfind('}') + 1
+if start >= 0 and end > start:
+    text = text[start:end]
+
+parsed = json.loads(text)
+print(json.dumps(parsed, indent=2))
+" > data/news.json
+
+          echo "news.json written:"
           cat data/news.json
 
       - name: Commit news data
