@@ -77,12 +77,18 @@ async function loadNews() {
 
     const countdownSection = document.getElementById('countdownSection');
     if (upcoming && countdownSection) {
-      const title = upcoming.title || upcoming.headline || '';
+      const title   = upcoming.title || upcoming.headline || '';
+      const artwork = upcoming.artwork || '';
+      const link    = upcoming.source || upcoming.url || '';
       countdownSection.innerHTML = `
         <div class="countdown-card">
-          <span class="countdown-badge">Upcoming Release</span>
-          <h3 class="countdown-title">${title}</h3>
-          <div class="countdown-timer" id="countdownTimer"></div>
+          ${artwork ? `<img class="countdown-artwork" src="${artwork}" alt="${title}">` : ''}
+          <div class="countdown-body">
+            <span class="countdown-badge">Upcoming Release</span>
+            <h3 class="countdown-title">${title}</h3>
+            <div class="countdown-timer" id="countdownTimer"></div>
+            ${link ? `<a href="${link}" class="countdown-link">More info →</a>` : ''}
+          </div>
         </div>
       `;
       countdownSection.style.display = 'block';
