@@ -6,33 +6,6 @@
     "artwork": "/images/Music Artworks/kolpo.png",
     "url": "/discography/albums/to_kolpo/"
   },
-  "news": [
-    {
-      "id": "live-naos-apr-2026",
-      "type": "show",
-      "title": "STRAiNGER \u00b7 Tilt Guild \u00b7 Kawaii Sharx \u2014 Live @ NAOS",
-      "date": "2026-04-25T19:00:00Z",
-      "venue": "NAOS",
-      "city": "Athens, Greece",
-      "description": "Tilt Guild are set to perform live at NAOS in Athens alongside STRAiNGER and Kawaii Sharx on April 25, 2026.",
-      "source": "https://www.bandsintown.com/fr/c/athens-greece/all-dates/genre/hip-hop"
-    },
-    {
-      "id": "to-kolpo-live-album-2026",
-      "type": "release",
-      "title": "'To Kolpo (Live)' \u2014 New Live Album Out Now",
-      "date": "2026-01-24T00:00:00Z",
-      "description": "Tilt Guild have released 'To Kolpo (Live)', an 8-track live album, now available on Spotify.",
-      "source": "https://open.spotify.com/album/6Mi7erLK6EXZN2jLxAzI40"
-    },
-    {
-      "id": "debut-album-nov-2024",
-      "type": "release",
-      "title": "Debut Album '\u03a4\u03bf \u039a\u03cc\u03bb\u03c0\u03bf' Released November 2024",
-      "date": "2024-11-22T00:00:00Z",
-      "description": "Tilt Guild, a DIY independent rap metal band formed in Athens, Greece, released their debut album '\u03a4\u03bf \u039a\u03cc\u03bb\u03c0\u03bf' (To Kolpo / 'The Trick') on November 22, 2024, drawing inspiration from bands like Body Count, Rage Against The Machine, and Limp Bizkit.",
-      "source": "https://gearspace.com/board/showthread.php?t=1441276"
-    }
-  ],
+  "news": [],
   "updated": "2026-04-10T00:00:00Z"
 }
