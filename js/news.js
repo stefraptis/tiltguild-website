@@ -75,7 +75,8 @@ async function loadNews() {
       item.type === 'release' && new Date(item.date).getTime() > now
     );
 
-    const countdownSection = document.getElementById('countdownSection');
+    const countdownSection  = document.getElementById('countdownSection');
+    const upcomingSection   = document.getElementById('upcomingSection');
     if (upcoming && countdownSection) {
       const title   = upcoming.title || upcoming.headline || '';
       const artwork = upcoming.artwork || '';
@@ -84,15 +85,15 @@ async function loadNews() {
         <div class="countdown-card">
           ${artwork ? `<img class="countdown-artwork" src="${artwork}" alt="${title}">` : ''}
           <div class="countdown-body">
-            <span class="countdown-badge">Upcoming Release</span>
             <h3 class="countdown-title">${title}</h3>
             <div class="countdown-timer" id="countdownTimer"></div>
             ${link ? `<a href="${link}" class="countdown-link">More info →</a>` : ''}
           </div>
         </div>
       `;
-      countdownSection.style.display = 'block';
       startCountdown(upcoming.date, 'countdownTimer');
+    } else if (upcomingSection) {
+      upcomingSection.style.display = 'none';
     }
 
     // ── News items ──
