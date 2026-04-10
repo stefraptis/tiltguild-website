@@ -130,19 +130,9 @@
 </main>
 
 <footer>
-  <p>&copy; 2025 Tilt Guild. All rights reserved.</p>
+  <p>&copy; <span class="footer-year"></span> Tilt Guild. All rights reserved.</p>
 </footer>
 
-<script>
-  const burger = document.getElementById('navBurger');
-  const mobile = document.getElementById('navMobile');
-  burger.addEventListener('click', () => {
-    const isOpen = burger.classList.toggle('open');
-    mobile.classList.toggle('open');
-    document.body.classList.toggle('nav-open');
-    burger.setAttribute('aria-expanded', isOpen);
-    mobile.setAttribute('aria-hidden', !isOpen);
-  });
-</script>
+<script src="../js/global.js"></script>
 </body>
 </html>

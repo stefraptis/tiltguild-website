@@ -62,8 +62,26 @@
   </div>
 </div>
 
-<!-- ── Hero / Spotify embed ── -->
-<main class="hero">
+<!-- ── Featured Release ── -->
+<section class="featured-section">
+  <div class="section-label"><span>Featured Release</span></div>
+  <div id="featuredRelease">
+    <!-- Populated by news.js from /data/news.json -->
+    <a href="/discography/albums/to_kolpo/" class="featured-inner">
+      <div class="featured-bg" style="background-image:url('/images/Music Artworks/kolpo.png')"></div>
+      <div class="featured-content">
+        <span class="featured-badge">Latest Album</span>
+        <h2 class="featured-title">To Kolpo</h2>
+        <p class="featured-meta">Out now on all platforms</p>
+        <span class="featured-cta">Listen Now →</span>
+      </div>
+      <img class="featured-artwork" src="/images/Music Artworks/kolpo.png" alt="To Kolpo">
+    </a>
+  </div>
+</section>
+
+<!-- ── Spotify Embed ── -->
+<section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-content">
     <div class="embed-frame">
@@ -77,22 +95,20 @@
       </iframe>
     </div>
   </div>
-</main>
+</section>
+
+<!-- ── News & Events ── -->
+<section class="news-section">
+  <div class="section-label"><span>News &amp; Events</span></div>
+  <p class="news-loading" id="newsLoading">Loading latest news…</p>
+  <div class="news-grid" id="newsContainer"></div>
+</section>
 
 <footer>
-  <p>&copy; 2025 Tilt Guild. All rights reserved.</p>
+  <p>&copy; <span class="footer-year"></span> Tilt Guild. All rights reserved.</p>
 </footer>
 
-<script>
-  const burger = document.getElementById('navBurger');
-  const mobile = document.getElementById('navMobile');
-  burger.addEventListener('click', () => {
-    const isOpen = burger.classList.toggle('open');
-    mobile.classList.toggle('open');
-    document.body.classList.toggle('nav-open');
-    burger.setAttribute('aria-expanded', isOpen);
-    mobile.setAttribute('aria-hidden', !isOpen);
-  });
-</script>
+<script src="../js/global.js"></script>
+<script src="../js/news.js"></script>
 </body>
 </html>
