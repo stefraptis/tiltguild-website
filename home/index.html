@@ -1,68 +1,98 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Tilt Guild</title>
-        <link rel="icon" href="../images/logos/tilt_guild_profile_picture_black.jpg" type="image/x-icon">
-		<link rel="stylesheet" href="../css/home.css">
-		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    </head>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tilt Guild</title>
+  <link rel="icon" href="../images/logos/tilt_guild_profile_picture_black.jpg" type="image/x-icon">
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/home.css">
+</head>
 <body>
 
-<div class="banner">
-    <div class="banner-content">
-        <!-- Logo on the Left -->
-        <div class="banner-logo">
-            <a href="/home/">
-                <img src="../images/logos/tilt_guild_logo_for_website.png" alt="Logo">
-            </a>
-        </div>
-
-        <div class="banner-music">
-            <a href="/discography/" class="music-link">
-                DISCOGRAPHY <span class="icon-backslash">\</span>
-            </a>
-        </div>
-        <div class="banner-music">
-            <a href="/band/members/" class="music-link">
-                BAND MEMBERS <span class="icon-backslash">\</span>
-            </a>
-        </div>
-
-        <!-- Social Media Links on the Right -->
-        <div class="banner-socials">
-            <a href="https://open.spotify.com/artist/4JeQcTsHEnzwCQTTTYFG8k?si=a4d4f214aa3940b3" target="_blank">
-                <img src="../images/logos/spotify_logo_green.png" alt="Spotify">
-            </a>
-            <a href="https://www.tiktok.com/@tiltguild" target="_blank">
-                <img src="../images/logos/tik_tok_logo.png" alt="TikTok">
-            </a>
-            <a href="https://www.instagram.com/tiltguild/" target="_blank">
-                <img src="../images/logos/instagram_logo.png" alt="Instagram">
-            </a>
-            <a href="https://www.facebook.com/profile.php?id=61561883835650" target="_blank">
-                <img src="../images/logos/facebook_logo.png" alt="Facebook">
-            </a>
-        </div>
+<!-- ── Navigation ── -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/home/" class="nav-logo">
+      <img src="../images/logos/tilt_guild_logo_for_website.png" alt="Tilt Guild">
+    </a>
+    <div class="nav-divider"></div>
+    <div class="nav-links">
+      <a href="/discography/" class="nav-link">Discography</a>
+      <a href="/band/members/" class="nav-link">Band Members</a>
     </div>
+    <div class="nav-spacer"></div>
+    <div class="nav-socials">
+      <a href="https://open.spotify.com/artist/4JeQcTsHEnzwCQTTTYFG8k?si=a4d4f214aa3940b3" target="_blank" aria-label="Spotify">
+        <img src="../images/logos/spotify_logo_green.png" alt="Spotify">
+      </a>
+      <a href="https://www.tiktok.com/@tiltguild" target="_blank" aria-label="TikTok">
+        <img src="../images/logos/tik_tok_logo.png" alt="TikTok">
+      </a>
+      <a href="https://www.instagram.com/tiltguild/" target="_blank" aria-label="Instagram">
+        <img src="../images/logos/instagram_logo.png" alt="Instagram">
+      </a>
+      <a href="https://www.facebook.com/profile.php?id=61561883835650" target="_blank" aria-label="Facebook">
+        <img src="../images/logos/facebook_logo.png" alt="Facebook">
+      </a>
+    </div>
+    <button class="nav-burger" id="navBurger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ── Mobile menu ── -->
+<div class="nav-mobile" id="navMobile" aria-hidden="true">
+  <a href="/discography/" class="mobile-link">Discography</a>
+  <a href="/band/members/" class="mobile-link">Band Members</a>
+  <div class="nav-mobile-socials">
+    <a href="https://open.spotify.com/artist/4JeQcTsHEnzwCQTTTYFG8k?si=a4d4f214aa3940b3" target="_blank">
+      <img src="../images/logos/spotify_logo_green.png" alt="Spotify">
+    </a>
+    <a href="https://www.tiktok.com/@tiltguild" target="_blank">
+      <img src="../images/logos/tik_tok_logo.png" alt="TikTok">
+    </a>
+    <a href="https://www.instagram.com/tiltguild/" target="_blank">
+      <img src="../images/logos/instagram_logo.png" alt="Instagram">
+    </a>
+    <a href="https://www.facebook.com/profile.php?id=61561883835650" target="_blank">
+      <img src="../images/logos/facebook_logo.png" alt="Facebook">
+    </a>
+  </div>
 </div>
 
-
-<!-- Landing Page Background Section -->
-<div class="background-section">
-    <iframe 
-        style="border-radius: 12px; width: 70%; height: 76vh;" 
-        src="https://open.spotify.com/embed/album/3RbKMQUjG4AE3Spjw5EHJj?utm_source=generator&theme=0" 
-        frameBorder="0" 
-        allowfullscreen 
-        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-        loading="lazy">
-</iframe>
-</div>
+<!-- ── Hero / Spotify embed ── -->
+<main class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="embed-frame">
+      <iframe
+        src="https://open.spotify.com/embed/album/3RbKMQUjG4AE3Spjw5EHJj?utm_source=generator&theme=0"
+        frameborder="0"
+        allowfullscreen
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy"
+        title="Tilt Guild on Spotify">
+      </iframe>
+    </div>
+  </div>
+</main>
 
 <footer>
-    <p>&copy; 2025 Tilt Guild. All rights reserved.</p>
+  <p>&copy; 2025 Tilt Guild. All rights reserved.</p>
 </footer>
-	</body>
+
+<script>
+  const burger = document.getElementById('navBurger');
+  const mobile = document.getElementById('navMobile');
+  burger.addEventListener('click', () => {
+    const isOpen = burger.classList.toggle('open');
+    mobile.classList.toggle('open');
+    document.body.classList.toggle('nav-open');
+    burger.setAttribute('aria-expanded', isOpen);
+    mobile.setAttribute('aria-hidden', !isOpen);
+  });
+</script>
+</body>
 </html>
