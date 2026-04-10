@@ -6,6 +6,14 @@
     "artwork": "/images/Music Artworks/kolpo.png",
     "url": "/discography/albums/to_kolpo/"
   },
-  "news": [],
+  "news": [
+    {
+      "type": "show",
+      "title": "Live @ NAOS — Athens",
+      "description": "Tilt Guild perform live at NAOS alongside STRAiNGER and Kawaii Sharx.",
+      "source": "https://www.facebook.com/profile.php?id=61561883835650",
+      "date": "2026-04-25T19:00:00Z"
+    }
+  ],
   "updated": "2026-04-10T00:00:00Z"
 }
