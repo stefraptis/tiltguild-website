@@ -1,6 +1,6 @@
 {
   "featured_release": {
-    "title": "\u03a4\u03bf \u039a\u03cc\u03bb\u03c0\u03bf",
+    "title": "To Kolpo",
     "badge": "Latest Album",
     "meta": "Out now on all platforms",
     "artwork": "/images/Music Artworks/kolpo.png",
@@ -8,19 +8,11 @@
   },
   "news": [
     {
-<<<<<<< HEAD
       "type": "show",
       "title": "Live @ NAOS — Athens",
       "description": "Tilt Guild perform live at NAOS alongside STRAiNGER and Kawaii Sharx.",
       "source": "https://www.facebook.com/profile.php?id=61561883835650",
       "date": "2026-04-25T19:00:00Z"
-=======
-      "type": "release",
-      "title": "Debut Album '\u03a4\u03bf \u039a\u03cc\u03bb\u03c0\u03bf' Released",
-      "description": "Tilt Guild, a DIY independent rap metal band from Athens, Greece, released their debut album '\u03a4\u03bf \u039a\u03cc\u03bb\u03c0\u03bf' (The Trick) in November 2024, bringing a fresh and raw sound to the underground rap metal scene.",
-      "source": "https://gearspace.com/board/showthread.php?t=1441276&goto=newpost",
-      "date": "2024-11-01T00:00:00Z"
->>>>>>> a2d948e0f82e6f588503f38a1ace2a759ae2914e
     }
   ],
   "updated": "2026-04-10T00:00:00Z"
