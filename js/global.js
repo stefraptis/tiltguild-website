@@ -112,7 +112,7 @@ document.querySelectorAll('.footer-year').forEach(el => {
       <div class="newsletter-modal" id="newsletterModal">
         <button class="newsletter-close" id="newsletterClose" aria-label="Close">✕</button>
         <img class="newsletter-logo" src="/images/logos/tilt_guild_logo_for_website.png" alt="Tilt Guild">
-        <h2 class="newsletter-title">Stay in the loop</h2>
+        <h2 class="newsletter-title">Stay Tilted. Stay Locked In.</h2>
         <p class="newsletter-sub">Get notified about new releases, shows and band news.</p>
         <form class="newsletter-form" id="newsletterForm" action="https://formspree.io/f/${FORMSPREE_ID}" method="POST">
           <div class="newsletter-input-row">

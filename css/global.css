@@ -462,7 +462,8 @@ footer {
 .newsletter-logo {
   height: 60px;
   width: auto;
-  margin-bottom: 1rem;
+  display: block;
+  margin: 0 auto 1rem;
   filter: brightness(1);
 }
 
