@@ -2,44 +2,56 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
         <loc>https://tiltguild.com/</loc>
-        <lastmod>2024-08-16</lastmod>
+        <lastmod>2026-04-19</lastmod>
         <changefreq>monthly</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
         <loc>https://tiltguild.com/home/</loc>
-        <lastmod>2024-08-16</lastmod>
-        <changefreq>monthly</changefreq>
+        <lastmod>2026-04-19</lastmod>
+        <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
         <loc>https://tiltguild.com/discography/</loc>
-        <lastmod>2024-08-16</lastmod>
+        <lastmod>2026-04-19</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
-    </url>
-    <url>
-        <loc>https://tiltguild.com/discography/singles/athina/</loc>
-        <lastmod>2024-08-16</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.6</priority>
-    </url>
-        <url>
-        <loc>https://tiltguild.com/discography/singles/ento/</loc>
-        <lastmod>2024-08-16</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.6</priority>
     </url>
     <url>
         <loc>https://tiltguild.com/band/members/</loc>
-        <lastmod>2024-08-25</lastmod>
+        <lastmod>2026-04-19</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
-        <loc>https://www.tiltguild.com/discography/albums/to_kolpo/</loc>
-        <lastmod>2024-11-22</lastmod>
+        <loc>https://tiltguild.com/discography/albums/to_kolpo_live/</loc>
+        <lastmod>2026-04-19</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://tiltguild.com/discography/albums/to_kolpo/</loc>
+        <lastmod>2024-11-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://tiltguild.com/discography/singles/opoios_kanei_ena_vima/</loc>
+        <lastmod>2026-04-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://tiltguild.com/discography/singles/athina/</loc>
+        <lastmod>2024-08-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://tiltguild.com/discography/singles/ento/</loc>
+        <lastmod>2024-07-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
     </url>
 </urlset>
