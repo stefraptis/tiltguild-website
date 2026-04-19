@@ -272,13 +272,60 @@ body::after {
 
 footer {
   text-align: center;
-  padding: 2rem;
+  padding: 1.5rem 2rem 2rem;
   color: var(--text-3);
   font-size: 0.75rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   border-top: 1px solid var(--border);
   margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.footer-links a {
+  color: var(--text-3);
+  font-family: var(--font-d);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+  position: relative;
+}
+.footer-links a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 1px;
+  background: var(--accent-hi);
+  transition: width 0.25s var(--ease);
+}
+.footer-links a:hover { color: var(--text); }
+.footer-links a:hover::after { width: 100%; }
+
+.footer-divider {
+  width: 1px;
+  height: 12px;
+  background: var(--border-hi);
+}
+
+.footer-copy {
+  color: var(--text-3);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
 }
 
 /* ============================================================

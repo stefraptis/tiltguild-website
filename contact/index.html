@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tilt Guild — Contact</title>
+  <link rel="icon" href="../images/logos/tilt_guild_profile_picture_black.jpg" type="image/x-icon">
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/contact.css">
+</head>
+<body>
+
+<div class="contact-bg"></div>
+
+<!-- ── Navigation ── -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/home/" class="nav-logo">
+      <img src="../images/logos/tilt_guild_logo_for_website.png" alt="Tilt Guild">
+    </a>
+    <div class="nav-divider"></div>
+    <div class="nav-links">
+      <a href="/discography/" class="nav-link">Discography</a>
+      <a href="/band/members/" class="nav-link">Band Members</a>
+    </div>
+    <div class="nav-spacer"></div>
+    <div class="nav-socials">
+      <a href="https://open.spotify.com/artist/4JeQcTsHEnzwCQTTTYFG8k?si=a4d4f214aa3940b3" target="_blank" aria-label="Spotify">
+        <img src="../images/logos/spotify_logo_green.png" alt="Spotify">
+      </a>
+      <a href="https://www.tiktok.com/@tiltguild" target="_blank" aria-label="TikTok">
+        <img src="../images/logos/tik_tok_logo.png" alt="TikTok">
+      </a>
+      <a href="https://www.instagram.com/tiltguild/" target="_blank" aria-label="Instagram">
+        <img src="../images/logos/instagram_logo.png" alt="Instagram">
+      </a>
+      <a href="https://www.facebook.com/profile.php?id=61561883835650" target="_blank" aria-label="Facebook">
+        <img src="../images/logos/facebook_logo.png" alt="Facebook">
+      </a>
+    </div>
+    <button class="nav-burger" id="navBurger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ── Mobile menu ── -->
+<div class="nav-mobile" id="navMobile" aria-hidden="true">
+  <a href="/discography/" class="mobile-link">Discography</a>
+  <a href="/band/members/" class="mobile-link">Band Members</a>
+  <div class="nav-mobile-socials">
+    <a href="https://open.spotify.com/artist/4JeQcTsHEnzwCQTTTYFG8k?si=a4d4f214aa3940b3" target="_blank">
+      <img src="../images/logos/spotify_logo_green.png" alt="Spotify">
+    </a>
+    <a href="https://www.tiktok.com/@tiltguild" target="_blank">
+      <img src="../images/logos/tik_tok_logo.png" alt="TikTok">
+    </a>
+    <a href="https://www.instagram.com/tiltguild/" target="_blank">
+      <img src="../images/logos/instagram_logo.png" alt="Instagram">
+    </a>
+    <a href="https://www.facebook.com/profile.php?id=61561883835650" target="_blank">
+      <img src="../images/logos/facebook_logo.png" alt="Facebook">
+    </a>
+  </div>
+</div>
+
+<!-- ── Contact content ── -->
+<main class="contact-page">
+  <div class="contact-header">
+    <h1 class="contact-title">Get in <span>Touch</span></h1>
+    <p class="contact-subtitle">Have a question, booking inquiry or just want to say hello? Drop us a message and we'll get back to you.</p>
+  </div>
+
+  <div class="contact-card">
+
+    <!-- Form -->
+    <form class="contact-form" id="contactForm" action="https://formspree.io/f/mwvababn" method="POST" novalidate>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label" for="name">Name</label>
+          <input class="form-input" type="text" id="name" name="name" placeholder="Your name" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="email">Email</label>
+          <input class="form-input" type="email" id="email" name="email" placeholder="your@email.com" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="subject">Subject</label>
+        <input class="form-input" type="text" id="subject" name="subject" placeholder="What's this about?">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="message">Message</label>
+        <textarea class="form-textarea" id="message" name="message" placeholder="Your message..." required></textarea>
+      </div>
+
+      <p class="form-error-msg" id="formError">Something went wrong. Please try again.</p>
+
+      <button type="submit" class="form-submit" id="formSubmit">Send Message</button>
+    </form>
+
+    <!-- Success state -->
+    <div class="form-success" id="formSuccess">
+      <div class="form-success-icon">✓</div>
+      <h3>Message Sent!</h3>
+      <p>Thanks for reaching out. We'll get back to you soon.</p>
+    </div>
+
+    <!-- Social links -->
+    <div class="contact-socials">
+      <a href="https://open.spotify.com/artist/4JeQcTsHEnzwCQTTTYFG8k?si=a4d4f214aa3940b3" target="_blank" aria-label="Spotify">
+        <img src="../images/logos/spotify_logo_green.png" alt="Spotify">
+      </a>
+      <a href="https://www.tiktok.com/@tiltguild" target="_blank" aria-label="TikTok">
+        <img src="../images/logos/tik_tok_logo.png" alt="TikTok">
+      </a>
+      <a href="https://www.instagram.com/tiltguild/" target="_blank" aria-label="Instagram">
+        <img src="../images/logos/instagram_logo.png" alt="Instagram">
+      </a>
+      <a href="https://www.facebook.com/profile.php?id=61561883835650" target="_blank" aria-label="Facebook">
+        <img src="../images/logos/facebook_logo.png" alt="Facebook">
+      </a>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="footer-links">
+    <a href="/contact/">Contact</a>
+  </div>
+  <p class="footer-copy">&copy; <span class="footer-year"></span> Tilt Guild. All rights reserved.</p>
+</footer>
+
+<script src="../js/global.js"></script>
+<script>
+  const form     = document.getElementById('contactForm');
+  const success  = document.getElementById('formSuccess');
+  const errorMsg = document.getElementById('formError');
+  const submitBtn = document.getElementById('formSubmit');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    errorMsg.style.display = 'none';
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (res.ok) {
+        form.style.display = 'none';
+        success.style.display = 'flex';
+      } else {
+        throw new Error('Server error');
+      }
+    } catch (err) {
+      errorMsg.style.display = 'block';
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send Message';
+    }
+  });
+</script>
+</body>
+</html>
