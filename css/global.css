@@ -459,6 +459,13 @@ footer {
   color: var(--text);
 }
 
+.newsletter-logo {
+  height: 60px;
+  width: auto;
+  margin-bottom: 1rem;
+  filter: brightness(1);
+}
+
 .newsletter-icon {
   font-size: 2.5rem;
   margin-bottom: 1rem;
