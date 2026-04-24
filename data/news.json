@@ -1,18 +1,17 @@
 {
   "featured_release": {
-    "title": "To Kolpo (Live)",
-    "badge": "Latest Release",
+    "title": "Opoios Kanei Ena Vima",
+    "badge": "New Single",
     "meta": "Out now on all platforms",
-    "artwork": "/images/Music Artworks/to_kolpo_live_album_cover.png",
-    "url": "/discography/albums/to_kolpo_live/"
+    "artwork": "/images/Music Artworks/opoios_kanei_ena_vima_single_cover.png",
+    "url": "/discography/singles/opoios_kanei_ena_vima/"
   },
   "news": [
     {
       "type": "release",
-      "title": "New Single: 'Opoios Kanei Ena Vima' — Out April 24",
-      "description": "Tilt Guild's new single 'Opoios Kanei Ena Vima' drops on April 24, 2026. Stay tuned on all streaming platforms.",
+      "title": "'Opoios Kanei Ena Vima' — Out Now",
+      "description": "Tilt Guild's new single 'Opoios Kanei Ena Vima' is out now on all streaming platforms. Listen now!",
       "source": "/discography/singles/opoios_kanei_ena_vima/",
-      "artwork": "/images/Music Artworks/opoios_kanei_ena_vima_single_cover.png",
       "date": "2026-04-24T00:00:00"
     },
     {
