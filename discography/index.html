@@ -1,178 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tilt Guild — Discography</title>
-  <meta name="description" content="All Tilt Guild releases, albums and singles, with links to Spotify, Apple Music, YouTube Music and Amazon Music.">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Discography | Tilt Guild</title>
+  <meta name="description" content="Every Tilt Guild release, albums and singles, with links to Spotify, Apple Music, YouTube Music and Amazon Music.">
   <link rel="canonical" href="https://tiltguild.com/discography/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Tilt Guild">
-  <meta property="og:title" content="Tilt Guild — Discography">
-  <meta property="og:description" content="All Tilt Guild releases, albums and singles, with links to Spotify, Apple Music, YouTube Music and Amazon Music.">
+  <meta property="og:title" content="Discography | Tilt Guild">
+  <meta property="og:description" content="Every Tilt Guild release, albums and singles, with links to Spotify, Apple Music, YouTube Music and Amazon Music.">
   <meta property="og:url" content="https://tiltguild.com/discography/">
   <meta property="og:image" content="https://tiltguild.com/images/logos/tilt_guild_profile_picture_black.jpg">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#000000">
   <link rel="icon" href="/images/logos/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="/images/logos/apple-touch-icon.png">
-  <link rel="stylesheet" href="../css/global.css">
-  <link rel="stylesheet" href="../css/discography.css">
-</head>
-<body>
-
-<div class="page-bg"></div>
-
-<!-- ── Navigation ── -->
-<nav class="nav">
-  <div class="nav-inner">
-    <a href="/home/" class="nav-logo">
-      <img src="../images/logos/tilt_guild_logo_for_website.png" alt="Tilt Guild">
-    </a>
-    <div class="nav-divider"></div>
-    <div class="nav-links">
-      <a href="/discography/" class="nav-link active" aria-current="page">Discography</a>
-      <a href="/contact/" class="nav-link">Contact</a>
-    </div>
-    <div class="nav-spacer"></div>
-    <div class="nav-socials">
-      <a href="https://open.spotify.com/artist/4JeQcTsHEnzwCQTTTYFG8k?si=a4d4f214aa3940b3" target="_blank" rel="noopener" aria-label="Spotify">
-        <img src="../images/logos/spotify_logo_green.png" alt="Spotify">
-      </a>
-      <a href="https://www.tiktok.com/@tiltguild" target="_blank" rel="noopener" aria-label="TikTok">
-        <img src="../images/logos/tik_tok_logo.png" alt="TikTok">
-      </a>
-      <a href="https://www.instagram.com/tiltguild/" target="_blank" rel="noopener" aria-label="Instagram">
-        <img src="../images/logos/instagram_logo.png" alt="Instagram">
-      </a>
-      <a href="https://www.facebook.com/profile.php?id=61561883835650" target="_blank" rel="noopener" aria-label="Facebook">
-        <img src="../images/logos/facebook_logo.png" alt="Facebook">
-      </a>
-    </div>
-    <button class="nav-burger" id="navBurger" aria-label="Toggle menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
+  <link rel="preload" href="/fonts/archivo/archivo-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/css/site.css">
+  <script src="/js/site.js" defer></script>
+</head><body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="bar">
+  <div class="wrap bar-inner">
+    <a class="logo" href="/home/" aria-label="Tilt Guild, home"><img src="/images/logos/logo-white.png" width="41" height="44" alt="Tilt Guild"></a>
+    <nav class="nav" aria-label="Main">
+      <a href="/discography/" aria-current="page">Discography</a>
+      <a href="/contact/">Contact</a>
+    </nav>
+    <ul class="socials"><li><a href="https://open.spotify.com/artist/4JeQcTsHEnzwCQTTTYFG8k" target="_blank" rel="noopener" aria-label="Spotify"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#spotify"/></svg></a></li><li><a href="https://www.instagram.com/tiltguild/" target="_blank" rel="noopener" aria-label="Instagram"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#instagram"/></svg></a></li><li><a href="https://www.tiktok.com/@tiltguild" target="_blank" rel="noopener" aria-label="TikTok"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#tiktok"/></svg></a></li><li><a href="https://www.facebook.com/profile.php?id=61561883835650" target="_blank" rel="noopener" aria-label="Facebook"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#facebook"/></svg></a></li></ul>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#menu"/></svg><span>Menu</span></button>
   </div>
-</nav>
-
-<!-- ── Mobile menu ── -->
-<div class="nav-mobile" id="navMobile" aria-hidden="true">
-  <a href="/discography/" class="mobile-link active" aria-current="page">Discography</a>
-  <a href="/contact/" class="mobile-link">Contact</a>
-  <div class="nav-mobile-socials">
-    <a href="https://open.spotify.com/artist/4JeQcTsHEnzwCQTTTYFG8k?si=a4d4f214aa3940b3" target="_blank" rel="noopener">
-      <img src="../images/logos/spotify_logo_green.png" alt="Spotify">
-    </a>
-    <a href="https://www.tiktok.com/@tiltguild" target="_blank" rel="noopener">
-      <img src="../images/logos/tik_tok_logo.png" alt="TikTok">
-    </a>
-    <a href="https://www.instagram.com/tiltguild/" target="_blank" rel="noopener">
-      <img src="../images/logos/instagram_logo.png" alt="Instagram">
-    </a>
-    <a href="https://www.facebook.com/profile.php?id=61561883835650" target="_blank" rel="noopener">
-      <img src="../images/logos/facebook_logo.png" alt="Facebook">
-    </a>
-  </div>
+</header>
+<div class="menu" id="menu" hidden>
+  <nav aria-label="Main">
+    <a href="/home/">Home</a>
+    <a href="/discography/" aria-current="page">Discography</a>
+    <a href="/contact/">Contact</a>
+  </nav>
+  <ul class="socials"><li><a href="https://open.spotify.com/artist/4JeQcTsHEnzwCQTTTYFG8k" target="_blank" rel="noopener" aria-label="Spotify"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#spotify"/></svg></a></li><li><a href="https://www.instagram.com/tiltguild/" target="_blank" rel="noopener" aria-label="Instagram"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#instagram"/></svg></a></li><li><a href="https://www.tiktok.com/@tiltguild" target="_blank" rel="noopener" aria-label="TikTok"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#tiktok"/></svg></a></li><li><a href="https://www.facebook.com/profile.php?id=61561883835650" target="_blank" rel="noopener" aria-label="Facebook"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#facebook"/></svg></a></li></ul>
 </div>
 
-<!-- ── Page content ── -->
-<header class="page-header">
-  <h1 class="page-title">Disco<span>graphy</span></h1>
-  <p class="page-subtitle">All releases — albums, singles &amp; more</p>
-</header>
-
-<main class="disco-content">
-
-  <!-- Albums -->
-  <div class="section-label"><span>Albums</span></div>
-  <div class="album-grid">
-    <div class="album-card">
-      <a href="/discography/albums/to_kolpo_live/">
-        <div class="album-thumb">
-          <img src="../images/Music Artworks/to_kolpo_live_album_cover.jpg" alt="To Kolpo (Live)" width="600" height="600" loading="lazy">
-          <div class="album-overlay">
-            <span class="overlay-cta">Listen now</span>
-            <span class="overlay-date">24 Jan 2026</span>
-          </div>
-        </div>
-        <div class="album-info">
-          <div class="album-name">To Kolpo (Live)</div>
-          <div class="album-type">Live album</div>
-        </div>
-      </a>
-    </div>
-    <div class="album-card">
-      <a href="/discography/albums/to_kolpo/">
-        <div class="album-thumb">
-          <img src="../images/Music Artworks/kolpo.jpg" alt="To Kolpo" width="600" height="600" loading="lazy">
-          <div class="album-overlay">
-            <span class="overlay-cta">Listen now</span>
-            <span class="overlay-date">22 Nov 2024</span>
-          </div>
-        </div>
-        <div class="album-info">
-          <div class="album-name">To Kolpo</div>
-          <div class="album-type">Full-length album</div>
-        </div>
-      </a>
-    </div>
-  </div>
-
-  <!-- Singles -->
-  <div class="section-label"><span>Singles</span></div>
-  <div class="album-grid">
-    <div class="album-card">
-      <a href="/discography/singles/opoios_kanei_ena_vima/">
-        <div class="album-thumb">
-          <img src="../images/Music Artworks/opoios_kanei_ena_vima_single_cover.jpg" alt="Opoios Kanei Ena Vima" width="600" height="600" loading="lazy">
-          <div class="album-overlay">
-            <span class="overlay-cta">Listen now</span>
-            <span class="overlay-date">24 Apr 2026</span>
-          </div>
-        </div>
-        <div class="album-info">
-          <div class="album-name">Opoios Kanei Ena Vima</div>
-          <div class="album-type">Single</div>
-        </div>
-      </a>
-    </div>
-    <div class="album-card">
-      <a href="/discography/singles/athina/">
-        <div class="album-thumb">
-          <img src="../images/Music Artworks/athina.jpg" alt="Athina" width="600" height="600" loading="lazy">
-          <div class="album-overlay">
-            <span class="overlay-cta">Listen now</span>
-            <span class="overlay-date">27 Aug 2024</span>
-          </div>
-        </div>
-        <div class="album-info">
-          <div class="album-name">Athina</div>
-          <div class="album-type">Single</div>
-        </div>
-      </a>
-    </div>
-    <div class="album-card">
-      <a href="/discography/singles/ento/">
-        <div class="album-thumb">
-          <img src="../images/Music Artworks/ento_cover.jpg" alt="Ento" width="600" height="600" loading="lazy">
-          <div class="album-overlay">
-            <span class="overlay-cta">Listen now</span>
-            <span class="overlay-date">10 Jul 2024</span>
-          </div>
-        </div>
-        <div class="album-info">
-          <div class="album-name">Ento</div>
-          <div class="album-type">Single</div>
-        </div>
-      </a>
-    </div>
-  </div>
-
+<main id="main" class="wrap">
+  <header class="page-head">
+    <h1 class="display page-title">Discography</h1>
+    <p class="lede">Two albums and three singles. Pick one to play it on Spotify, Apple Music, YouTube Music or Amazon Music.</p>
+  </header>
+  <ul class="releases releases-feature">
+    <li><a class="release-card" href="/discography/singles/opoios_kanei_ena_vima/"><span class="sticker">Latest</span><img src="/images/Music%20Artworks/opoios_kanei_ena_vima_single_cover.jpg" srcset="/images/Music%20Artworks/opoios_kanei_ena_vima_single_cover-600.jpg 600w, /images/Music%20Artworks/opoios_kanei_ena_vima_single_cover.jpg 1200w" sizes="(max-width: 860px) 100vw, 600px" width="1200" height="1200" alt="" loading="lazy" decoding="async"><h3>Opoios Kanei Ena Vima</h3><p>Single, 2026</p></a></li><li><a class="release-card" href="/discography/albums/to_kolpo_live/"><img src="/images/Music%20Artworks/to_kolpo_live_album_cover.jpg" srcset="/images/Music%20Artworks/to_kolpo_live_album_cover-600.jpg 600w, /images/Music%20Artworks/to_kolpo_live_album_cover.jpg 1200w" sizes="(max-width: 860px) 50vw, 300px" width="1200" height="1200" alt="" loading="lazy" decoding="async"><h3>To Kolpo (Live)</h3><p>Live album, 2026</p></a></li><li><a class="release-card" href="/discography/albums/to_kolpo/"><img src="/images/Music%20Artworks/kolpo.jpg" srcset="/images/Music%20Artworks/kolpo-600.jpg 600w, /images/Music%20Artworks/kolpo.jpg 1200w" sizes="(max-width: 860px) 50vw, 300px" width="1200" height="1200" alt="" loading="lazy" decoding="async"><h3>To Kolpo</h3><p>Album, 2024</p></a></li><li><a class="release-card" href="/discography/singles/athina/"><img src="/images/Music%20Artworks/athina.jpg" srcset="/images/Music%20Artworks/athina-600.jpg 600w, /images/Music%20Artworks/athina.jpg 1200w" sizes="(max-width: 860px) 50vw, 300px" width="1200" height="1200" alt="" loading="lazy" decoding="async"><h3>Athina</h3><p>Single, 2024</p></a></li><li><a class="release-card" href="/discography/singles/ento/"><img src="/images/Music%20Artworks/ento_cover.jpg" srcset="/images/Music%20Artworks/ento_cover-600.jpg 600w, /images/Music%20Artworks/ento_cover.jpg 1200w" sizes="(max-width: 860px) 50vw, 300px" width="1200" height="1200" alt="" loading="lazy" decoding="async"><h3>Ento</h3><p>Single, 2024</p></a></li>
+  </ul>
 </main>
 
-<footer>
-  <p class="footer-copy">&copy; <span class="footer-year"></span> Tilt Guild. All rights reserved.</p>
+<footer class="foot">
+  <div class="wrap foot-grid">
+    <form class="signup" data-form="newsletter" data-ok="You're on the list. Watch your inbox for new releases and shows." action="https://formspree.io/f/xrerkonr" method="POST">
+      <h2 class="foot-h">New music and show dates by email</h2>
+      <input type="hidden" name="form" value="newsletter">
+      <input type="hidden" name="_subject" value="New newsletter sign-up">
+      <label class="sr" for="nl-email">Email address</label>
+      <div class="signup-row">
+        <input id="nl-email" type="email" name="email" placeholder="you@example.com" autocomplete="email" required>
+        <button class="btn btn-flame" type="submit">Subscribe</button>
+      </div>
+      <p class="form-status" role="status"></p>
+    </form>
+    <div class="foot-side">
+      <ul class="socials"><li><a href="https://open.spotify.com/artist/4JeQcTsHEnzwCQTTTYFG8k" target="_blank" rel="noopener" aria-label="Spotify"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#spotify"/></svg></a></li><li><a href="https://www.instagram.com/tiltguild/" target="_blank" rel="noopener" aria-label="Instagram"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#instagram"/></svg></a></li><li><a href="https://www.tiktok.com/@tiltguild" target="_blank" rel="noopener" aria-label="TikTok"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#tiktok"/></svg></a></li><li><a href="https://www.facebook.com/profile.php?id=61561883835650" target="_blank" rel="noopener" aria-label="Facebook"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#facebook"/></svg></a></li></ul>
+      <p class="copy">&copy; <span data-year>2026</span> Tilt Guild</p>
+    </div>
+  </div>
 </footer>
-
-<script src="../js/global.js"></script>
 </body>
 </html>

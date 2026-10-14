@@ -1,112 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Tilt Guild</title>
-  <meta name="description" content="Official website of Tilt Guild. New releases, news, shows and links to listen everywhere.">
+  <meta name="description" content="Tilt Guild official site. New music, shows and news, with links to listen everywhere.">
   <link rel="canonical" href="https://tiltguild.com/home/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Tilt Guild">
   <meta property="og:title" content="Tilt Guild">
-  <meta property="og:description" content="Official website of Tilt Guild. New releases, news, shows and links to listen everywhere.">
+  <meta property="og:description" content="Tilt Guild official site. New music, shows and news, with links to listen everywhere.">
   <meta property="og:url" content="https://tiltguild.com/home/">
   <meta property="og:image" content="https://tiltguild.com/images/logos/tilt_guild_profile_picture_black.jpg">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#000000">
   <link rel="icon" href="/images/logos/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="/images/logos/apple-touch-icon.png">
-  <link rel="stylesheet" href="../css/global.css">
-  <link rel="stylesheet" href="../css/home.css">
-</head>
-<body>
-
-<!-- ── Navigation ── -->
-<nav class="nav">
-  <div class="nav-inner">
-    <a href="/home/" class="nav-logo">
-      <img src="../images/logos/tilt_guild_logo_for_website.png" alt="Tilt Guild">
-    </a>
-    <div class="nav-divider"></div>
-    <div class="nav-links">
-      <a href="/discography/" class="nav-link">Discography</a>
-      <a href="/contact/" class="nav-link">Contact</a>
-    </div>
-    <div class="nav-spacer"></div>
-    <div class="nav-socials">
-      <a href="https://open.spotify.com/artist/4JeQcTsHEnzwCQTTTYFG8k?si=a4d4f214aa3940b3" target="_blank" rel="noopener" aria-label="Spotify">
-        <img src="../images/logos/spotify_logo_green.png" alt="Spotify">
-      </a>
-      <a href="https://www.tiktok.com/@tiltguild" target="_blank" rel="noopener" aria-label="TikTok">
-        <img src="../images/logos/tik_tok_logo.png" alt="TikTok">
-      </a>
-      <a href="https://www.instagram.com/tiltguild/" target="_blank" rel="noopener" aria-label="Instagram">
-        <img src="../images/logos/instagram_logo.png" alt="Instagram">
-      </a>
-      <a href="https://www.facebook.com/profile.php?id=61561883835650" target="_blank" rel="noopener" aria-label="Facebook">
-        <img src="../images/logos/facebook_logo.png" alt="Facebook">
-      </a>
-    </div>
-    <button class="nav-burger" id="navBurger" aria-label="Toggle menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
+  <link rel="preload" href="/fonts/archivo/archivo-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/data/news.json" as="fetch" crossorigin>
+  <link rel="stylesheet" href="/css/site.css">
+  <script src="/js/site.js" defer></script>
+</head><body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="bar">
+  <div class="wrap bar-inner">
+    <a class="logo" href="/home/" aria-label="Tilt Guild, home"><img src="/images/logos/logo-white.png" width="41" height="44" alt="Tilt Guild"></a>
+    <nav class="nav" aria-label="Main">
+      <a href="/discography/">Discography</a>
+      <a href="/contact/">Contact</a>
+    </nav>
+    <ul class="socials"><li><a href="https://open.spotify.com/artist/4JeQcTsHEnzwCQTTTYFG8k" target="_blank" rel="noopener" aria-label="Spotify"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#spotify"/></svg></a></li><li><a href="https://www.instagram.com/tiltguild/" target="_blank" rel="noopener" aria-label="Instagram"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#instagram"/></svg></a></li><li><a href="https://www.tiktok.com/@tiltguild" target="_blank" rel="noopener" aria-label="TikTok"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#tiktok"/></svg></a></li><li><a href="https://www.facebook.com/profile.php?id=61561883835650" target="_blank" rel="noopener" aria-label="Facebook"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#facebook"/></svg></a></li></ul>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#menu"/></svg><span>Menu</span></button>
   </div>
-</nav>
-
-<!-- ── Mobile menu ── -->
-<div class="nav-mobile" id="navMobile" aria-hidden="true">
-  <a href="/discography/" class="mobile-link">Discography</a>
-  <a href="/contact/" class="mobile-link">Contact</a>
-  <div class="nav-mobile-socials">
-    <a href="https://open.spotify.com/artist/4JeQcTsHEnzwCQTTTYFG8k?si=a4d4f214aa3940b3" target="_blank" rel="noopener">
-      <img src="../images/logos/spotify_logo_green.png" alt="Spotify">
-    </a>
-    <a href="https://www.tiktok.com/@tiltguild" target="_blank" rel="noopener">
-      <img src="../images/logos/tik_tok_logo.png" alt="TikTok">
-    </a>
-    <a href="https://www.instagram.com/tiltguild/" target="_blank" rel="noopener">
-      <img src="../images/logos/instagram_logo.png" alt="Instagram">
-    </a>
-    <a href="https://www.facebook.com/profile.php?id=61561883835650" target="_blank" rel="noopener">
-      <img src="../images/logos/facebook_logo.png" alt="Facebook">
-    </a>
-  </div>
+</header>
+<div class="menu" id="menu" hidden>
+  <nav aria-label="Main">
+    <a href="/home/" aria-current="page">Home</a>
+    <a href="/discography/">Discography</a>
+    <a href="/contact/">Contact</a>
+  </nav>
+  <ul class="socials"><li><a href="https://open.spotify.com/artist/4JeQcTsHEnzwCQTTTYFG8k" target="_blank" rel="noopener" aria-label="Spotify"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#spotify"/></svg></a></li><li><a href="https://www.instagram.com/tiltguild/" target="_blank" rel="noopener" aria-label="Instagram"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#instagram"/></svg></a></li><li><a href="https://www.tiktok.com/@tiltguild" target="_blank" rel="noopener" aria-label="TikTok"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#tiktok"/></svg></a></li><li><a href="https://www.facebook.com/profile.php?id=61561883835650" target="_blank" rel="noopener" aria-label="Facebook"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#facebook"/></svg></a></li></ul>
 </div>
 
-<!-- ── 1. Upcoming Release ── -->
-<section class="upcoming-section" id="upcomingSection" hidden>
-  <div class="section-label"><span>Upcoming Release</span></div>
-  <div id="countdownSection"></div>
-</section>
-
-<!-- ── 2. Featured Release ── -->
-<section class="featured-section">
-  <div class="section-label"><span>Featured Release</span></div>
-  <div id="featuredRelease">
-    <a href="/discography/singles/opoios_kanei_ena_vima/" class="featured-inner">
-      <div class="featured-bg" style="background-image:url('/images/Music Artworks/opoios_kanei_ena_vima_single_cover.jpg')"></div>
-      <div class="featured-content">
-        <span class="featured-badge">New Single</span>
-        <h2 class="featured-title">Opoios Kanei Ena Vima</h2>
-        <p class="featured-meta">Out now on all platforms</p>
-        <span class="featured-cta">Listen Now →</span>
+<main id="main">
+  <section class="wrap hero" id="hero" data-title="Opoios Kanei Ena Vima" aria-label="Featured release">
+    <div class="hero-art">
+      <span class="sticker">New single</span>
+      <img src="/images/Music Artworks/opoios_kanei_ena_vima_single_cover.jpg" width="1200" height="1200" alt="Opoios Kanei Ena Vima cover art" fetchpriority="high">
+    </div>
+    <div class="hero-text">
+      <h1 class="display hero-title">Opoios Kanei Ena Vima</h1>
+      <p class="lede hero-meta">Out now on all platforms.</p>
+      <div class="actions">
+        <a class="btn btn-ink" href="https://open.spotify.com/album/7oaJVTryqZfMm3wWTvDNu7" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#spotify"/></svg>Play on Spotify</a>
+        <a class="btn" href="/discography/singles/opoios_kanei_ena_vima/">All platforms</a>
       </div>
-      <img class="featured-artwork" src="/images/Music Artworks/opoios_kanei_ena_vima_single_cover.jpg" alt="Opoios Kanei Ena Vima">
-    </a>
+    </div>
+  </section>
+
+  <section class="next" id="next" aria-label="Next release" hidden>
+    <div class="wrap next-inner"></div>
+  </section>
+
+  <section class="wrap" aria-labelledby="news-h">
+    <div class="section-head"><h2 class="h-section" id="news-h">News and shows</h2></div>
+    <ol class="feed" id="feed"></ol>
+    <noscript><p class="feed-empty">Turn on JavaScript to see the latest news, or browse the <a href="/discography/">discography</a>.</p></noscript>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-grid">
+    <form class="signup" data-form="newsletter" data-ok="You're on the list. Watch your inbox for new releases and shows." action="https://formspree.io/f/xrerkonr" method="POST">
+      <h2 class="foot-h">New music and show dates by email</h2>
+      <input type="hidden" name="form" value="newsletter">
+      <input type="hidden" name="_subject" value="New newsletter sign-up">
+      <label class="sr" for="nl-email">Email address</label>
+      <div class="signup-row">
+        <input id="nl-email" type="email" name="email" placeholder="you@example.com" autocomplete="email" required>
+        <button class="btn btn-flame" type="submit">Subscribe</button>
+      </div>
+      <p class="form-status" role="status"></p>
+    </form>
+    <div class="foot-side">
+      <ul class="socials"><li><a href="https://open.spotify.com/artist/4JeQcTsHEnzwCQTTTYFG8k" target="_blank" rel="noopener" aria-label="Spotify"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#spotify"/></svg></a></li><li><a href="https://www.instagram.com/tiltguild/" target="_blank" rel="noopener" aria-label="Instagram"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#instagram"/></svg></a></li><li><a href="https://www.tiktok.com/@tiltguild" target="_blank" rel="noopener" aria-label="TikTok"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#tiktok"/></svg></a></li><li><a href="https://www.facebook.com/profile.php?id=61561883835650" target="_blank" rel="noopener" aria-label="Facebook"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#facebook"/></svg></a></li></ul>
+      <p class="copy">&copy; <span data-year>2026</span> Tilt Guild</p>
+    </div>
   </div>
-</section>
-
-<!-- ── 3. News & Events ── -->
-<section class="news-section">
-  <div class="section-label"><span>News &amp; Events</span></div>
-  <p class="news-loading" id="newsLoading">Loading latest news…</p>
-  <div class="news-grid" id="newsContainer"></div>
-</section>
-
-<footer>
-  <p class="footer-copy">&copy; <span class="footer-year"></span> Tilt Guild. All rights reserved.</p>
 </footer>
-
-<script src="../js/global.js"></script>
-<script src="../js/news.js"></script>
 </body>
 </html>
