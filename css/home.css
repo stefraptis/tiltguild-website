@@ -167,7 +167,7 @@
 
 .news-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(340px, 100%), 1fr));
   gap: 1rem;
 }
 
@@ -253,15 +253,12 @@
   .featured-section { padding: 2rem 1.25rem 0; }
   .featured-inner { padding: 1.5rem; gap: 1.25rem; }
   .featured-artwork { width: 90px; height: 90px; }
-  .hero { padding: 2rem 1rem; }
-  .embed-frame iframe { height: 400px; }
   .news-section { padding: 2rem 1.25rem 3rem; }
   .news-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 480px) {
   .featured-artwork { width: 72px; height: 72px; }
-  .embed-frame iframe { height: 340px; }
 }
 
 /* ============================================================
@@ -383,7 +380,7 @@
 }
 
 @media (max-width: 768px) {
-  #countdownSection { padding: 0 1.25rem; }
+  .upcoming-section { padding: 2rem 1.25rem 0; }
   .countdown-card { padding: 1.5rem 1.25rem; gap: 1.5rem; }
   .countdown-artwork { width: 100px; height: 100px; }
   .countdown-unit { min-width: 52px; }

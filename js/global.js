@@ -14,6 +14,8 @@ if (burger && mobile) {
       burger.classList.remove('open');
       mobile.classList.remove('open');
       document.body.classList.remove('nav-open');
+      burger.setAttribute('aria-expanded', 'false');
+      mobile.setAttribute('aria-hidden', 'true');
     });
   });
 }
@@ -90,8 +92,7 @@ document.querySelectorAll('.footer-year').forEach(el => {
 (function () {
   const NEWSLETTER_KEY  = 'tg_newsletter_dismissed';
   const RESHOW_DAYS     = 7;
-  // !! Replace YOUR_FORM_ID with your Formspree form ID !!
-  const FORMSPREE_ID    = 'xrerkonr';
+  const FORMSPREE_ID    = 'xrerkonr';   // Formspree form that receives sign-ups
 
   function shouldShow() {
     const stored = localStorage.getItem(NEWSLETTER_KEY);
@@ -116,10 +117,13 @@ document.querySelectorAll('.footer-year').forEach(el => {
         <p class="newsletter-sub">Get notified about new releases, shows and band news.</p>
         <form class="newsletter-form" id="newsletterForm" action="https://formspree.io/f/${FORMSPREE_ID}" method="POST">
           <div class="newsletter-input-row">
-            <input type="email" name="email" placeholder="Your email address" required class="newsletter-input">
+            <input type="hidden" name="form" value="newsletter">
+            <input type="hidden" name="_subject" value="New newsletter sign-up">
+            <input type="email" name="email" placeholder="Your email address" required class="newsletter-input" aria-label="Email address">
             <button type="submit" class="newsletter-submit">Subscribe</button>
           </div>
           <p class="newsletter-privacy">No spam. Unsubscribe anytime.</p>
+          <p class="newsletter-error" id="newsletterError" hidden>Something went wrong. Please try again.</p>
         </form>
         <div class="newsletter-success" id="newsletterSuccess" style="display:none">
           <span>✓</span> You're in! Thanks for subscribing.
@@ -133,7 +137,14 @@ document.querySelectorAll('.footer-year').forEach(el => {
       requestAnimationFrame(() => overlay.classList.add('visible'));
     });
 
+    let closed = false;
+    function onKey(e) {
+      if (e.key === 'Escape') closePopup();
+    }
     function closePopup() {
+      if (closed) return;
+      closed = true;
+      document.removeEventListener('keydown', onKey);
       overlay.classList.remove('visible');
       setTimeout(() => overlay.remove(), 400);
       dismiss();
@@ -143,27 +154,30 @@ document.querySelectorAll('.footer-year').forEach(el => {
     overlay.addEventListener('click', (e) => {
       if (e.target === overlay) closePopup();
     });
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closePopup();
-    });
+    document.addEventListener('keydown', onKey);
 
     document.getElementById('newsletterForm').addEventListener('submit', async (e) => {
       e.preventDefault();
-      const form = e.target;
+      const form   = e.target;
+      const button = form.querySelector('.newsletter-submit');
+      const error  = document.getElementById('newsletterError');
+      error.hidden = true;
+      button.disabled = true;
       try {
         const res = await fetch(form.action, {
           method: 'POST',
           body: new FormData(form),
           headers: { 'Accept': 'application/json' }
         });
-        if (res.ok) {
-          form.style.display = 'none';
-          document.getElementById('newsletterSuccess').style.display = 'flex';
-          dismiss();
-          setTimeout(closePopup, 2500);
-        }
+        if (!res.ok) throw new Error('Server error ' + res.status);
+        form.style.display = 'none';
+        document.getElementById('newsletterSuccess').style.display = 'flex';
+        dismiss();
+        setTimeout(closePopup, 2500);
       } catch (err) {
         console.error('Newsletter error:', err);
+        error.hidden = false;
+        button.disabled = false;
       }
     });
   }

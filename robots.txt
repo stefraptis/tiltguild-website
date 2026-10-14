@@ -1,10 +1,4 @@
 User-agent: *
-Disallow:
-
-Disallow: /private/
-Disallow: /temp/
-
-User-agent: Googlebot
-Disallow:
+Disallow: /fonts/demo-files/
 
 Sitemap: https://tiltguild.com/sitemap.xml

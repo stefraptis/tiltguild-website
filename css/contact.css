@@ -3,7 +3,7 @@
 .contact-bg {
   position: fixed;
   inset: 0;
-  background: url('../images/tilt-guild-live-1.jpg') center/cover no-repeat;
+  background: url('../images/tilt-guild-live-bg.jpg') center/cover no-repeat;
   filter: blur(40px) brightness(0.08) saturate(0.3);
   transform: scale(1.1);
   z-index: -1;
@@ -56,11 +56,6 @@
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   animation: fadeUp 0.5s var(--ease) both;
-}
-
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(16px); }
-  to   { opacity: 1; transform: translateY(0); }
 }
 
 /* ── Form fields ── */

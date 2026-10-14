@@ -4,7 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tilt Guild — Contact</title>
-  <link rel="icon" href="../images/logos/tilt_guild_profile_picture_black.jpg" type="image/x-icon">
+  <meta name="description" content="Get in touch with Tilt Guild for bookings, press or anything else.">
+  <link rel="canonical" href="https://tiltguild.com/contact/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Tilt Guild">
+  <meta property="og:title" content="Tilt Guild — Contact">
+  <meta property="og:description" content="Get in touch with Tilt Guild for bookings, press or anything else.">
+  <meta property="og:url" content="https://tiltguild.com/contact/">
+  <meta property="og:image" content="https://tiltguild.com/images/logos/tilt_guild_profile_picture_black.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/images/logos/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="/images/logos/apple-touch-icon.png">
   <link rel="stylesheet" href="../css/global.css">
   <link rel="stylesheet" href="../css/contact.css">
 </head>
@@ -21,21 +31,20 @@
     <div class="nav-divider"></div>
     <div class="nav-links">
       <a href="/discography/" class="nav-link">Discography</a>
-      <a href="/band/members/" class="nav-link">Band Members</a>
-      <a href="/contact/" class="nav-link">Contact</a>
+      <a href="/contact/" class="nav-link active" aria-current="page">Contact</a>
     </div>
     <div class="nav-spacer"></div>
     <div class="nav-socials">
-      <a href="https://open.spotify.com/artist/4JeQcTsHEnzwCQTTTYFG8k?si=a4d4f214aa3940b3" target="_blank" aria-label="Spotify">
+      <a href="https://open.spotify.com/artist/4JeQcTsHEnzwCQTTTYFG8k?si=a4d4f214aa3940b3" target="_blank" rel="noopener" aria-label="Spotify">
         <img src="../images/logos/spotify_logo_green.png" alt="Spotify">
       </a>
-      <a href="https://www.tiktok.com/@tiltguild" target="_blank" aria-label="TikTok">
+      <a href="https://www.tiktok.com/@tiltguild" target="_blank" rel="noopener" aria-label="TikTok">
         <img src="../images/logos/tik_tok_logo.png" alt="TikTok">
       </a>
-      <a href="https://www.instagram.com/tiltguild/" target="_blank" aria-label="Instagram">
+      <a href="https://www.instagram.com/tiltguild/" target="_blank" rel="noopener" aria-label="Instagram">
         <img src="../images/logos/instagram_logo.png" alt="Instagram">
       </a>
-      <a href="https://www.facebook.com/profile.php?id=61561883835650" target="_blank" aria-label="Facebook">
+      <a href="https://www.facebook.com/profile.php?id=61561883835650" target="_blank" rel="noopener" aria-label="Facebook">
         <img src="../images/logos/facebook_logo.png" alt="Facebook">
       </a>
     </div>
@@ -48,19 +57,18 @@
 <!-- ── Mobile menu ── -->
 <div class="nav-mobile" id="navMobile" aria-hidden="true">
   <a href="/discography/" class="mobile-link">Discography</a>
-  <a href="/band/members/" class="mobile-link">Band Members</a>
-  <a href="/contact/" class="mobile-link">Contact</a>
+  <a href="/contact/" class="mobile-link active" aria-current="page">Contact</a>
   <div class="nav-mobile-socials">
-    <a href="https://open.spotify.com/artist/4JeQcTsHEnzwCQTTTYFG8k?si=a4d4f214aa3940b3" target="_blank">
+    <a href="https://open.spotify.com/artist/4JeQcTsHEnzwCQTTTYFG8k?si=a4d4f214aa3940b3" target="_blank" rel="noopener">
       <img src="../images/logos/spotify_logo_green.png" alt="Spotify">
     </a>
-    <a href="https://www.tiktok.com/@tiltguild" target="_blank">
+    <a href="https://www.tiktok.com/@tiltguild" target="_blank" rel="noopener">
       <img src="../images/logos/tik_tok_logo.png" alt="TikTok">
     </a>
-    <a href="https://www.instagram.com/tiltguild/" target="_blank">
+    <a href="https://www.instagram.com/tiltguild/" target="_blank" rel="noopener">
       <img src="../images/logos/instagram_logo.png" alt="Instagram">
     </a>
-    <a href="https://www.facebook.com/profile.php?id=61561883835650" target="_blank">
+    <a href="https://www.facebook.com/profile.php?id=61561883835650" target="_blank" rel="noopener">
       <img src="../images/logos/facebook_logo.png" alt="Facebook">
     </a>
   </div>
@@ -76,7 +84,12 @@
   <div class="contact-card">
 
     <!-- Form -->
-    <form class="contact-form" id="contactForm" action="https://formspree.io/f/YOUR_CONTACT_FORM_ID" method="POST" novalidate>
+    <!-- Uses the same Formspree form as the newsletter. To send contact messages to a separate
+         Formspree form, create one at formspree.io and replace xrerkonr below with its ID. -->
+    <form class="contact-form" id="contactForm" action="https://formspree.io/f/xrerkonr" method="POST">
+      <input type="hidden" name="_subject" value="New message from the Tilt Guild website">
+      <input type="hidden" name="form" value="contact">
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
 
       <div class="form-row">
         <div class="form-group">
@@ -113,16 +126,16 @@
 
     <!-- Social links -->
     <div class="contact-socials">
-      <a href="https://open.spotify.com/artist/4JeQcTsHEnzwCQTTTYFG8k?si=a4d4f214aa3940b3" target="_blank" aria-label="Spotify">
+      <a href="https://open.spotify.com/artist/4JeQcTsHEnzwCQTTTYFG8k?si=a4d4f214aa3940b3" target="_blank" rel="noopener" aria-label="Spotify">
         <img src="../images/logos/spotify_logo_green.png" alt="Spotify">
       </a>
-      <a href="https://www.tiktok.com/@tiltguild" target="_blank" aria-label="TikTok">
+      <a href="https://www.tiktok.com/@tiltguild" target="_blank" rel="noopener" aria-label="TikTok">
         <img src="../images/logos/tik_tok_logo.png" alt="TikTok">
       </a>
-      <a href="https://www.instagram.com/tiltguild/" target="_blank" aria-label="Instagram">
+      <a href="https://www.instagram.com/tiltguild/" target="_blank" rel="noopener" aria-label="Instagram">
         <img src="../images/logos/instagram_logo.png" alt="Instagram">
       </a>
-      <a href="https://www.facebook.com/profile.php?id=61561883835650" target="_blank" aria-label="Facebook">
+      <a href="https://www.facebook.com/profile.php?id=61561883835650" target="_blank" rel="noopener" aria-label="Facebook">
         <img src="../images/logos/facebook_logo.png" alt="Facebook">
       </a>
     </div>
@@ -143,6 +156,7 @@
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
+    if (!form.reportValidity()) return;
     errorMsg.style.display = 'none';
     submitBtn.disabled = true;
     submitBtn.textContent = 'Sending…';

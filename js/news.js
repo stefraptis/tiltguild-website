@@ -1,10 +1,12 @@
 // ── Tilt Guild News & Events Loader ──
-// Reads from /data/news.json which is auto-updated daily by GitHub Actions
+// Reads from /data/news.json (edit that file by hand to update the home page)
 
 // ── Countdown Timer ──
 function startCountdown(targetDate, containerId) {
   const container = document.getElementById(containerId);
   if (!container) return;
+
+  let timer = null;
 
   function update() {
     const now  = new Date().getTime();
@@ -12,6 +14,7 @@ function startCountdown(targetDate, containerId) {
 
     if (diff <= 0) {
       container.innerHTML = '<span class="countdown-out">Out Now!</span>';
+      if (timer) clearInterval(timer);
       return;
     }
 
@@ -32,7 +35,7 @@ function startCountdown(targetDate, containerId) {
   }
 
   update();
-  setInterval(update, 1000);
+  timer = setInterval(update, 1000);
 }
 
 async function loadNews() {
@@ -91,9 +94,10 @@ async function loadNews() {
           </div>
         </div>
       `;
+      if (upcomingSection) upcomingSection.hidden = false;
       startCountdown(upcoming.date, 'countdownTimer');
     } else if (upcomingSection) {
-      upcomingSection.style.display = 'none';
+      upcomingSection.hidden = true;
     }
 
     // ── News items ──
@@ -102,7 +106,10 @@ async function loadNews() {
       return;
     }
 
-    container.innerHTML = items.map((item, i) => {
+    // Newest first
+    const sorted = [...items].sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0));
+
+    container.innerHTML = sorted.map((item, i) => {
       const tag      = item.tag      || item.type        || 'News';
       const headline = item.headline || item.title       || '';
       const summary  = item.summary  || item.description || '';
@@ -119,6 +126,8 @@ async function loadNews() {
       }
 
       const tagLabel = tag.charAt(0).toUpperCase() + tag.slice(1);
+      const isExternal = /^https?:\/\//.test(url);
+      const linkAttrs  = isExternal ? ' target="_blank" rel="noopener"' : '';
 
       return `
         <article class="news-card" style="animation-delay:${i * 0.07}s">
@@ -126,7 +135,7 @@ async function loadNews() {
             <span class="news-tag">${tagLabel}</span>
             <h3 class="news-headline">${headline}</h3>
             <p class="news-summary">${summary}</p>
-            ${url       ? `<a href="${url}" target="_blank" class="news-link">Read more →</a>` : ''}
+            ${url       ? `<a href="${url}"${linkAttrs} class="news-link">Read more →</a>` : ''}
             ${displayDate ? `<time class="news-date">${displayDate}</time>` : ''}
           </div>
         </article>

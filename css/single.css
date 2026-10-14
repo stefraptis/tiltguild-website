@@ -53,11 +53,6 @@
   animation: fadeUp 0.55s var(--ease) both;
 }
 
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(16px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
 /* ── Links section ── */
 .release-links {
   flex: 1;
