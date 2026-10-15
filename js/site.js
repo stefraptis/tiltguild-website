@@ -197,8 +197,8 @@
       return;
     }
     var now = Date.now();
-    var kinds = { release: 'Release', show: 'Show' };
-    var actions = { release: 'Listen', show: 'Event details' };
+    var kinds = { release: 'Release', show: 'Show', press: 'Press' };
+    var actions = { release: 'Listen', show: 'Event details', press: 'Read' };
 
     feed.innerHTML = items.map(function (item) {
       var d = item.date ? new Date(item.date) : null;
