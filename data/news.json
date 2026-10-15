@@ -11,6 +11,9 @@
     {
       "type": "show",
       "title": "Live at NAOS, Athens",
+      "venue": "NAOS",
+      "city": "Athens",
+      "country": "GR",
       "description": "Tilt Guild play NAOS with STRAiNGER and Kawaii Sharx.",
       "url": "https://www.rockattitude.gr/events/strainger-tilt-guild-kawaii-sharx-naos/",
       "date": "2026-04-25T19:00:00"

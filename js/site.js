@@ -90,6 +90,7 @@
       });
       renderNext(items);
       renderFeed(items);
+      describeShows(items);
     })
     .catch(function () {
       feed.innerHTML = '<li class="feed-empty">News didn\'t load. Refresh the page to try again.</li>';
@@ -157,6 +158,37 @@
     };
     var timer = setInterval(tick, 1000);
     tick();
+  }
+
+  // Tell search engines about shows, so gigs can appear in Google results.
+  // A show needs "venue" and "city" in news.json for this; "country" is optional.
+  function describeShows(items) {
+    var events = items.filter(function (i) {
+      return i.type === 'show' && i.venue && i.city && i.date;
+    }).map(function (i) {
+      return {
+        '@context': 'https://schema.org',
+        '@type': 'MusicEvent',
+        name: i.title,
+        description: i.description || undefined,
+        startDate: i.date,
+        eventStatus: 'https://schema.org/EventScheduled',
+        eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+        url: i.url || undefined,
+        image: 'https://tiltguild.com/images/share/tilt-guild.jpg',
+        location: {
+          '@type': 'Place',
+          name: i.venue,
+          address: { '@type': 'PostalAddress', addressLocality: i.city, addressCountry: i.country || undefined }
+        },
+        performer: { '@type': 'MusicGroup', '@id': 'https://tiltguild.com/#band', name: 'Tilt Guild', url: 'https://tiltguild.com/' }
+      };
+    });
+    if (!events.length) return;
+    var tag = document.createElement('script');
+    tag.type = 'application/ld+json';
+    tag.textContent = JSON.stringify(events);
+    document.head.appendChild(tag);
   }
 
   function renderFeed(items) {

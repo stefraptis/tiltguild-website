@@ -292,6 +292,10 @@ body.menu-open { overflow: hidden; }
 }
 .foot-side .socials .icon { width: 24px; height: 24px; }
 .copy { color: var(--ash); font-size: 0.875rem; }
+.copy a, .fine a { text-underline-offset: 3px; }
+.copy a:hover, .fine a:hover { color: var(--flame); }
+.fine { font-size: 0.8125rem; line-height: 1.5; max-width: 52ch; }
+.foot .fine { color: var(--ash); margin-top: 4px; }
 .form-status { min-height: 1.55em; margin-top: 10px; font-size: 0.9375rem; }
 .form-status[data-state="ok"] { color: var(--flame); }
 .foot .form-status[data-state="error"] { color: #ff8a66; }
@@ -645,6 +649,24 @@ body.menu-open { overflow: hidden; }
   .form-row { grid-template-columns: 1fr; }
   .form .btn { justify-self: stretch; }
 }
+
+/* =================================================================
+   PROSE (privacy)
+   ================================================================= */
+.prose { max-width: 64ch; }
+.prose h2 {
+  font-family: var(--display);
+  font-stretch: 75%;
+  font-weight: 800;
+  font-size: 1.625rem;
+  line-height: 1.1;
+  margin: 36px 0 8px;
+}
+.prose h2:first-child { margin-top: 0; }
+.prose p { margin-bottom: 12px; }
+.prose a { text-decoration-thickness: 2px; text-underline-offset: 3px; }
+.prose a:hover { text-decoration-color: var(--flame); }
+.prose .muted { margin-top: 36px; font-size: 0.9375rem; }
 
 /* =================================================================
    404
