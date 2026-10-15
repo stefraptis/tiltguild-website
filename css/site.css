@@ -739,6 +739,43 @@ body.menu-open { overflow: hidden; }
   border-bottom: 2px solid var(--ink);
 }
 .press-item:first-child { padding-top: 32px; }
+
+/* video review: poster first, YouTube loads only on play */
+.press-item.has-video {
+  display: grid;
+  grid-template-columns: minmax(0, 260px) minmax(0, 1fr);
+  gap: 24px clamp(28px, 4vw, 56px);
+  align-items: start;
+}
+.video {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  padding: 0;
+  border: 0;
+  background: var(--ink);
+  cursor: pointer;
+  box-shadow: 10px 10px 0 var(--ink);
+}
+.video img, .video iframe { width: 100%; height: 100%; object-fit: cover; border: 0; }
+.video-play {
+  position: absolute;
+  left: 50%; top: 50%;
+  width: 72px; height: 72px;
+  margin: -36px 0 0 -36px;
+  display: grid;
+  place-items: center;
+  background: var(--flame);
+  color: var(--ink);
+  transition: transform .12s;
+}
+.video-play .icon { width: 30px; height: 30px; margin-left: 4px; }
+.video:hover .video-play { transform: scale(1.08); }
+@media (max-width: 620px) {
+  .press-item.has-video { grid-template-columns: 1fr; }
+  .video { max-width: 280px; }
+}
 @media (max-width: 760px) {
   .bio-cols { grid-template-columns: 1fr; }
 }

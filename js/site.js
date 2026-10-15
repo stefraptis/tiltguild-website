@@ -63,6 +63,22 @@
     });
   });
 
+  // ---------- video posters: load YouTube only when someone presses play ----------
+  document.querySelectorAll('.video[data-yt]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var frame = document.createElement('iframe');
+      frame.src = 'https://www.youtube-nocookie.com/embed/' + btn.getAttribute('data-yt') + '?autoplay=1&playsinline=1&rel=0';
+      frame.title = btn.getAttribute('aria-label').replace('Play the video: ', '');
+      frame.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+      frame.allowFullscreen = true;
+      var box = document.createElement('div');
+      box.className = 'video';
+      box.appendChild(frame);
+      btn.replaceWith(box);
+      frame.focus();
+    });
+  });
+
   // ---------- home page ----------
   var feed = document.getElementById('feed');
   if (!feed) return;
