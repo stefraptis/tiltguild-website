@@ -405,6 +405,21 @@ body.menu-open { overflow: hidden; }
   .next-art { width: 80px; }
 }
 
+/* about (home) */
+.about {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: 16px clamp(28px, 5vw, 72px);
+  border-top: 6px solid var(--ink);
+  padding-top: 18px;
+  margin-bottom: clamp(56px, 8vw, 96px);
+}
+.about-text { max-width: 46ch; margin-top: 6px; }
+.about .back { margin-top: 18px; }
+@media (max-width: 760px) {
+  .about { grid-template-columns: 1fr; }
+}
+
 /* news and shows */
 .section-head {
   border-top: 6px solid var(--ink);
@@ -687,7 +702,7 @@ body.menu-open { overflow: hidden; }
   text-wrap: balance;
 }
 /* the Greek font sits next to Archivo's narrow spaces; give words room */
-[lang="el"] { word-spacing: 0.12em; }
+.press-quote[lang="el"], .press-title[lang="el"] { word-spacing: 0.12em; }
 .press-quote::before { content: "\201C"; }
 .press-quote::after { content: "\201D"; }
 .press-translation {
@@ -706,6 +721,27 @@ body.menu-open { overflow: hidden; }
 }
 .press-summary { margin: 8px 0 22px; max-width: 60ch; }
 .press-lang { margin-left: 12px; font-size: 0.9375rem; }
+
+/* bio: English and Greek side by side */
+.bio { margin-bottom: clamp(56px, 8vw, 96px); }
+.bio-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px clamp(32px, 5vw, 72px);
+  margin-top: 24px;
+}
+.bio-cols p { margin-bottom: 14px; max-width: 60ch; }
+.bio-lang {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  padding-bottom: 8px;
+  margin-bottom: 14px;
+  border-bottom: 2px solid var(--ink);
+}
+.press-item:first-child { padding-top: 32px; }
+@media (max-width: 760px) {
+  .bio-cols { grid-template-columns: 1fr; }
+}
 
 /* =================================================================
    PROSE (privacy)
