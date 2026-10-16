@@ -191,13 +191,13 @@
         eventStatus: 'https://schema.org/EventScheduled',
         eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
         url: i.url || undefined,
-        image: 'https://tiltguild.com/images/share/tilt-guild.jpg',
+        image: 'https://www.tiltguild.com/images/share/tilt-guild.jpg',
         location: {
           '@type': 'Place',
           name: i.venue,
           address: { '@type': 'PostalAddress', addressLocality: i.city, addressCountry: i.country || undefined }
         },
-        performer: { '@type': 'MusicGroup', '@id': 'https://tiltguild.com/#band', name: 'Tilt Guild', url: 'https://tiltguild.com/' }
+        performer: { '@type': 'MusicGroup', '@id': 'https://www.tiltguild.com/#band', name: 'Tilt Guild', url: 'https://www.tiltguild.com/' }
       };
     });
     if (!events.length) return;

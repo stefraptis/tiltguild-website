@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://tiltguild.com/sitemap.xml
+Sitemap: https://www.tiltguild.com/sitemap.xml
