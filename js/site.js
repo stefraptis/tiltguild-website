@@ -72,7 +72,7 @@
       frame.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
       frame.allowFullscreen = true;
       var box = document.createElement('div');
-      box.className = 'video';
+      box.className = 'video taped';
       box.appendChild(frame);
       btn.replaceWith(box);
       frame.focus();
@@ -121,7 +121,7 @@
       ? '<a class="btn btn-ink" href="' + esc(r.spotify) + '" target="_blank" rel="noopener">' + icon('spotify') + 'Play on Spotify</a>'
       : '';
     hero.innerHTML =
-      '<div class="hero-art">' +
+      '<div class="hero-art taped">' +
         (r.badge ? '<span class="sticker">' + esc(r.badge) + '</span>' : '') +
         '<img src="' + esc(r.artwork) + '" width="1200" height="1200" alt="' + esc(r.title) + ' cover art">' +
       '</div>' +
