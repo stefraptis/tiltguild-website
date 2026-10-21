@@ -55,12 +55,26 @@
   }
 
   // ---------- forms (newsletter + contact, sent through Formspree) ----------
+  $$('[data-need-one] input[type="checkbox"]').forEach(function (b) {
+    b.addEventListener('change', function () { $$('input', b.closest('[data-need-one]')).forEach(function (x) { x.setCustomValidity(''); }); });
+  });
   $$('form[data-form]').forEach(function (form) {
     var status = $('.form-status', form);
     var button = $('button[type="submit"]', form);
     var okText = form.getAttribute('data-ok');
+    // a group marked data-need-one (the merch picks) needs at least one box ticked;
+    // checked on click too, because the browser checks the form before the submit event
+    var needOne = function () {
+      var group = $('[data-need-one]', form);
+      if (!group) return;
+      var boxes = $$('input[type="checkbox"]', group);
+      var none = !boxes.some(function (b) { return b.checked; });
+      boxes[0].setCustomValidity(none ? 'Pick at least one item.' : '');
+    };
+    button.addEventListener('click', needOne);
     form.addEventListener('submit', function (e) {
       e.preventDefault();
+      needOne();
       if (!form.reportValidity()) return;
       button.disabled = true;
       status.textContent = 'Sending…';
@@ -129,9 +143,25 @@
     setPaused(paused);
   })();
 
+  // ---------- merch bento: tiles rise in when the grid first comes into view ----------
+  (function () {
+    var grid = $('.bento');
+    if (!grid || reduceMotion || !('IntersectionObserver' in window)) return;
+    var box = grid.getBoundingClientRect();
+    if (box.top < window.innerHeight * 0.85) return;  // already on screen: show it as is
+    grid.classList.add('is-armed');
+    var io = new IntersectionObserver(function (entries) {
+      if (!entries[0].isIntersecting) return;
+      grid.classList.add('is-in');
+      io.disconnect();
+      setTimeout(function () { grid.classList.remove('is-armed'); }, 1400);
+    }, { threshold: 0.12 });
+    io.observe(grid);
+  })();
+
   // ---------- live photo strip + full-screen viewer ----------
   (function () {
-    var strip = $('.gallery');
+    var strip = $('.gallery, .bento');  // sideways strip (home) or bento grid (merch)
     if (!strip) return;
     var items = $$('li', strip);
     var count = $('.gallery-count');
