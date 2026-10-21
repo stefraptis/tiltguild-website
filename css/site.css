@@ -697,6 +697,62 @@ body.menu-open .bar-over { background: var(--ink); }
 .platforms .icon { width: 26px; height: 26px; }
 .platforms span { margin-right: auto; }
 .platforms small { color: var(--grey); font-stretch: 125%; font-size: .75rem; letter-spacing: .1em; }
+/* merch page */
+.merch-items {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(28px, 4vw, 56px);
+}
+.merch-img { background: var(--ink-2); margin-bottom: 22px; overflow: hidden; }
+.merch-img img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; transition: transform .6s var(--ease); }
+.merch-item:hover .merch-img img { transform: scale(1.03); }
+.merch-item .tag { margin-bottom: 12px; }
+.merch-title {
+  font-stretch: 62%;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: clamp(2.25rem, 4.5vw, 3.75rem);
+  line-height: .92;
+  margin-bottom: 22px;
+}
+.merch-item .specs { margin-bottom: 0; }
+.specs dd a { text-decoration-thickness: 2px; text-decoration-color: var(--accent-ink); text-underline-offset: 3px; }
+.specs dd a:hover { color: var(--accent-ink); }
+.order {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: 20px clamp(32px, 5vw, 80px);
+  margin-block: clamp(72px, 9vw, 120px);
+  padding-top: clamp(28px, 4vw, 44px);
+  border-top: 1px solid var(--line);
+}
+.order-body p { color: var(--grey); max-width: 58ch; margin-bottom: 14px; }
+.order-body .actions { margin-top: 28px; }
+.order-body .btn .icon { width: 18px; height: 18px; }
+.order-mail { margin-top: 18px; font-size: .9375rem; }
+.order-mail a { color: var(--paper); text-decoration-thickness: 2px; text-decoration-color: var(--accent-ink); text-underline-offset: 3px; overflow-wrap: anywhere; }
+.order-mail a:hover { color: var(--accent-ink); }
+.gallery-color img { filter: none; }
+@media (max-width: 760px) {
+  .merch-items, .order { grid-template-columns: 1fr; }
+}
+
+/* home: merch teaser */
+.merch-teaser {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: clamp(28px, 5vw, 72px);
+  align-items: center;
+  padding-bottom: clamp(72px, 9vw, 120px);
+}
+.merch-teaser-img { display: block; overflow: hidden; background: var(--ink-2); }
+.merch-teaser-img img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; transition: transform .6s var(--ease); }
+.merch-teaser-img:hover img { transform: scale(1.03); }
+.merch-teaser-copy .tag { margin-bottom: 14px; }
+.merch-teaser-copy .h-section { margin-bottom: 18px; }
+.merch-teaser-copy p:not(.tag) { color: var(--grey); max-width: 40ch; margin-bottom: 28px; }
+@media (max-width: 860px) { .merch-teaser { grid-template-columns: 1fr; } }
+
 .more { margin-top: clamp(80px, 10vw, 128px); }
 .more .sec-head { margin-bottom: 0; }
 .more .grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
