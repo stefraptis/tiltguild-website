@@ -104,9 +104,14 @@
     if (slides.length < 2 || !pauseBtn) return;
     var i = 0, timer = null;
     var paused = reduceMotion;  // people who ask for less motion start paused
+    // let the other photos start loading once the page has settled
+    window.addEventListener('load', function () { slides.forEach(function (s) { s.loading = 'eager'; }); });
     var show = function (n) {
+      n = (n + slides.length) % slides.length;
+      // never fade to a photo that hasn't arrived yet (that would flash an empty frame)
+      if (!(slides[n].complete && slides[n].naturalWidth)) return;
       slides[i].classList.remove('is-on'); bars[i] && bars[i].classList.remove('is-on');
-      i = (n + slides.length) % slides.length;
+      i = n;
       slides[i].classList.add('is-on'); bars[i] && bars[i].classList.add('is-on');
     };
     var setPaused = function (p) {
@@ -216,7 +221,7 @@
       '<p class="tag label">' + esc(badge) + ', out now</p>' +
       '<h1 class="display hero-title">' + esc(r.title) + '</h1>' +
       '<div class="actions">' +
-        (r.spotify ? '<a class="btn btn-flame" href="' + esc(r.spotify) + '" target="_blank" rel="noopener">' + icon('spotify') + 'Play on Spotify</a>' : '') +
+        (r.spotify ? '<a class="btn btn-accent" href="' + esc(r.spotify) + '" target="_blank" rel="noopener">' + icon('spotify') + 'Play on Spotify</a>' : '') +
         '<a class="btn" href="' + esc(r.url) + '">All platforms</a>' +
       '</div>';
     var cover = $('#hero-cover');
@@ -231,7 +236,7 @@
     if (!track || !r) return;
     var list = [[(r.badge || 'New release') + ': ' + r.title, r.url]]
       .concat(items.slice(0, 4).map(function (n) { return [n.title, n.url || n.source || '']; }))
-      .concat([['Rap and nu metal from Ilion, Athens', '/press/#bio']]);
+      .concat([['Rap metal from Athens', '/press/#bio']]);
     var ul = function (hidden) {
       return '<ul' + (hidden ? ' aria-hidden="true"' : '') + '>' + list.map(function (x) {
         return '<li>' + (x[1] ? '<a href="' + esc(x[1]) + '"' + linkAttrs(x[1]) + (hidden ? ' tabindex="-1"' : '') + '>' + esc(x[0]) + '</a>' : esc(x[0])) + '</li>';
