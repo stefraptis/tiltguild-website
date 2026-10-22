@@ -9,8 +9,13 @@
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var $ = function (sel, root) { return (root || document).querySelector(sel); };
   var $$ = function (sel, root) { return Array.prototype.slice.call((root || document).querySelectorAll(sel)); };
+  // the icon sheet's address, with the version tag the page uses (so new icons are never read from an old cached copy)
+  var ICONS = (function () {
+    var u = document.querySelector('use[href*="icons.svg"]');
+    return u ? u.getAttribute('href').split('#')[0] : '/images/icons.svg';
+  })();
   var icon = function (id) {
-    return '<svg class="icon" aria-hidden="true"><use href="/images/icons.svg#' + id + '"/></svg>';
+    return '<svg class="icon" aria-hidden="true"><use href="' + ICONS + '#' + id + '"/></svg>';
   };
   var esc = function (s) {
     return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
@@ -34,7 +39,7 @@
       menuBtn.setAttribute('aria-expanded', String(open));
       document.body.classList.toggle('menu-open', open);
       if (label) label.textContent = open ? 'Close' : 'Menu';
-      if (use) use.setAttribute('href', '/images/icons.svg#' + (open ? 'close' : 'menu'));
+      if (use) use.setAttribute('href', ICONS + '#' + (open ? 'close' : 'menu'));
     };
     menuBtn.addEventListener('click', function () { setMenu(menu.hidden); });
     document.addEventListener('keydown', function (e) {
