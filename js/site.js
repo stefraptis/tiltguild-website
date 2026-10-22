@@ -220,12 +220,155 @@
     });
   })();
 
+  // ---------- release pages: Spotify player, loaded only when someone presses "Play here" ----------
+  $$('.sp[data-sp]').forEach(function (box) {
+    $('.sp-btn', box).addEventListener('click', function () {
+      var frame = document.createElement('iframe');
+      frame.src = box.getAttribute('data-sp');
+      frame.title = box.getAttribute('data-sp-title');
+      frame.height = box.getAttribute('data-sp-h');
+      frame.allow = 'autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture';
+      frame.className = 'sp-frame';
+      box.innerHTML = '';
+      box.appendChild(frame);
+      frame.focus();
+    });
+  });
+
+  // ---------- press kit: copy the short bio ----------
+  $$('[data-copy]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var text = $(b.getAttribute('data-copy')).textContent.trim();
+      var note = b.nextElementSibling;
+      (navigator.clipboard ? navigator.clipboard.writeText(text) : Promise.reject())
+        .then(function () { note.textContent = 'Copied.'; })
+        .catch(function () { note.textContent = 'Select the text above and copy it.'; });
+    });
+  });
+
+  // ---------- shows page and links page: read /data/news.json ----------
+  (function () {
+    var showsPage = $('[data-shows]');
+    var linksRelease = $('#links-release');
+    if (!showsPage && !linksRelease) return;
+    fetch('/data/news.json', { cache: 'no-cache' })
+      .then(function (res) { if (!res.ok) throw new Error('HTTP ' + res.status); return res.json(); })
+      .then(function (data) {
+        if (linksRelease) linksFeatured(data.featured_release);
+        if (showsPage) renderShows((data.news || []).filter(function (n) { return n.type === 'show'; }));
+      })
+      .catch(function () { if (showsPage) { $('#shows-none').hidden = false; } });
+
+    // the links page's top card follows featured_release, like the home page does
+    function linksFeatured(r) {
+      if (!r) return;
+      linksRelease.href = r.url;
+      $('img', linksRelease).src = String(r.artwork).replace(/\.jpg$/, '-600.jpg').replace(/ /g, '%20');
+      $('small', linksRelease).textContent = r.badge || 'New release';
+      $('b', linksRelease).textContent = r.title;
+    }
+
+    function renderShows(list) {
+      var now = Date.now() - 6 * 36e5;  // a show stays "upcoming" until a few hours after it starts
+      var t = function (s) { return new Date(s.date).getTime(); };
+      var next = list.filter(function (s) { return t(s) >= now; }).sort(function (a, b) { return t(a) - t(b); });
+      var past = list.filter(function (s) { return t(s) < now; }).sort(function (a, b) { return t(b) - t(a); });
+      var day = function (s, o) { return new Intl.DateTimeFormat('en-GB', o).format(new Date(s.date)); };
+      var card = function (s, upcoming) {
+        var where = [s.venue, s.city].filter(Boolean).join(', ');
+        var link = s.url || s.source;
+        return '<li class="show' + (upcoming ? '' : ' show-past') + '">' +
+          '<div class="show-date"><b>' + day(s, { day: '2-digit' }) + '</b><span>' + day(s, { month: 'short' }) + '</span><small>' + day(s, { year: 'numeric' }) + '</small></div>' +
+          '<div class="show-body"><h3 class="show-title">' + esc(s.title) + '</h3>' +
+            (where ? '<p class="show-where">' + icon('pin') + esc(where) + (upcoming ? ', ' + esc(day(s, { weekday: 'long', hour: '2-digit', minute: '2-digit' })) : '') + '</p>' : '') +
+            (s.description ? '<p class="show-desc">' + esc(s.description) + '</p>' : '') +
+            (upcoming ? '<div class="actions">' +
+              (link ? '<a class="btn btn-accent" href="' + esc(link) + '"' + linkAttrs(link) + '>Tickets and details</a>' : '') +
+              '<button class="btn show-ics" type="button">' + icon('calendar') + 'Add to calendar</button></div>' : '') +
+          '</div></li>';
+      };
+      $('#shows-next').innerHTML = next.map(function (s) { return card(s, true); }).join('');
+      $('#shows-none').hidden = next.length > 0;
+      $('#shows-past').innerHTML = past.map(function (s) { return card(s, false); }).join('');
+      $('#shows-past-sec').hidden = past.length === 0;
+      $$('.show-ics').forEach(function (b, i) { b.addEventListener('click', function () { ics(next[i]); }); });
+      // tell Google about upcoming shows (MusicEvent)
+      var events = next.filter(function (s) { return s.venue && s.city; }).map(function (s) {
+        return { '@context': 'https://schema.org', '@type': 'MusicEvent', name: s.title, startDate: s.date,
+          eventStatus: 'https://schema.org/EventScheduled', eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+          location: { '@type': 'Place', name: s.venue, address: { '@type': 'PostalAddress', addressLocality: s.city, addressCountry: s.country || 'GR' } },
+          performer: { '@type': 'MusicGroup', name: 'Tilt Guild', url: 'https://www.tiltguild.com/' },
+          description: s.description || '', url: s.url && /^https?:/.test(s.url) ? s.url : 'https://www.tiltguild.com/shows/' };
+      });
+      if (events.length) {
+        var ld = document.createElement('script');
+        ld.type = 'application/ld+json';
+        ld.textContent = JSON.stringify(events);
+        document.head.appendChild(ld);
+      }
+    }
+
+    // a small calendar file for one show (opens in Google, Apple or Outlook calendar)
+    function ics(s) {
+      var d = new Date(s.date);
+      var f = function (x) { return x.getFullYear() + pad2(x.getMonth() + 1) + pad2(x.getDate()) + 'T' + pad2(x.getHours()) + pad2(x.getMinutes()) + '00'; };
+      var end = new Date(d.getTime() + 3 * 36e5);
+      var clean = function (x) { return String(x || '').replace(/([,;\\])/g, '\\$1').replace(/\n/g, '\\n'); };
+      var text = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Tilt Guild//Shows//EN', 'BEGIN:VEVENT',
+        'UID:' + f(d) + '-tiltguild@tiltguild.com', 'DTSTAMP:' + new Date().toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z',
+        'DTSTART:' + f(d), 'DTEND:' + f(end), 'SUMMARY:' + clean(s.title),
+        'LOCATION:' + clean([s.venue, s.city].filter(Boolean).join(', ')),
+        'DESCRIPTION:' + clean(s.description), 'URL:' + clean(s.url && /^https?:/.test(s.url) ? s.url : 'https://www.tiltguild.com/shows/'),
+        'END:VEVENT', 'END:VCALENDAR'].join('\r\n');
+      var a = document.createElement('a');
+      a.href = URL.createObjectURL(new Blob([text], { type: 'text/calendar' }));
+      a.download = 'tilt-guild-' + f(d).slice(0, 8) + '.ics';
+      document.body.appendChild(a);
+      a.click();
+      setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 500);
+    }
+    function pad2(n) { return String(n).padStart(2, '0'); }
+  })();
+
+  // ---------- Behind the Walls: EN / EL switch and the chapter list ----------
+  (function () {
+    var root = $('.walls');
+    if (!root) return;
+    var setLang = function (l) {
+      root.setAttribute('data-lang', l);
+      $$('[data-set-lang]').forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-set-lang') === l)); });
+      // photo descriptions follow the language too
+      $$('img[data-alt-el]', root).forEach(function (img) {
+        if (!img.hasAttribute('data-alt-en')) img.setAttribute('data-alt-en', img.alt);
+        img.alt = img.getAttribute(l === 'el' ? 'data-alt-el' : 'data-alt-en');
+      });
+    };
+    $$('[data-set-lang]').forEach(function (b) {
+      b.addEventListener('click', function () { setLang(b.getAttribute('data-set-lang')); });
+    });
+    // Greek browsers start in Greek; ?lang=el or ?lang=en in a shared link wins
+    var asked = (location.search.match(/[?&]lang=(en|el)\b/) || [])[1];
+    setLang(asked || (/^el\b/i.test(navigator.language || '') ? 'el' : 'en'));
+
+    // highlight the chapter being read
+    var links = $$('.ws-toc a');
+    if (!links.length || !('IntersectionObserver' in window)) return;
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        links.forEach(function (a) { a.classList.toggle('is-here', a.getAttribute('href') === '#' + e.target.id); });
+      });
+    }, { rootMargin: '-35% 0px -55% 0px' });
+    $$('.ws-ch').forEach(function (s) { io.observe(s); });
+  })();
+
   // ---------- giveaways: the /giveaway/ page and the home page band, from /data/giveaway.json ----------
   // The file decides everything: set "active" to true and fill in the dates to run one.
   (function () {
     var page = $('[data-gw]');
     var band = $('#gw-band');
-    if (!page && !band) return;
+    var linkCard = $('#links-gw');
+    if (!page && !band && !linkCard) return;
 
     var stateOf = function (g, now) {
       if (!g || !g.active) return 'none';
@@ -260,8 +403,18 @@
 
     fetch('/data/giveaway.json', { cache: 'no-cache' })
       .then(function (res) { if (!res.ok) throw new Error('HTTP ' + res.status); return res.json(); })
-      .then(function (g) { if (page) renderPage(g); if (band) renderBand(g); })
+      .then(function (g) { if (page) renderPage(g); if (band) renderBand(g); if (linkCard) renderLinkCard(g); })
       .catch(function () { if (page) renderPage(null); });
+
+    // ---- links page: a card at the top while a giveaway is upcoming or open ----
+    function renderLinkCard(g) {
+      var st = stateOf(g, Date.now());
+      if (st !== 'upcoming' && st !== 'open') return;
+      linkCard.innerHTML = '<a class="lk lk-gw" href="/giveaway/"><span><small class="label">' +
+        (st === 'open' ? 'Giveaway, open now' : 'Giveaway, opens soon') + '</small><b>' + esc(g.title) + '</b><span>' +
+        (st === 'open' ? 'Enter before ' : 'Opens ') + esc(when(st === 'open' ? g.ends : g.starts)) + '</span></span>' + icon('arrowright') + '</a>';
+      linkCard.hidden = false;
+    }
 
     // ---- home page band: only while a giveaway is upcoming or open ----
     function renderBand(g) {
