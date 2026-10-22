@@ -220,6 +220,189 @@
     });
   })();
 
+  // ---------- giveaways: the /giveaway/ page and the home page band, from /data/giveaway.json ----------
+  // The file decides everything: set "active" to true and fill in the dates to run one.
+  (function () {
+    var page = $('[data-gw]');
+    var band = $('#gw-band');
+    if (!page && !band) return;
+
+    var stateOf = function (g, now) {
+      if (!g || !g.active) return 'none';
+      var start = Date.parse(g.starts), end = Date.parse(g.ends);
+      if (isNaN(end)) return 'none';
+      if (!isNaN(start) && now < start) return 'upcoming';
+      return now < end ? 'open' : 'ended';
+    };
+    var when = function (iso) {  // "Sunday 15 November, 21:00" in Athens time
+      try {
+        return new Intl.DateTimeFormat('en-GB', { weekday: 'long', day: 'numeric', month: 'long', hour: '2-digit', minute: '2-digit', timeZone: 'Europe/Athens' }).format(new Date(iso));
+      } catch (e) { return new Date(iso).toLocaleString(); }
+    };
+    var pad = function (n) { return String(n).padStart(2, '0'); };
+    // counts down in the [data-u] cells inside root; calls done() once at zero
+    var countdown = function (root, target, done) {
+      var cells = {};
+      $$('[data-u]', root).forEach(function (b) { cells[b.getAttribute('data-u')] = b; });
+      var timer = null;
+      var tick = function () {
+        var diff = target - Date.now();
+        if (diff <= 0) { clearInterval(timer); if (done) done(); return; }
+        cells.d.textContent = pad(Math.floor(diff / 864e5));
+        cells.h.textContent = pad(Math.floor(diff / 36e5) % 24);
+        cells.m.textContent = pad(Math.floor(diff / 6e4) % 60);
+        cells.s.textContent = pad(Math.floor(diff / 1e3) % 60);
+      };
+      timer = setInterval(tick, 1000);
+      tick();
+      return function () { clearInterval(timer); };
+    };
+
+    fetch('/data/giveaway.json', { cache: 'no-cache' })
+      .then(function (res) { if (!res.ok) throw new Error('HTTP ' + res.status); return res.json(); })
+      .then(function (g) { if (page) renderPage(g); if (band) renderBand(g); })
+      .catch(function () { if (page) renderPage(null); });
+
+    // ---- home page band: only while a giveaway is upcoming or open ----
+    function renderBand(g) {
+      var st = stateOf(g, Date.now());
+      if (st !== 'upcoming' && st !== 'open') { band.hidden = true; return; }
+      $('.gw-band-inner', band).innerHTML =
+        '<div><span class="sticker">' + (st === 'open' ? 'Giveaway, open now' : 'Giveaway, opens soon') + '</span>' +
+          '<p class="gw-band-title">' + esc(g.title) + '</p></div>' +
+        '<div class="clock" role="timer" aria-label="' + (st === 'open' ? 'Time left to enter' : 'Time until entries open') + '">' +
+          '<div><b data-u="d">00</b><span>days</span></div><div><b data-u="h">00</b><span>hours</span></div>' +
+          '<div><b data-u="m">00</b><span>min</span></div><div><b data-u="s">00</b><span>sec</span></div></div>' +
+        '<a class="btn btn-accent" href="/giveaway/">' + (st === 'open' ? 'Enter now' : 'See the prize') + '</a>';
+      band.hidden = false;
+      countdown(band, Date.parse(st === 'open' ? g.ends : g.starts), function () { renderBand(g); });
+    }
+
+    // ---- the giveaway page ----
+    var stopClock = null;
+    function renderPage(g) {
+      var st = stateOf(g, Date.now());
+      $('#gw-loading').hidden = true;
+      var show = function (sel, on) { $(sel).hidden = !on; };
+      show('#gw', st !== 'none');
+      show('#gw-how', st === 'upcoming' || st === 'open');
+      show('#gw-rules', st !== 'none' && (g.rules || []).length > 0);
+      show('#gw-empty', st === 'none');
+      if (st === 'none') return;
+
+      var img = $('#gw-img');
+      if (g.image) { img.src = g.image; img.alt = g.image_alt || ''; } else { $('.gw-media').hidden = true; }
+      $('#gw-badge').textContent = { upcoming: 'Opens soon', open: 'Open now', ended: 'Closed' }[st];
+      $('#gw-kicker').textContent = { upcoming: 'Giveaway, opens soon', open: 'Giveaway, open now', ended: 'Giveaway, closed' }[st];
+      $('#gw-title').textContent = g.title || 'Giveaway';
+      $('#gw-prize').innerHTML = (g.prize || []).map(function (p) { return '<li>' + esc(p) + '</li>'; }).join('');
+      $('#gw-desc').innerHTML = String(g.description || '').split(/\n\s*\n/).filter(Boolean)
+        .map(function (p) { return '<p>' + esc(p) + '</p>'; }).join('');
+      $('#gw-rules-list').innerHTML = (g.rules || []).map(function (r) { return '<li>' + esc(r) + '</li>'; }).join('');
+
+      // countdown: to the start while upcoming, to the end while open
+      if (stopClock) stopClock();
+      var clockBox = $('#gw-clock');
+      clockBox.hidden = st === 'ended';
+      if (st !== 'ended') {
+        $('#gw-clock-label').textContent = st === 'open' ? 'Closes in' : 'Opens in';
+        $('#gw-when').textContent = (st === 'open' ? 'Entries close ' : 'Entries open ') + when(st === 'open' ? g.ends : g.starts) + ', Athens time.';
+        stopClock = countdown(clockBox, Date.parse(st === 'open' ? g.ends : g.starts), function () { renderPage(g); });
+      }
+
+      var state = $('#gw-state');
+      var form = $('#gw-form');
+      if (st === 'upcoming') {
+        state.innerHTML = '<p>Entries open ' + esc(when(g.starts)) + '. Come back then, or follow us on Instagram so you don\'t miss it.</p>';
+      } else if (st === 'ended') {
+        state.innerHTML = g.winner
+          ? '<p class="gw-winner"><span class="label">Winner</span>' + esc(g.winner) + '</p><p>Congratulations! Thanks to everyone who entered.</p>'
+          : '<p>Entries are closed. We\'re picking the winner at random and will announce them here and on Instagram.</p>';
+      } else {
+        state.innerHTML = '';
+      }
+      // the form only shows while the giveaway is open (and never again after a successful entry)
+      form.hidden = st !== 'open' || form.getAttribute('data-done') === 'yes';
+      if (st === 'open' && !g.endpoint) {
+        $('.gw-submit', form).disabled = true;
+        $('#gw-status').textContent = 'Entries open very soon.';
+      }
+      if (!form.getAttribute('data-wired')) { teeFields(g); wireForm(form, g); }
+    }
+
+    // T-shirt size and colour, asked up front when giveaway.json lists "sizes" or "colours"
+    function teeFields(g) {
+      var sizes = g.sizes || [], colours = g.colours || [];
+      var box = $('#gw-tee');
+      if (!sizes.length && !colours.length) { box.hidden = true; return; }
+      box.innerHTML =
+        (sizes.length
+          ? '<div class="field"><label for="gw-size">T-shirt size</label><select id="gw-size" name="size" required>' +
+            '<option value="">Choose your size</option>' +
+            sizes.map(function (s) { return '<option>' + esc(s) + '</option>'; }).join('') + '</select></div>'
+          : '') +
+        (colours.length
+          ? '<fieldset class="picks gw-colours"><legend>T-shirt colour</legend>' +
+            colours.map(function (c, i) {
+              return '<label class="pick"><input type="radio" name="colour" value="' + esc(c) + '"' + (i === 0 ? ' required' : '') + '><span>' + esc(c) + '</span></label>';
+            }).join('') + '</fieldset>'
+          : '');
+      box.hidden = false;
+    }
+
+    function wireForm(form, g) {
+      form.setAttribute('data-wired', 'yes');
+      var button = $('.gw-submit', form);
+      var status = $('#gw-status');
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        if (!form.reportValidity()) return;
+        if (stateOf(g, Date.now()) !== 'open') { renderPage(g); return; }
+        var body = new URLSearchParams(new FormData(form));
+        body.set('id', g.id || '');
+        button.disabled = true;
+        status.removeAttribute('data-state');
+        status.textContent = 'Sending…';
+        fetch(g.endpoint, { method: 'POST', body: body })
+          .then(function (res) { return res.json(); })
+          .then(function (res) {
+            if (res && res.ok) return done(res.duplicate);
+            if (res && res.error === 'closed') { status.textContent = 'Sorry, this giveaway has closed.'; status.setAttribute('data-state', 'error'); return; }
+            throw new Error((res && res.error) || 'failed');
+          })
+          .catch(function () {
+            status.textContent = 'Not sent. Check your connection and try again.';
+            status.setAttribute('data-state', 'error');
+          })
+          .then(function () { button.disabled = false; });
+      });
+      function done(duplicate) {
+        var name = $('#gw-name').value.trim();
+        var sizeBox = $('#gw-size'), colourBox = $('input[name="colour"]:checked', form);
+        var tee = [sizeBox && sizeBox.value, colourBox && colourBox.value.toLowerCase()].filter(Boolean).join(', ');
+        form.setAttribute('data-done', 'yes');
+        form.hidden = true;
+        var state = $('#gw-state');
+        state.innerHTML =
+          '<div class="gw-done"><p class="gw-done-title">' + (duplicate ? 'You\'re already in' : 'You\'re in' + (name ? ', ' + esc(name) : '')) + '</p>' +
+          (!duplicate && tee ? '<p>T-shirt noted: ' + esc(tee) + '.</p>' : '') +
+          '<p>' + (duplicate ? 'This email is already entered, so you\'re all set. ' : '') +
+          'We pick the winner after ' + esc(when(g.ends)) + ' and email them. Good luck!</p>' +
+          '<button class="btn gw-share" type="button">Tell a friend</button><span class="gw-share-note" role="status"></span></div>';
+        var share = $('.gw-share', state);
+        share.addEventListener('click', function () {
+          var url = location.origin + '/giveaway/';
+          if (navigator.share) { navigator.share({ title: g.title, url: url }).catch(function () {}); return; }
+          var note = $('.gw-share-note', state);
+          (navigator.clipboard ? navigator.clipboard.writeText(url) : Promise.reject())
+            .then(function () { note.textContent = 'Link copied.'; })
+            .catch(function () { note.textContent = url; });
+        });
+        share.focus();
+      }
+    }
+  })();
+
   // ---------- home page: featured release, ticker, countdown and news from news.json ----------
   var feed = $('#feed');
   if (!feed) return;

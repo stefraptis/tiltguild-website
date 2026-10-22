@@ -1,0 +1,34 @@
+{
+  "active": false,
+  "id": "2026-11-merch-pack",
+  "title": "Win the Tilt Guild merch pack",
+  "prize": [
+    "Tilt Guild T-shirt, black or white, in your size",
+    "To Kolpo CD"
+  ],
+  "sizes": [
+    "S",
+    "M",
+    "L",
+    "XL",
+    "XXL"
+  ],
+  "colours": [
+    "Black",
+    "White"
+  ],
+  "description": "One fan wins a T-shirt and our debut album on CD. Enter with your email before the countdown hits zero.",
+  "image": "/images/merch/merch-1.webp",
+  "image_alt": "A white and a black Tilt Guild T-shirt and To Kolpo CDs at the merch stand",
+  "starts": "2026-11-01T12:00:00+02:00",
+  "ends": "2026-11-15T21:00:00+02:00",
+  "winner": "",
+  "endpoint": "",
+  "rules": [
+    "One entry per email address.",
+    "The winner is picked at random after the giveaway closes and contacted by email.",
+    "If the winner doesn't reply within 7 days, we pick someone else.",
+    "The prize can't be swapped for money.",
+    "This giveaway is run by Tilt Guild. It isn't sponsored by or connected to Instagram, Facebook or TikTok."
+  ]
+}
