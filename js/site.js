@@ -25,6 +25,50 @@
   var isExternal = function (url) { return /^https?:\/\//.test(url); };
   var linkAttrs = function (url) { return isExternal(url) ? ' target="_blank" rel="noopener"' : ''; };
 
+  // Google event markup (MusicEvent) for one show from news.json.
+  // Optional show fields: "end" (when it finishes; default 3 hours after "date"), "organizer" (default: the venue),
+  // "tickets" (ticket link; default "url"), "price" and "currency" (default EUR; use 0 for free entry), "sold_out": true.
+  var showEvent = function (s) {
+    var pad = function (n) { return String(n).padStart(2, '0'); };
+    var local = function (d) { return d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate()) + 'T' + pad(d.getHours()) + ':' + pad(d.getMinutes()) + ':00'; };
+    var site = 'https://www.tiltguild.com';
+    var abs = function (u) { return !u ? '' : /^https?:/.test(u) ? u : site + u; };
+    // news.json times are Athens wall-clock times; add Athens' UTC offset (+02:00 winter, +03:00 summer) for Google
+    var athens = function (t) {
+      if (/(Z|[+-]\d\d:\d\d)$/.test(t)) return t;
+      try {
+        var name = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Athens', timeZoneName: 'longOffset' })
+          .formatToParts(new Date(t + 'Z')).filter(function (x) { return x.type === 'timeZoneName'; })[0].value;
+        var m = name.match(/GMT([+-]\d\d:\d\d)/);
+        return m ? t + m[1] : t;
+      } catch (e) { return t; }
+    };
+    var offer = {
+      '@type': 'Offer',
+      url: abs(s.tickets || s.url) || site + '/shows/',
+      availability: 'https://schema.org/' + (s.sold_out ? 'SoldOut' : 'InStock')
+    };
+    if (s.price !== undefined && s.price !== '') { offer.price = String(s.price); offer.priceCurrency = s.currency || 'EUR'; }
+    var place = { '@type': 'Place', name: s.venue,
+      address: { '@type': 'PostalAddress', addressLocality: s.city, addressCountry: s.country || 'GR' } };
+    return {
+      '@context': 'https://schema.org',
+      '@type': 'MusicEvent',
+      name: s.title,
+      description: s.description || undefined,
+      startDate: athens(s.date),
+      endDate: athens(s.end || local(new Date(new Date(s.date).getTime() + 3 * 36e5))),
+      eventStatus: 'https://schema.org/EventScheduled',
+      eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+      url: abs(s.url) || site + '/shows/',
+      image: site + '/images/share/tilt-guild.jpg',
+      location: place,
+      organizer: { '@type': 'Organization', name: s.organizer || s.venue, url: s.organizer_url || undefined },
+      offers: offer,
+      performer: { '@type': 'MusicGroup', '@id': site + '/#band', name: 'Tilt Guild', url: site + '/' }
+    };
+  };
+
   // ---------- footer year ----------
   $$('[data-year]').forEach(function (el) { el.textContent = new Date().getFullYear(); });
 
@@ -298,13 +342,7 @@
       $('#shows-past-sec').hidden = past.length === 0;
       $$('.show-ics').forEach(function (b, i) { b.addEventListener('click', function () { ics(next[i]); }); });
       // tell Google about upcoming shows (MusicEvent)
-      var events = next.filter(function (s) { return s.venue && s.city; }).map(function (s) {
-        return { '@context': 'https://schema.org', '@type': 'MusicEvent', name: s.title, startDate: s.date,
-          eventStatus: 'https://schema.org/EventScheduled', eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
-          location: { '@type': 'Place', name: s.venue, address: { '@type': 'PostalAddress', addressLocality: s.city, addressCountry: s.country || 'GR' } },
-          performer: { '@type': 'MusicGroup', name: 'Tilt Guild', url: 'https://www.tiltguild.com/' },
-          description: s.description || '', url: s.url && /^https?:/.test(s.url) ? s.url : 'https://www.tiltguild.com/shows/' };
-      });
+      var events = next.filter(function (s) { return s.venue && s.city; }).map(showEvent);
       if (events.length) {
         var ld = document.createElement('script');
         ld.type = 'application/ld+json';
@@ -658,25 +696,7 @@
   function describeShows(items) {
     var events = items.filter(function (i) {
       return i.type === 'show' && i.venue && i.city && i.date;
-    }).map(function (i) {
-      return {
-        '@context': 'https://schema.org',
-        '@type': 'MusicEvent',
-        name: i.title,
-        description: i.description || undefined,
-        startDate: i.date,
-        eventStatus: 'https://schema.org/EventScheduled',
-        eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
-        url: i.url || undefined,
-        image: 'https://www.tiltguild.com/images/share/tilt-guild.jpg',
-        location: {
-          '@type': 'Place',
-          name: i.venue,
-          address: { '@type': 'PostalAddress', addressLocality: i.city, addressCountry: i.country || undefined }
-        },
-        performer: { '@type': 'MusicGroup', '@id': 'https://www.tiltguild.com/#band', name: 'Tilt Guild', url: 'https://www.tiltguild.com/' }
-      };
-    });
+    }).map(showEvent);
     if (!events.length) return;
     var tag = document.createElement('script');
     tag.type = 'application/ld+json';
