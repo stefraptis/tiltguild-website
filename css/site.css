@@ -602,6 +602,23 @@ body.menu-open .bar-over { background: var(--ink); }
   margin-bottom: 0.375rem;
 }
 .feed-desc { color: var(--grey); max-width: 62ch; }
+/* longer posts: the rest of the text, and the Greek version, open under "Read more" */
+.feed-more { margin-top: 0.75rem; max-width: 62ch; }
+.feed-more summary {
+  display: inline-block; padding-block: 0.875rem;
+  cursor: pointer; list-style: none;
+  font-stretch: 125%; font-weight: 800; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--paper);
+}
+.feed-more summary::-webkit-details-marker { display: none; }
+.feed-more summary::before { content: "+"; display: inline-block; margin-right: 0.5rem; color: var(--accent-ink); font-size: 1rem; line-height: 1; transition: transform .2s var(--ease); }
+.feed-more[open] summary::before { transform: rotate(45deg); }
+.feed-more summary:hover { color: var(--accent-ink); }
+.feed-more-body p { color: var(--grey); margin-bottom: 0.75rem; }
+.feed-el { margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid var(--line); }
+.feed-el h4 { font-stretch: 75%; font-weight: 800; font-size: 1.25rem; line-height: 1.15; margin-bottom: 0.625rem; }
+.feed-el .sec-link { display: inline-block; margin-top: 0.25rem; }
+.feed li:has(.feed-more[open]) { align-items: start; }
 .feed .btn { min-height: 2.875rem; padding: 0 1.25rem; }
 .feed-empty { padding-block: 1.75rem; color: var(--grey); }
 @media (max-width: 760px) {

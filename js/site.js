@@ -341,7 +341,7 @@
         var where = [s.venue, s.city].filter(Boolean).join(', ');
         var link = s.url || s.source;
         return '<li class="show' + (upcoming ? '' : ' show-past') + '">' +
-          '<div class="show-date"><b>' + day(s, { day: '2-digit' }) + '</b><span>' + day(s, { month: 'short' }) + '</span><small>' + day(s, { year: 'numeric' }) + '</small></div>' +
+          '<div class="show-date"><b>' + day(s, { day: '2-digit' }) + '</b><span>' + 'Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec'.split(' ')[+day(s, { month: 'numeric' }) - 1] + '</span><small>' + day(s, { year: 'numeric' }) + '</small></div>' +
           '<div class="show-body"><h3 class="show-title">' + esc(s.title) + '</h3>' +
             (where ? '<p class="show-where">' + icon('pin') + esc(where) + (upcoming ? ', ' + esc(day(s, { weekday: 'long', hour: '2-digit', minute: '2-digit' })) : '') + '</p>' : '') +
             (s.description ? '<p class="show-desc">' + esc(s.description) + '</p>' : '') +
@@ -658,7 +658,7 @@
     var track = $('.ticker-track');
     if (!track || !r) return;
     var list = [[(r.badge || 'New release') + ': ' + r.title, r.url]]
-      .concat(items.slice(0, 4).map(function (n) { return [n.title, n.url || n.source || '']; }))
+      .concat(items.filter(function (n) { return n.ticker !== false; }).slice(0, 4).map(function (n) { return [n.title, n.url || n.source || '']; }))
       .concat([['Merch: T-shirts and To Kolpo CDs', '/merch/'], ['Rap metal from Athens', '/press/#bio']]);
     var ul = function (hidden) {
       return '<ul' + (hidden ? ' aria-hidden="true"' : '') + '>' + list.map(function (x) {
@@ -718,6 +718,20 @@
     document.head.appendChild(tag);
   }
 
+  // Longer posts: "body" (more English paragraphs) and "el" (Greek title, paragraphs, button) open under "Read more".
+  function more(item, url) {
+    var paras = function (list) { return (list || []).map(function (t) { return '<p>' + esc(t) + '</p>'; }).join(''); };
+    var el = item.el;
+    if (!(item.body && item.body.length) && !el) return '';
+    return '<details class="feed-more"><summary>' + (el ? 'Read more, also in Greek' : 'Read more') + '</summary>' +
+      '<div class="feed-more-body">' + paras(item.body) +
+      (el ? '<div class="feed-el" lang="el"><p class="feed-kind">Ελληνικά</p>' +
+        (el.title ? '<h4>' + esc(el.title) + '</h4>' : '') + paras(el.body) +
+        (url && el.action ? '<a class="sec-link label" href="' + esc(url) + '"' + linkAttrs(url) + '>' + esc(el.action) + '</a>' : '') +
+      '</div>' : '') +
+      '</div></details>';
+  }
+
   function renderFeed(items) {
     if (!items.length) {
       feed.innerHTML = '<li class="feed-empty">No news yet. Follow us on Instagram for updates.</li>';
@@ -728,7 +742,7 @@
     var actions = { release: 'Listen', show: 'Event details', press: 'Read' };
     feed.innerHTML = items.map(function (item) {
       var d = item.date ? new Date(item.date) : null;
-      var day = d ? d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short' }) : '';
+      var day = d ? d.getDate() + ' ' + 'Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec'.split(' ')[d.getMonth()] : '';
       var year = d ? d.getFullYear() : '';
       var url = item.url || item.source || '';
       var upcoming = item.type === 'show' && d && d.getTime() > now;
@@ -739,8 +753,9 @@
           '<p class="feed-kind">' + kind + (upcoming ? ' <span class="sticker dot">Upcoming</span>' : '') + '</p>' +
           '<h3>' + esc(item.title || item.headline) + '</h3>' +
           '<p class="feed-desc">' + esc(item.description || item.summary) + '</p>' +
+          more(item, url) +
         '</div>' +
-        (url ? '<a class="btn" href="' + esc(url) + '"' + linkAttrs(url) + '>' + (actions[item.type] || 'Read more') + '</a>' : '') +
+        (url ? '<a class="btn" href="' + esc(url) + '"' + linkAttrs(url) + '>' + esc(item.action || actions[item.type] || 'Read more') + '</a>' : '') +
       '</li>';
     }).join('');
   }

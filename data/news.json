@@ -9,6 +9,30 @@
   },
   "news": [
     {
+      "type": "band",
+      "title": "Tilt Guild and Stephanos Grapsas end their collaboration",
+      "description": "After three years in the basement together, Stephanos Grapsas and Tilt Guild have made the shared decision to go our separate ways.",
+      "body": [
+        "Stephanos, thank you for everything we shared, for all you gave to the band, and for everything we created together.",
+        "Tilt Guild carries on stronger than ever, with new music coming soon. We're also looking for our next guitarist, someone to join the band and continue this journey with us.",
+        "If you think we're a musical match and you're up for being part of what comes next, send us a message."
+      ],
+      "el": {
+        "title": "Οι Tilt Guild και ο Στέφανος Γράψας ολοκληρώνουν τη συνεργασία τους",
+        "body": [
+          "Μετά από τρία χρόνια κοινής πορείας, ο Στέφανος Γράψας και οι Tilt Guild αποφασίσαμε από κοινού να ακολουθήσουμε διαφορετικούς δρόμους.",
+          "Στέφανε, σε ευχαριστούμε για όσα μοιραστήκαμε, για την προσφορά σου στη μπάντα και για όλα όσα δημιουργήσαμε μαζί.",
+          "Οι Tilt Guild συνεχίζουμε δυναμικά, με νέα μουσική να έρχεται σύντομα. Παράλληλα, αναζητούμε τον επόμενο κιθαρίστα που θα γίνει μέρος της μπάντας και θα συνεχίσει αυτό το ταξίδι μαζί μας.",
+          "Αν πιστεύεις ότι ταιριάζουμε μουσικά και έχεις όρεξη να γίνεις μέρος αυτής της πορείας, στείλε μας μήνυμα."
+        ],
+        "action": "Επικοινωνία"
+      },
+      "url": "/contact/",
+      "action": "Get in touch",
+      "ticker": false,
+      "date": "2026-09-26T00:00:00"
+    },
+    {
       "type": "show",
       "title": "Live at NAOS, Athens",
       "venue": "NAOS",
