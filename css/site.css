@@ -196,13 +196,15 @@ main { flex: 1; }
   background: linear-gradient(180deg, rgba(10,10,10,.55), rgba(10,10,10,0));
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
-  border-bottom-color: transparent;
+  /* no bottom border here: the shading would repeat into it and draw a dark line across the photo */
+  border-bottom: 0;
+  background-repeat: no-repeat;
 }
 .bar-over.is-solid {
   background: rgba(10, 10, 10, 0.96);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border-bottom-color: var(--line);
+  box-shadow: 0 1px 0 var(--line);
 }
 .bar-inner {
   display: flex;
