@@ -256,7 +256,9 @@
       at = (n + buttons.length) % buttons.length;
       img.src = buttons[at].getAttribute('data-full');
       img.alt = buttons[at].getAttribute('data-alt');
-      cap.textContent = buttons[at].getAttribute('data-alt');
+      var c = buttons[at].getAttribute('data-cap');  /* data-cap="" hides the caption (merch photos) */
+      cap.textContent = c === null ? buttons[at].getAttribute('data-alt') : c;
+      cap.hidden = !cap.textContent;
       lbCount.textContent = pad(at + 1) + ' / ' + pad(buttons.length);
     };
     buttons.forEach(function (b, n) {
