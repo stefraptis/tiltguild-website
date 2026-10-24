@@ -1358,3 +1358,6 @@ body.menu-open .bar-over { background: var(--ink); }
   .ticker ul + ul { display: none; }
   .ticker ul { flex-wrap: wrap; }
 }
+
+/* Greek titles in the shows and news lists: Roboto Flex runs wider than Archivo, so ask for a narrower cut */
+.show-title:lang(el), .feed h3:lang(el) { font-stretch: 50%; word-spacing: -.04em; }

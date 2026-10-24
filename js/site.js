@@ -22,6 +22,8 @@
       return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
     });
   };
+  // Greek text gets lang="el", so capitals drop their accents (ΚΑΒΑΤΖΑ, not ΚΑΒΆΤΖΑ)
+  var greek = function (t) { return /[\u0370-\u03ff]/.test(t || '') ? ' lang="el"' : ''; };
   var isExternal = function (url) { return /^https?:\/\//.test(url); };
   var linkAttrs = function (url) { return isExternal(url) ? ' target="_blank" rel="noopener"' : ''; };
 
@@ -342,9 +344,9 @@
         var link = s.url || s.source;
         return '<li class="show' + (upcoming ? '' : ' show-past') + '">' +
           '<div class="show-date"><b>' + day(s, { day: '2-digit' }) + '</b><span>' + 'Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec'.split(' ')[+day(s, { month: 'numeric' }) - 1] + '</span><small>' + day(s, { year: 'numeric' }) + '</small></div>' +
-          '<div class="show-body"><h3 class="show-title">' + esc(s.title) + '</h3>' +
+          '<div class="show-body"><h3 class="show-title"' + greek(s.title) + '>' + esc(s.title) + '</h3>' +
             (where ? '<p class="show-where">' + icon('pin') + esc(where) + (upcoming ? ', ' + esc(day(s, { weekday: 'long', hour: '2-digit', minute: '2-digit' })) : '') + '</p>' : '') +
-            (s.description ? '<p class="show-desc">' + esc(s.description) + '</p>' : '') +
+            (s.description ? '<p class="show-desc"' + greek(s.description) + '>' + esc(s.description) + '</p>' : '') +
             (upcoming ? '<div class="actions">' +
               (link ? '<a class="btn btn-accent" href="' + esc(link) + '"' + linkAttrs(link) + '>Tickets and details</a>' : '') +
               '<button class="btn show-ics" type="button">' + icon('calendar') + 'Add to calendar</button></div>' : '') +
@@ -754,8 +756,8 @@
         '<p class="feed-date">' + esc(day) + '<small>' + esc(year) + '</small></p>' +
         '<div>' +
           '<p class="feed-kind">' + kind + (upcoming ? ' <span class="sticker dot">Upcoming</span>' : '') + '</p>' +
-          '<h3>' + esc(item.title || item.headline) + '</h3>' +
-          '<p class="feed-desc">' + esc(item.description || item.summary) + '</p>' +
+          '<h3' + greek(item.title || item.headline) + '>' + esc(item.title || item.headline) + '</h3>' +
+          '<p class="feed-desc"' + greek(item.description || item.summary) + '>' + esc(item.description || item.summary) + '</p>' +
           more(item, url) +
         '</div>' +
         (url ? '<a class="btn" href="' + esc(url) + '"' + linkAttrs(url) + '>' + esc(item.action || actions[item.type] || 'Read more') + '</a>' : '') +
