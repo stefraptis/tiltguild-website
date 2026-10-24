@@ -658,8 +658,11 @@
     var track = $('.ticker-track');
     if (!track || !r) return;
     var list = [[(r.badge || 'New release') + ': ' + r.title, r.url]]
-      .concat(items.filter(function (n) { return n.ticker !== false; }).slice(0, 4).map(function (n) { return [n.title, n.url || n.source || '']; }))
-      .concat([['Merch: T-shirts and To Kolpo CDs', '/merch/'], ['Rap metal from Athens', '/press/#bio']]);
+      .concat(items.filter(function (n) { return n.ticker === undefined || n.ticker === true; }).slice(0, 4).map(function (n) { return [n.title, n.url || n.source || '']; }))
+      .concat([['Merch: T-shirts and To Kolpo CDs', '/merch/']]);
+    // "ticker": "last" in news.json puts that item at the end of the ticker, linking to the news list
+    var last = items.filter(function (n) { return n.ticker === 'last'; }).map(function (n) { return [n.title, '#news-h']; });
+    list = list.concat(last.length ? last : [['Rap metal from Athens', '/press/#bio']]);
     var ul = function (hidden) {
       return '<ul' + (hidden ? ' aria-hidden="true"' : '') + '>' + list.map(function (x) {
         return '<li>' + (x[1] ? '<a href="' + esc(x[1]) + '"' + linkAttrs(x[1]) + (hidden ? ' tabindex="-1"' : '') + '>' + esc(x[0]) + '</a>' : esc(x[0])) + '</li>';

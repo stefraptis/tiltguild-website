@@ -10,7 +10,7 @@
   "news": [
     {
       "type": "band",
-      "title": "Tilt Guild and Stephanos Grapsas end their collaboration",
+      "title": "Tilt Guild and guitarist Stephanos Grapsas part ways",
       "description": "After three years in the basement together, Stephanos Grapsas and Tilt Guild have made the shared decision to go our separate ways.",
       "body": [
         "Stephanos, thank you for everything we shared, for all you gave to the band, and for everything we created together.",
@@ -29,7 +29,7 @@
       },
       "url": "/contact/",
       "action": "Get in touch",
-      "ticker": false,
+      "ticker": "last",
       "date": "2026-09-26T00:00:00"
     },
     {

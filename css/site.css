@@ -619,6 +619,7 @@ body.menu-open .bar-over { background: var(--ink); }
 .feed-el h4 { font-stretch: 75%; font-weight: 800; font-size: 1.25rem; line-height: 1.15; margin-bottom: 0.625rem; }
 .feed-el .sec-link { display: inline-block; margin-top: 0.25rem; }
 .feed li:has(.feed-more[open]) { align-items: start; }
+#news-h { scroll-margin-top: calc(var(--bar-h) + 1.5rem); }
 .feed .btn { min-height: 2.875rem; padding: 0 1.25rem; }
 .feed-empty { padding-block: 1.75rem; color: var(--grey); }
 @media (max-width: 760px) {
