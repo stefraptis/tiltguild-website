@@ -199,7 +199,7 @@ main { flex: 1; }
   border-bottom-color: transparent;
 }
 .bar-over.is-solid {
-  background: rgba(10, 10, 10, 0.92);
+  background: rgba(10, 10, 10, 0.96);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-bottom-color: var(--line);

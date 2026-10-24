@@ -94,13 +94,16 @@
     });
   }
 
-  // ---------- top bar over the hero: turns solid once you scroll past the photo ----------
+  // ---------- top bar over the hero: see-through only at the very top, solid as soon as the page scrolls ----------
+  // (so the menu never sits on top of the big title or the cover as they slide underneath)
   var bar = $('.bar-over');
-  var heroEl = $('#hero');
-  if (bar && heroEl && 'IntersectionObserver' in window) {
-    new IntersectionObserver(function (entries) {
-      bar.classList.toggle('is-solid', !entries[0].isIntersecting);
-    }, { rootMargin: '-80px 0px 0px 0px' }).observe(heroEl);
+  if (bar) {
+    var ticking = false;
+    var setBar = function () { bar.classList.toggle('is-solid', window.scrollY > 8); ticking = false; };
+    window.addEventListener('scroll', function () {
+      if (!ticking) { ticking = true; window.requestAnimationFrame(setBar); }
+    }, { passive: true });
+    setBar();
   }
 
   // ---------- forms (newsletter + contact, sent through Formspree) ----------
@@ -167,8 +170,16 @@
     if (slides.length < 2 || !pauseBtn) return;
     var i = 0, timer = null;
     var paused = reduceMotion;  // people who ask for less motion start paused
-    // let the other photos start loading once the page has settled
-    window.addEventListener('load', function () { slides.forEach(function (s) { s.loading = 'eager'; }); });
+    // photos after the first load one at a time, just before their turn
+    var preload = function (k) {
+      var img = slides[k % slides.length];
+      if (img && img.getAttribute('data-src') && !img.getAttribute('src')) {
+        img.srcset = img.getAttribute('data-srcset') || '';
+        img.src = img.getAttribute('data-src');
+      }
+    };
+    if (document.readyState === 'complete') preload(1);
+    else window.addEventListener('load', function () { preload(1); });
     var show = function (n) {
       n = (n + slides.length) % slides.length;
       // never fade to a photo that hasn't arrived yet (that would flash an empty frame)
@@ -176,6 +187,7 @@
       slides[i].classList.remove('is-on'); bars[i] && bars[i].classList.remove('is-on');
       i = n;
       slides[i].classList.add('is-on'); bars[i] && bars[i].classList.add('is-on');
+      preload(i + 1);
     };
     var setPaused = function (p) {
       paused = p;
