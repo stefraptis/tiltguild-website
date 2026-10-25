@@ -90,4 +90,72 @@
         <changefreq>yearly</changefreq>
         <priority>0.2</priority>
     </url>
+    <!-- news:start -->
+    <url>
+        <loc>https://www.tiltguild.com/news/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://www.tiltguild.com/news/stephanos-grapsas-part-ways/</loc>
+        <lastmod>2026-09-26</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>https://www.tiltguild.com/news/live-at-naos-athens/</loc>
+        <lastmod>2026-04-25</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>https://www.tiltguild.com/news/opoios-kanei-ena-vima-out-now/</loc>
+        <lastmod>2026-04-24</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>https://www.tiltguild.com/news/flash-reviews-video-review/</loc>
+        <lastmod>2026-03-11</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>https://www.tiltguild.com/news/to-kolpo-live-out-now/</loc>
+        <lastmod>2026-01-24</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>https://www.tiltguild.com/news/pulse-of-the-underground-interview/</loc>
+        <lastmod>2025-10-28</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>https://www.tiltguild.com/news/kavatza-kamia-fest-2025/</loc>
+        <lastmod>2025-05-31</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>https://www.tiltguild.com/news/rockwave-competition-final-round/</loc>
+        <lastmod>2025-05-04</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>https://www.tiltguild.com/news/rockwave-competition-first-round/</loc>
+        <lastmod>2025-03-22</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>https://www.tiltguild.com/news/to-kolpo-live-presentation/</loc>
+        <lastmod>2024-12-19</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <!-- news:end -->
 </urlset>

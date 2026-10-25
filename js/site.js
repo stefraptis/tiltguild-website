@@ -316,8 +316,11 @@
     var showsPage = $('[data-shows]');
     var linksRelease = $('#links-release');
     if (!showsPage && !linksRelease) return;
-    fetch('/data/news.json', { cache: 'no-cache' })
-      .then(function (res) { if (!res.ok) throw new Error('HTTP ' + res.status); return res.json(); })
+    var get = function (u) {
+      return fetch(u, { cache: 'no-cache' }).then(function (res) { if (!res.ok) throw new Error('HTTP ' + res.status); return res.json(); });
+    };
+    // news-built.json is news.json plus each post's page address (made by _build/news.py)
+    get('/data/news-built.json').catch(function () { return get('/data/news.json'); })
       .then(function (data) {
         if (linksRelease) linksFeatured(data.featured_release);
         if (showsPage) renderShows((data.news || []).filter(function (n) { return n.type === 'show'; }));
@@ -344,7 +347,7 @@
         var link = s.url || s.source;
         return '<li class="show' + (upcoming ? '' : ' show-past') + '">' +
           '<div class="show-date"><b>' + day(s, { day: '2-digit' }) + '</b><span>' + 'Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec'.split(' ')[+day(s, { month: 'numeric' }) - 1] + '</span><small>' + day(s, { year: 'numeric' }) + '</small></div>' +
-          '<div class="show-body"><h3 class="show-title"' + greek(s.title) + '>' + esc(s.title) + '</h3>' +
+          '<div class="show-body"><h3 class="show-title"' + greek(s.title) + '>' + (s.page ? '<a href="' + esc(s.page) + '">' + esc(s.title) + '</a>' : esc(s.title)) + '</h3>' +
             (where ? '<p class="show-where">' + icon('pin') + esc(where) + (upcoming ? ', ' + esc(day(s, { weekday: 'long', hour: '2-digit', minute: '2-digit' })) : '') + '</p>' : '') +
             (s.description ? '<p class="show-desc"' + greek(s.description) + '>' + esc(s.description) + '</p>' : '') +
             (upcoming ? '<div class="actions">' +
@@ -615,6 +618,12 @@
     }
   })();
 
+  // ---------- news lists: tag shows that haven't happened yet ----------
+  $$('.feed li[data-type="show"]').forEach(function (li) {
+    var t = new Date(li.getAttribute('data-date')).getTime();
+    if (t > Date.now() - 6 * 36e5) $('.feed-kind', li).insertAdjacentHTML('beforeend', ' <span class="sticker dot">Upcoming</span>');
+  });
+
   // ---------- home page: featured release, ticker, countdown and news from news.json ----------
   var feed = $('#feed');
   if (!feed) return;
@@ -629,12 +638,8 @@
       renderFeatured(data.featured_release);
       renderTicker(data.featured_release, items);
       renderNext(items);
-      renderFeed(items);
-      describeShows(items);
     })
-    .catch(function () {
-      feed.innerHTML = '<li class="feed-empty">News didn\'t load. Refresh the page to try again.</li>';
-    });
+    .catch(function () {});
 
   function renderFeatured(r) {
     var hero = $('#hero');
@@ -663,7 +668,7 @@
       .concat(items.filter(function (n) { return n.ticker === undefined || n.ticker === true; }).slice(0, 4).map(function (n) { return [n.title, n.url || n.source || '']; }))
       .concat([['Merch: T-shirts and To Kolpo CDs', '/merch/']]);
     // "ticker": "last" in news.json puts that item at the end of the ticker, linking to the news list
-    var last = items.filter(function (n) { return n.ticker === 'last'; }).map(function (n) { return [n.title, '#news-h']; });
+    var last = items.filter(function (n) { return n.ticker === 'last'; }).map(function (n) { return [n.title, n.slug ? '/news/' + n.slug + '/' : '#news-h']; });
     list = list.concat(last.length ? last : [['Rap metal from Athens', '/press/#bio']]);
     var ul = function (hidden) {
       return '<ul' + (hidden ? ' aria-hidden="true"' : '') + '>' + list.map(function (x) {
@@ -721,47 +726,5 @@
     tag.type = 'application/ld+json';
     tag.textContent = JSON.stringify(events);
     document.head.appendChild(tag);
-  }
-
-  // Longer posts: "body" (more English paragraphs) and "el" (Greek title, paragraphs, button) open under "Read more".
-  function more(item, url) {
-    var paras = function (list) { return (list || []).map(function (t) { return '<p>' + esc(t) + '</p>'; }).join(''); };
-    var el = item.el;
-    if (!(item.body && item.body.length) && !el) return '';
-    return '<details class="feed-more"><summary>' + (el ? 'Read more, also in Greek' : 'Read more') + '</summary>' +
-      '<div class="feed-more-body">' + paras(item.body) +
-      (el ? '<div class="feed-el" lang="el"><p class="feed-kind">Ελληνικά</p>' +
-        (el.title ? '<h4>' + esc(el.title) + '</h4>' : '') + paras(el.body) +
-        (url && el.action ? '<a class="sec-link label" href="' + esc(url) + '"' + linkAttrs(url) + '>' + esc(el.action) + '</a>' : '') +
-      '</div>' : '') +
-      '</div></details>';
-  }
-
-  function renderFeed(items) {
-    if (!items.length) {
-      feed.innerHTML = '<li class="feed-empty">No news yet. Follow us on Instagram for updates.</li>';
-      return;
-    }
-    var now = Date.now();
-    var kinds = { release: 'Release', show: 'Show', press: 'Press' };
-    var actions = { release: 'Listen', show: 'Event details', press: 'Read' };
-    feed.innerHTML = items.map(function (item) {
-      var d = item.date ? new Date(item.date) : null;
-      var day = d ? d.getDate() + ' ' + 'Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec'.split(' ')[d.getMonth()] : '';
-      var year = d ? d.getFullYear() : '';
-      var url = item.url || item.source || '';
-      var upcoming = item.type === 'show' && d && d.getTime() > now;
-      var kind = kinds[item.type] || 'News';
-      return '<li>' +
-        '<p class="feed-date">' + esc(day) + '<small>' + esc(year) + '</small></p>' +
-        '<div>' +
-          '<p class="feed-kind">' + kind + (upcoming ? ' <span class="sticker dot">Upcoming</span>' : '') + '</p>' +
-          '<h3' + greek(item.title || item.headline) + '>' + esc(item.title || item.headline) + '</h3>' +
-          '<p class="feed-desc"' + greek(item.description || item.summary) + '>' + esc(item.description || item.summary) + '</p>' +
-          more(item, url) +
-        '</div>' +
-        (url ? '<a class="btn" href="' + esc(url) + '"' + linkAttrs(url) + '>' + esc(item.action || actions[item.type] || 'Read more') + '</a>' : '') +
-      '</li>';
-    }).join('');
   }
 })();
